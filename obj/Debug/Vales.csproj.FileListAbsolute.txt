@@ -1,0 +1,706 @@
+C:\Users\J. Manolo Roodiguez\Google Drive\Programacion\Vales\obj\Debug\Vales.csprojAssemblyReference.cache
+C:\Users\J. Manolo Roodiguez\Google Drive\Programacion\Vales\obj\Debug\Vales.Form1.resources
+C:\Users\J. Manolo Roodiguez\Google Drive\Programacion\Vales\obj\Debug\Vales.Properties.Resources.resources
+C:\Users\J. Manolo Roodiguez\Google Drive\Programacion\Vales\obj\Debug\Vales.csproj.GenerateResource.cache
+C:\Users\J. Manolo Roodiguez\Google Drive\Programacion\Vales\obj\Debug\Vales.csproj.CoreCompileInputs.cache
+C:\Users\J. Manolo Roodiguez\Google Drive\Programacion\Vales\bin\Debug\Vales.exe
+C:\Users\J. Manolo Roodiguez\Google Drive\Programacion\Vales\bin\Debug\Vales.pdb
+C:\Users\J. Manolo Roodiguez\Google Drive\Programacion\Vales\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\Users\J. Manolo Roodiguez\Google Drive\Programacion\Vales\obj\Debug\Vales.csproj.CopyComplete
+C:\Users\J. Manolo Roodiguez\Google Drive\Programacion\Vales\obj\Debug\Vales.exe
+C:\Users\J. Manolo Roodiguez\Google Drive\Programacion\Vales\obj\Debug\Vales.pdb
+C:\Users\Ferreysa\Google Drive\Programacion\Vales\bin\Debug\Vales.exe
+C:\Users\Ferreysa\Google Drive\Programacion\Vales\bin\Debug\Vales.pdb
+C:\Users\Ferreysa\Google Drive\Programacion\Vales\obj\Debug\Vales.Form1.resources
+C:\Users\Ferreysa\Google Drive\Programacion\Vales\obj\Debug\Vales.FormLogin.resources
+C:\Users\Ferreysa\Google Drive\Programacion\Vales\obj\Debug\Vales.FormValeNuevoDF.resources
+C:\Users\Ferreysa\Google Drive\Programacion\Vales\obj\Debug\Vales.Properties.Resources.resources
+C:\Users\Ferreysa\Google Drive\Programacion\Vales\obj\Debug\Vales.csproj.GenerateResource.cache
+C:\Users\Ferreysa\Google Drive\Programacion\Vales\obj\Debug\Vales.csproj.CoreCompileInputs.cache
+C:\Users\Ferreysa\Google Drive\Programacion\Vales\obj\Debug\Vales.csproj.CopyComplete
+C:\Users\Ferreysa\Google Drive\Programacion\Vales\obj\Debug\Vales.exe
+C:\Users\Ferreysa\Google Drive\Programacion\Vales\obj\Debug\Vales.pdb
+C:\Users\Ferreysa\Google Drive\Programacion\Vales\obj\Debug\Vales.csprojAssemblyReference.cache
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\bin\Debug\Vales.exe
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\bin\Debug\Vales.pdb
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\obj\Debug\Vales.csprojAssemblyReference.cache
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\obj\Debug\Vales.Form1.resources
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\obj\Debug\Vales.FormLogin.resources
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\obj\Debug\Vales.FormValeNuevoDF.resources
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\obj\Debug\Vales.Properties.Resources.resources
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\obj\Debug\Vales.csproj.GenerateResource.cache
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\obj\Debug\Vales.csproj.CoreCompileInputs.cache
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\obj\Debug\Vales.csproj.CopyComplete
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\obj\Debug\Vales.exe
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\obj\Debug\Vales.pdb
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\obj\Debug\Vales.FormCotizacion.resources
+C:\Users\J. Manolo Roodiguez\Desktop\Vales\obj\Debug\Vales.FormUnidades.resources
+C:\Users\Manolo Rodriguez\Desktop\Vales\obj\Debug\Vales.Form1.resources
+C:\Users\Manolo Rodriguez\Desktop\Vales\obj\Debug\Vales.FormCotizacion.resources
+C:\Users\Manolo Rodriguez\Desktop\Vales\obj\Debug\Vales.FormLogin.resources
+C:\Users\Manolo Rodriguez\Desktop\Vales\obj\Debug\Vales.FormUnidades.resources
+C:\Users\Manolo Rodriguez\Desktop\Vales\obj\Debug\Vales.FormValeNuevoDF.resources
+C:\Users\Manolo Rodriguez\Desktop\Vales\obj\Debug\Vales.Properties.Resources.resources
+C:\Users\Manolo Rodriguez\Desktop\Vales\obj\Debug\Vales.csproj.GenerateResource.cache
+C:\Users\Manolo Rodriguez\Desktop\Vales\obj\Debug\Vales.csproj.CoreCompileInputs.cache
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\Vales.exe.config
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\Vales.exe
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\Vales.pdb
+C:\Users\Manolo Rodriguez\Desktop\Vales\obj\Debug\Vales.csproj.CopyComplete
+C:\Users\Manolo Rodriguez\Desktop\Vales\obj\Debug\Vales.exe
+C:\Users\Manolo Rodriguez\Desktop\Vales\obj\Debug\Vales.pdb
+C:\Users\Manolo Rodriguez\Desktop\Vales\obj\Debug\Vales.csproj.AssemblyReference.cache
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\log4net.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\log4net.xml
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\cs\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\da\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\de\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\en\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\es\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\fi\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\fr\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\hu\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\it\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ja\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ko\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\nb-NO\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\nl\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\pl\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\pt\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ru\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\sk\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\sv\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\th\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\tr\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\zh-CHS\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\zh-CHT\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\obj\Debug\Vales.FormPrintPreview.resources
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\EnvDTE.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\stdole.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\EnvDTE.xml
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Vales\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\Vales.exe.config
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\Vales.exe
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\Vales.pdb
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\log4net.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\EnvDTE.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\stdole.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\log4net.xml
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\EnvDTE.xml
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\cs\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\da\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\de\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\en\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\es\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\fi\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\fr\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\hu\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\it\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ja\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ko\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\nb-NO\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\nl\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\pl\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\pt\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ru\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\sk\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\sv\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\th\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\tr\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\zh-CHS\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\zh-CHT\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.csproj.AssemblyReference.cache
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.Form1.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.FormCotizacion.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.FormLogin.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.FormNiveles.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.FormPrintPreview.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.FormUnidades.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.FormValeNuevoDF.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.Properties.Resources.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.csproj.GenerateResource.cache
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.csproj.CoreCompileInputs.cache
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.csproj.CopyComplete
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.exe
+C:\Users\Manolo Rodriguez\Desktop\Niveles\obj\Debug\Vales.pdb
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\Vales.exe.config
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\Vales.exe
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\Vales.pdb
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\log4net.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\EnvDTE.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\stdole.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\log4net.xml
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\EnvDTE.xml
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\cs\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\da\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\de\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\en\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\es\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\fi\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\fr\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\hu\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\it\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ja\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ko\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\nb-NO\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\nl\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\pl\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\pt\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ru\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\sk\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\sv\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\th\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\tr\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\zh-CHS\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\zh-CHT\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.csproj.AssemblyReference.cache
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.Form1.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.FormCotizacion.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.FormLogin.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.FormNiveles.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.FormPrintPreview.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.FormUnidades.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.FormValeNuevoDF.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.Properties.Resources.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.csproj.GenerateResource.cache
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.csproj.CoreCompileInputs.cache
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.csproj.CopyComplete
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.exe
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.0 Copy p 1.1\obj\Debug\Vales.pdb
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\Vales.exe.config
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\Vales.exe
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\Vales.pdb
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\log4net.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\EnvDTE.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\stdole.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\log4net.xml
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\EnvDTE.xml
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\cs\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\da\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\de\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\en\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\es\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\fi\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\fr\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\hu\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\it\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ja\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ko\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\nb-NO\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\nl\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\pl\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\pt\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ru\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\sk\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\sv\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\th\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\tr\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\zh-CHS\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\zh-CHT\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.csproj.AssemblyReference.cache
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.Form1.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.FormCotizacion.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.FormLogin.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.FormNiveles.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.FormPrintPreview.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.FormUnidades.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.FormValeNuevoDF.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.Properties.Resources.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.csproj.GenerateResource.cache
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.csproj.CoreCompileInputs.cache
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.csproj.CopyComplete
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.exe
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC\obj\Debug\Vales.pdb
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\Vales.exe.config
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\Vales.exe
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\Vales.pdb
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\log4net.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\EnvDTE.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\stdole.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\log4net.xml
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\EnvDTE.xml
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\cs\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\da\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\de\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\en\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\es\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\fi\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\fr\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\hu\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\it\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ja\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ko\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\nb-NO\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\nl\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\pl\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\pt\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ru\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\sk\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\sv\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\th\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\tr\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\zh-CHS\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\zh-CHT\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.csproj.AssemblyReference.cache
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.Form1.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.FormCotizacion.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.FormImagen.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.FormLogin.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.FormNiveles.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.FormPrintPreview.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.FormUnidades.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.FormValeNuevoDF.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.FormVerArt.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.Properties.Resources.resources
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.csproj.GenerateResource.cache
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.csproj.CoreCompileInputs.cache
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.csproj.CopyComplete
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.exe
+C:\Users\Manolo Rodriguez\Desktop\Niveles 1.1 - PC - Copy p PC 1.2\obj\Debug\Vales.pdb
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\Vales.exe.config
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\Vales.exe
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\Vales.pdb
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\log4net.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\EnvDTE.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\stdole.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\log4net.xml
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\EnvDTE.xml
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\cs\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\da\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\de\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\en\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\es\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\fi\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\fr\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\hu\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\it\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ja\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ko\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\nb-NO\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\nl\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\pl\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\pt\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ru\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\sk\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\sv\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\th\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\tr\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\zh-CHS\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\zh-CHT\CrystalDecisions.Shared.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.csproj.AssemblyReference.cache
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.Form1.resources
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.FormCotizacion.resources
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.FormImagen.resources
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.FormLogin.resources
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.FormNiveles.resources
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.FormPrintPreview.resources
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.FormUnidades.resources
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.FormValeNuevoDF.resources
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.FormVerArt.resources
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.Properties.Resources.resources
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.csproj.GenerateResource.cache
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.csproj.CoreCompileInputs.cache
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.csproj.CopyComplete
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.exe
+C:\Users\Manolo Rodriguez\Desktop\PROYECTOS\NIVELES\Niveles 1.2 - PC\obj\Debug\Vales.pdb
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Vales.exe.config
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Vales.exe
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Vales.pdb
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\CrystalDecisions.Shared.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\log4net.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\EnvDTE.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\stdole.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\log4net.xml
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\cs\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\da\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\de\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\en\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\es\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\fi\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\fr\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\hu\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\it\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ja\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ko\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\nb-NO\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\nl\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\pl\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\pt\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ru\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\sk\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\sv\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\th\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\tr\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\zh-CHS\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\zh-CHT\CrystalDecisions.Shared.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.csproj.AssemblyReference.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.Form1.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.FormCotizacion.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.FormImagen.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.FormLogin.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.FormNiveles.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.FormPrintPreview.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.FormUnidades.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.FormValeNuevoDF.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.FormVerArt.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.Properties.Resources.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.csproj.GenerateResource.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.csproj.CoreCompileInputs.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.csproj.CopyComplete
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.exe
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Vales.pdb

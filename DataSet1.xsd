@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet1" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Solicitud" msprop:Generator_RowEvHandlerName="SolicitudRowChangeEventHandler" msprop:Generator_RowDeletedName="SolicitudRowDeleted" msprop:Generator_RowDeletingName="SolicitudRowDeleting" msprop:Generator_RowEvArgName="SolicitudRowChangeEvent" msprop:Generator_TablePropName="Solicitud" msprop:Generator_RowChangedName="SolicitudRowChanged" msprop:Generator_UserTableName="Solicitud" msprop:Generator_RowChangingName="SolicitudRowChanging" msprop:Generator_RowClassName="SolicitudRow" msprop:Generator_TableClassName="SolicitudDataTable" msprop:Generator_TableVarName="tableSolicitud">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="folio" msprop:Generator_ColumnPropNameInTable="folioColumn" msprop:Generator_ColumnPropNameInRow="folio" msprop:Generator_UserColumnName="folio" msprop:Generator_ColumnVarNameInTable="columnfolio" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_UserColumnName="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" type="xs:string" minOccurs="0" />
+              <xs:element name="doctopvid" msprop:Generator_ColumnPropNameInRow="doctopvid" msprop:Generator_ColumnPropNameInTable="doctopvidColumn" msprop:Generator_ColumnVarNameInTable="columndoctopvid" msprop:Generator_UserColumnName="doctopvid" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
