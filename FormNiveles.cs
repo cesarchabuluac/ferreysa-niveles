@@ -8,18 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FirebirdSql.Data.FirebirdClient;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
+using Vales.Helpers;
+using Vales.Infraestructura;
+using Vales.UI;
 
 namespace Vales
 {
-    public partial class FormNiveles : Form
+    public partial class FormNiveles : FormBaseConSesion
     {
+        private readonly RepositoryBase _repository = new RepositoryBase();
 
         int i = 0;
 
         public FormNiveles()
         {
             InitializeComponent();
-            
+            this.Text = $"NIVELES - {Empresa.Nombre} ({Empresa.Alias}) - {Usuario.NombreUsuario}";
         }
 
         private void FormNiveles_FormClosed(object sender, FormClosedEventArgs e)
@@ -43,220 +48,426 @@ namespace Vales
             tbx_art.Text = "";
         }
 
+        #region OLD_LLENAR_DGV_REFACTORIZADO
         private void Llenar_DGV(string almacen, string grupo)
         {
-            dgv_arts.Rows.Clear();
-            int sobreinv = 0;
-            int subinv = 0;
-            int normal = 0;
-            int pedir = 0;
-            int sinreord = 0;
-            int suma = 0;
-
-
-            if (!string.IsNullOrEmpty(almacen)) //todo este pedo esta mal no ocupas pasar parametro y checar
+            dgv_arts.SuspendLayout();
+            try
             {
-                almacen = cbo_almacenes.SelectedValue.ToString();
+                dgv_arts.Rows.Clear();
 
-
-                if (string.IsNullOrEmpty(grupo))
+                // 1) Validaciones & capturar valores de UI una sola vez
+                if (cbo_almacenes.SelectedValue == null)
                 {
-                    
-                    grupo = "";                                           
+                    MessageBox.Show("Debe haber almacén seleccionado");
+                    return;
+                }
+                // Usar el seleccionado real (mantiene tu comportamiento actual)
+                var almacenId = cbo_almacenes.SelectedValue.ToString();
+
+                if (cbo_clasificaciones.SelectedValue == null)
+                {
+                    MessageBox.Show("Seleccione una clasificación.");
+                    return;
+                }
+                var clasifId = cbo_clasificaciones.SelectedValue.ToString();
+
+                int? grupoId = null;
+                if (!string.IsNullOrWhiteSpace(grupo))
+                {
+                    int gtmp;
+                    if (int.TryParse(grupo, out gtmp)) grupoId = gtmp;
+                }
+
+                // 2) SQL PARAMETRIZADA (idéntica lógica que tu query original)
+                var sql =
+                    "SELECT A.ARTICULO_ID, e.clave_articulo, a.nombre, a.unidad_compra, " +
+                    "(SELECT EXISTENCIA FROM GET_EXIS_ART_SUCURSAL(@alm, A.ARTICULO_ID, 0)) AS EXIS_MAT, " +
+                    "G.INVENTARIO_MAXIMO AS MAX_MAT, G.PUNTO_REORDEN AS REORD_MAT, G.INVENTARIO_MINIMO AS MIN_MAT, " +
+                    "r.valor, f.reorden_automatico, w.clasificador_id " +
+                    "FROM elementos_cat_clasif d " +
+                    "LEFT JOIN articulos a ON d.elemento_id = a.articulo_id " +
+                    "LEFT JOIN claves_articulos e ON a.articulo_id = e.articulo_id AND e.rol_clave_art_id = 17 " +
+                    "LEFT JOIN libres_articulos f ON a.articulo_id = f.articulo_id " +
+                    "LEFT JOIN clasificadores_cat_valores r ON d.valor_clasif_id = r.valor_clasif_id " +
+                    "LEFT JOIN NIVELES_ARTICULOS G ON A.ARTICULO_ID = G.ARTICULO_ID AND G.almacen_id = @alm " +
+                    "LEFT JOIN clasificadores_cat w ON r.clasificador_id = w.clasificador_id " +
+                    "WHERE w.clasificador_id = @clasif " +
+                    (grupoId.HasValue ? "AND d.valor_clasif_id = @grupo " : "");
+
+                var dt = new DataTable();
+                using (var conn = new FbConnection(AppSession.PeripheralConnectionString))
+                using (var cmd = new FbCommand(sql, conn))
+                using (var da = new FbDataAdapter(cmd))
+                {
+                    cmd.Parameters.Add(new FbParameter("@alm", FbDbType.Integer) { Value = int.Parse(almacenId) });
+                    cmd.Parameters.Add(new FbParameter("@clasif", FbDbType.Integer) { Value = int.Parse(clasifId) });
+                    if (grupoId.HasValue)
+                        cmd.Parameters.Add(new FbParameter("@grupo", FbDbType.Integer) { Value = grupoId.Value });
+
+                    da.Fill(dt);
+                }
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No hay artículos");
+                    // Limpia totales y etiquetas
+                    tbx_sobreinv.Text = "0";
+                    tbx_subinv.Text = "0";
+                    tbx_normal.Text = "0";
+                    tbx_pedir.Text = "0";
+                    tbx_sinreord.Text = "0";
+                    label1.Text = "Sobreinventario: ";
+                    label2.Text = "Criticos: ";
+                    label3.Text = "Optimos: ";
+                    label4.Text = "Pedir: ";
+                    label5.Text = "Sin Reorden Autom: ";
+                    return;
+                }
+
+                // 3) Llenado del grid: cachea índices y parsea una sola vez
+                const int IDX_EXIS = 5;
+                const int IDX_MIN = 6;
+                const int IDX_REOR = 7;
+                const int IDX_MAX = 8;
+                const int IDX_MSG = 9;
+                const int IDX_RA = 10;
+
+                int sobreinv = 0, subinv = 0, normal = 0, pedir = 0, sinreord = 0;
+
+                foreach (DataRow r in dt.Rows)
+                {
+                    // Obtén números de forma segura
+                    double exis = Global.ToDouble(r["EXIS_MAT"]);
+                    double min = Global.ToDouble(r["MIN_MAT"]);
+                    double reor = Global.ToDouble(r["REORD_MAT"]);
+                    double max = Global.ToDouble(r["MAX_MAT"]);
+                    string ra = Convert.ToString(r["reorden_automatico"]); // puede ser "N" u otro
+
+                    // Agrega fila
+                    int rowIndex = dgv_arts.Rows.Add(
+                        r["ARTICULO_ID"], r["clave_articulo"], r["nombre"], r["unidad_compra"],
+                        r["valor"], exis, min, reor, max, "accion", ra
+                    );
+
+                    var row = dgv_arts.Rows[rowIndex];
+
+                    // 4) Clasificación visual (mismo flujo condicional, sin conversions repetidas)
+                    if (!string.IsNullOrEmpty(ra) && ra == "N")
+                    {
+                        row.DefaultCellStyle.BackColor = Color.LightCyan;
+                        row.Cells[IDX_MSG].Value = "No tiene R.A.";
+                        sinreord++;
+                    }
+                    else if (exis > max)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Pink;
+                        row.Cells[IDX_MSG].Value = "SOBREINVENTARIO";
+                        sobreinv++;
+                    }
+                    else if (exis <= min)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.LightCoral;
+                        row.Cells[IDX_MSG].Value = "CRITICO";
+                        subinv++;
+                    }
+                    else if (exis <= max && exis > reor)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.LightGreen;
+                        row.Cells[IDX_MSG].Value = "OPTIMO";
+                        normal++;
+                    }
+                    else if (exis <= reor && exis > min)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Yellow;
+                        row.Cells[IDX_MSG].Value = "PEDIR";
+                        pedir++;
+                    }
+                }
+
+                // 5) Totales y porcentajes
+                tbx_sobreinv.Text = sobreinv.ToString();
+                tbx_subinv.Text = subinv.ToString();
+                tbx_normal.Text = normal.ToString();
+                tbx_pedir.Text = pedir.ToString();
+                tbx_sinreord.Text = sinreord.ToString();
+
+                int suma = sobreinv + subinv + normal + pedir + sinreord;
+                if (suma != 0)
+                {
+                    label1.Text = "Sobreinventario: " +  Global.Perc(sobreinv, suma);
+                    label2.Text = "Criticos: " + Global.Perc(subinv, suma);
+                    label3.Text = "Optimos: " + Global.Perc(normal, suma);
+                    label4.Text = "Pedir: " + Global.Perc(pedir, suma);
+                    label5.Text = "Sin Reorden Autom: " + Global.Perc(sinreord, suma);
                 }
                 else
                 {
-                     grupo = $" and d.valor_clasif_id = {grupo} ";
+                    label1.Text = "Sobreinventario: ";
+                    label2.Text = "Criticos: ";
+                    label3.Text = "Optimos: ";
+                    label4.Text = "Pedir: ";
+                    label5.Text = "Sin Reorden Autom: ";
                 }
+            }
+            finally
+            {
+                dgv_arts.ResumeLayout();
+            }
+        }
 
-                
+        private void OLDLlenar_DGV(string almacen, string grupo)
+        {
+            dgv_arts.SuspendLayout();
 
-                string almacenes = "select A.ARTICULO_ID, e.clave_articulo, a.nombre, a.unidad_compra, " +
+            try
+            {
+                dgv_arts.Rows.Clear();
+                int sobreinv = 0;
+                int subinv = 0;
+                int normal = 0;
+                int pedir = 0;
+                int sinreord = 0;
+                int suma = 0;
 
-                    $"(SELECT EXISTENCIA FROM GET_EXIS_ART_SUCURSAL({almacen}, A.ARTICULO_ID, 0)) AS EXIS_MAT, " +
-                        "G.INVENTARIO_MAXIMO AS MAX_MAT, G.PUNTO_REORDEN AS REORD_MAT, G.INVENTARIO_MINIMO AS MIN_MAT, " +
 
-                    "r.valor, f.reorden_automatico, w.clasificador_id " +
-
-                    "from elementos_cat_clasif d " +
-                    "left join articulos a on d.elemento_id = a.articulo_id " +
-                    "left join claves_articulos e on a.articulo_id = e.articulo_id and e.rol_clave_art_id = 17 " +
-                    "left join libres_articulos f on a.articulo_id = f.articulo_id " +
-                    
-                    
-                    "left join clasificadores_cat_valores r on d.valor_clasif_id = r.valor_clasif_id " +
-                    $"LEFT JOIN NIVELES_ARTICULOS G ON A.ARTICULO_ID = G.ARTICULO_ID AND G.almacen_id = {almacen} " +
-                    "left join clasificadores_cat w on r.clasificador_id = w.clasificador_id " +
-                    $"where w.clasificador_id = {cbo_clasificaciones.SelectedValue} {grupo}";
-               
-
-                FbDataAdapter ada = new FbDataAdapter(almacenes, ClaseConn.cadena);
-                DataTable dtt = new DataTable();
-                ada.Fill(dtt);
-
-                if(dtt.Rows.Count > 0)
+                if (!string.IsNullOrEmpty(almacen)) //todo este pedo esta mal no ocupas pasar parametro y checar
                 {
-                    foreach (DataRow fila in dtt.Rows)
+                    almacen = cbo_almacenes.SelectedValue.ToString();
+
+
+                    if (string.IsNullOrEmpty(grupo))
                     {
-                        dgv_arts.Rows.Add(fila["ARTICULO_ID"], fila["clave_articulo"], fila["nombre"], fila["unidad_compra"],
-                            fila["valor"], string.IsNullOrEmpty(fila["EXIS_MAT"].ToString())? 0 : fila["EXIS_MAT"],
-                            string.IsNullOrEmpty(fila["MIN_MAT"].ToString()) ? 0 : fila["MIN_MAT"], 
-                            string.IsNullOrEmpty(fila["REORD_MAT"].ToString()) ? 0 : fila["REORD_MAT"],
-                            string.IsNullOrEmpty(fila["MAX_MAT"].ToString()) ? 0 : fila["MAX_MAT"],
-                            "accion", fila["reorden_automatico"]);                        
+
+                        grupo = "";
+                    }
+                    else
+                    {
+                        grupo = $" and d.valor_clasif_id = {grupo} ";
                     }
 
-                    foreach(DataGridViewRow dr in dgv_arts.Rows)
+
+
+                    string almacenes = "select A.ARTICULO_ID, e.clave_articulo, a.nombre, a.unidad_compra, " +
+
+                        $"(SELECT EXISTENCIA FROM GET_EXIS_ART_SUCURSAL({almacen}, A.ARTICULO_ID, 0)) AS EXIS_MAT, " +
+                            "G.INVENTARIO_MAXIMO AS MAX_MAT, G.PUNTO_REORDEN AS REORD_MAT, G.INVENTARIO_MINIMO AS MIN_MAT, " +
+
+                        "r.valor, f.reorden_automatico, w.clasificador_id " +
+
+                        "from elementos_cat_clasif d " +
+                        "left join articulos a on d.elemento_id = a.articulo_id " +
+                        "left join claves_articulos e on a.articulo_id = e.articulo_id and e.rol_clave_art_id = 17 " +
+                        "left join libres_articulos f on a.articulo_id = f.articulo_id " +
+
+
+                        "left join clasificadores_cat_valores r on d.valor_clasif_id = r.valor_clasif_id " +
+                        $"LEFT JOIN NIVELES_ARTICULOS G ON A.ARTICULO_ID = G.ARTICULO_ID AND G.almacen_id = {almacen} " +
+                        "left join clasificadores_cat w on r.clasificador_id = w.clasificador_id " +
+                        $"where w.clasificador_id = {cbo_clasificaciones.SelectedValue} {grupo}";
+
+
+                    FbDataAdapter ada = new FbDataAdapter(almacenes, AppSession.PeripheralConnectionString);
+                    DataTable dtt = new DataTable();
+                    ada.Fill(dtt);
+
+                    if (dtt.Rows.Count > 0)
                     {
-                        if(dr.Cells[10].Value!=null && dr.Cells[10].Value.ToString() == "N")
+                        foreach (DataRow fila in dtt.Rows)
                         {
-                            dr.DefaultCellStyle.BackColor = Color.LightCyan;
-                            dr.Cells[9].Value = "No tiene R.A.";
-                            sinreord++;
+                            dgv_arts.Rows.Add(fila["ARTICULO_ID"], fila["clave_articulo"], fila["nombre"], fila["unidad_compra"],
+                                fila["valor"], string.IsNullOrEmpty(fila["EXIS_MAT"].ToString()) ? 0 : fila["EXIS_MAT"],
+                                string.IsNullOrEmpty(fila["MIN_MAT"].ToString()) ? 0 : fila["MIN_MAT"],
+                                string.IsNullOrEmpty(fila["REORD_MAT"].ToString()) ? 0 : fila["REORD_MAT"],
+                                string.IsNullOrEmpty(fila["MAX_MAT"].ToString()) ? 0 : fila["MAX_MAT"],
+                                "accion", fila["reorden_automatico"]);
                         }
-                        else
+
+                        foreach (DataGridViewRow dr in dgv_arts.Rows)
                         {
-                            if(Convert.ToDouble( dr.Cells[5].Value) > Convert.ToDouble(dr.Cells[8].Value))
+                            if (dr.Cells[10].Value != null && dr.Cells[10].Value.ToString() == "N")
                             {
-                                dr.DefaultCellStyle.BackColor = Color.Pink;
-                                dr.Cells[9].Value = "SOBREINVENTARIO";
-                                sobreinv++;
+                                dr.DefaultCellStyle.BackColor = Color.LightCyan;
+                                dr.Cells[9].Value = "No tiene R.A.";
+                                sinreord++;
                             }
                             else
                             {
-                                if (Convert.ToDouble(dr.Cells[5].Value) <= Convert.ToDouble(dr.Cells[6].Value))
-                                    
-                                    
+                                if (Convert.ToDouble(dr.Cells[5].Value) > Convert.ToDouble(dr.Cells[8].Value))
                                 {
-                                    dr.DefaultCellStyle.BackColor = Color.LightCoral;
-                                    dr.Cells[9].Value = "CRITICO";
-                                    subinv++;
+                                    dr.DefaultCellStyle.BackColor = Color.Pink;
+                                    dr.Cells[9].Value = "SOBREINVENTARIO";
+                                    sobreinv++;
                                 }
                                 else
                                 {
-                                    if (Convert.ToDouble(dr.Cells[5].Value) <= Convert.ToDouble(dr.Cells[8].Value) &&
-                                        Convert.ToDouble(dr.Cells[5].Value) > Convert.ToDouble(dr.Cells[7].Value))
+                                    if (Convert.ToDouble(dr.Cells[5].Value) <= Convert.ToDouble(dr.Cells[6].Value))
+
+
                                     {
-                                        dr.DefaultCellStyle.BackColor = Color.LightGreen;
-                                        dr.Cells[9].Value = "OPTIMO";
-                                        normal++;
+                                        dr.DefaultCellStyle.BackColor = Color.LightCoral;
+                                        dr.Cells[9].Value = "CRITICO";
+                                        subinv++;
                                     }
                                     else
                                     {
-                                        if (Convert.ToDouble(dr.Cells[5].Value) <= Convert.ToDouble(dr.Cells[7].Value) &&
-                                            Convert.ToDouble(dr.Cells[5].Value) > Convert.ToDouble(dr.Cells[6].Value))
+                                        if (Convert.ToDouble(dr.Cells[5].Value) <= Convert.ToDouble(dr.Cells[8].Value) &&
+                                            Convert.ToDouble(dr.Cells[5].Value) > Convert.ToDouble(dr.Cells[7].Value))
                                         {
-                                            dr.DefaultCellStyle.BackColor = Color.Yellow;
-                                            dr.Cells[9].Value = "PEDIR";
-                                            pedir++;
+                                            dr.DefaultCellStyle.BackColor = Color.LightGreen;
+                                            dr.Cells[9].Value = "OPTIMO";
+                                            normal++;
                                         }
+                                        else
+                                        {
+                                            if (Convert.ToDouble(dr.Cells[5].Value) <= Convert.ToDouble(dr.Cells[7].Value) &&
+                                                Convert.ToDouble(dr.Cells[5].Value) > Convert.ToDouble(dr.Cells[6].Value))
+                                            {
+                                                dr.DefaultCellStyle.BackColor = Color.Yellow;
+                                                dr.Cells[9].Value = "PEDIR";
+                                                pedir++;
+                                            }
+                                        }
+
                                     }
 
                                 }
 
+
+
                             }
 
-                            
 
                         }
 
-                        
-                    }
 
-                   
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("no hay arts");
+                    }
 
                 }
                 else
                 {
-                    MessageBox.Show("no hay arts");
+                    MessageBox.Show("debe haber almacen seleccionado");
                 }
 
+
+                tbx_sobreinv.Text = sobreinv.ToString();
+                tbx_subinv.Text = subinv.ToString();
+                tbx_normal.Text = normal.ToString();
+                tbx_pedir.Text = pedir.ToString();
+                tbx_sinreord.Text = sinreord.ToString();
+
+                suma = sobreinv + subinv + normal + pedir + sinreord;
+
+                if (suma != 0)
+                {
+                    label1.Text = "Sobreinventario: " + (sobreinv * 100.0 / suma).ToString("F0") + "%";
+                    label2.Text = "Criticos: " + (subinv * 100.0 / suma).ToString("F0") + "%";
+                    label3.Text = "Optimos: " + (normal * 100.0 / suma).ToString("F0") + "%";
+                    label4.Text = "Pedir: " + (pedir * 100.0 / suma).ToString("F0") + "%";
+                    label5.Text = "Sin Reorden Autom: " + (sinreord * 100.0 / suma).ToString("F0") + "%";
+                }
+                else
+                {
+                    label1.Text = "Sobreinventario: ";
+                    label2.Text = "Criticos: ";
+                    label3.Text = "Optimos: ";
+                    label4.Text = "Pedir: ";
+                    label5.Text = "Sin Reorden Autom: ";
+                }
             }
-            else
+            finally
             {
-                MessageBox.Show("debe haber almacen seleccionado");
+                dgv_arts.ResumeLayout();
             }
+        }
+        #endregion
 
+        #region LLENA GRID CON REFACTORIZACION
 
-            tbx_sobreinv.Text = sobreinv.ToString();
-            tbx_subinv.Text = subinv.ToString();
-            tbx_normal.Text = normal.ToString();
-            tbx_pedir.Text = pedir.ToString();
-            tbx_sinreord.Text = sinreord.ToString();
-            
-            suma = sobreinv + subinv + normal + pedir + sinreord;
-            
-            if(suma != 0)
+        #endregion
+
+        private async void FormNiveles_Load(object sender, EventArgs e)
+        {
+            try
             {
-                label1.Text = "Sobreinventario: " + (sobreinv * 100.0 / suma).ToString("F0") + "%";
-                label2.Text = "Criticos: " + (subinv * 100.0 / suma).ToString("F0") + "%";
-                label3.Text = "Optimos: " + (normal * 100.0 / suma).ToString("F0") + "%";
-                label4.Text = "Pedir: " + (pedir * 100.0 / suma).ToString("F0") + "%";
-                label5.Text = "Sin Reorden Autom: " + (sinreord * 100.0 / suma).ToString("F0") + "%";
+                string grupos = "select a.clasificador_id, a.nombre from clasificadores_cat a";
+                string almacenes = "select a.almacen_id, a.nombre from almacenes a";
+
+                // 1) Corre ambas consultas en paralelo dentro del overlay (sin tocar UI)
+                var result = await RunWithOverlayAsync<Tuple<DataTable, DataTable>>(() =>
+                {
+                    var table1 = _repository.QueryTable(grupos);
+                    var table2 = _repository.QueryTable(almacenes);
+                    return Tuple.Create(table1, table2);
+                }, "Cargando catálogos...");
+              
+                var dt = result.Item1;
+                var dt2 = result.Item2;
+
+                // 2) Ya en el hilo de UI: bindea a los controles
+                cbo_clasificaciones.DataSource = dt;
+                cbo_clasificaciones.DisplayMember = "nombre";
+                cbo_clasificaciones.ValueMember = "clasificador_id";
+                cbo_clasificaciones.SelectedIndex = -1;
+
+                cbo_almacenes.DataSource = dt2;
+                cbo_almacenes.DisplayMember = "nombre";
+                cbo_almacenes.ValueMember = "almacen_id";
+                cbo_almacenes.SelectedIndex = 0;
+
+                i++;
             }
-            else
+            catch (Exception ex)
             {
-                label1.Text = "Sobreinventario: ";
-                label2.Text = "Criticos: " ;
-                label3.Text = "Optimos: " ;
-                label4.Text = "Pedir: " ;
-                label5.Text = "Sin Reorden Autom: ";
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-
         }
 
-        private void FormNiveles_Load(object sender, EventArgs e)
+        private async void btn_general_Click(object sender, EventArgs e)
         {
-            //string grupos = "select a.valor_clasif_id, a.valor from clasificadores_cat_valores a where a.clasificador_id = 24934362";
-            //FbDataAdapter adapter = new FbDataAdapter(grupos, ClaseConn.cadena);
-            //DataTable dt = new DataTable();
-            //adapter.Fill(dt);
+            //Llenar_DGV(cbo_almacenes.SelectedValue.ToString(), "");
 
-            //cbo_grupos.DataSource = dt;
-            //cbo_grupos.DisplayMember = "valor";
-            //cbo_grupos.ValueMember = "valor_clasif_id";
-            //cbo_grupos.SelectedIndex = 0;
-
-
-            string grupos = "select a.clasificador_id, a.nombre from clasificadores_cat a";
-            FbDataAdapter adapter = new FbDataAdapter(grupos, ClaseConn.cadena);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-
-            cbo_clasificaciones.DataSource = dt;
-            cbo_clasificaciones.DisplayMember = "nombre";
-            cbo_clasificaciones.ValueMember = "clasificador_id";
-            cbo_clasificaciones.SelectedIndex = -1;
-
-
-
-            string almacenes = "select a.almacen_id, a.nombre from almacenes a ";
-            FbDataAdapter ada = new FbDataAdapter(almacenes, ClaseConn.cadena);
-            DataTable dtt = new DataTable();
-            ada.Fill(dtt);
-
-            cbo_almacenes.DataSource = dtt;
-            cbo_almacenes.DisplayMember = "nombre";
-            cbo_almacenes.ValueMember = "almacen_id";
-            cbo_almacenes.SelectedIndex = 0;
-
-            i++;
-
+            //try
+            //{
+                var alm = cbo_almacenes.SelectedValue != null ? cbo_almacenes.SelectedValue.ToString() : "";
+                await RunUIWorkWithOverlayAsync(
+                    () => Llenar_DGV(alm, ""),         // no se modifica tu método
+                    title: "Cargando datos...",
+                    subtitle: "Calculando niveles y pintando filas",
+                    false
+                );
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+           
         }
 
-        private void btn_general_Click(object sender, EventArgs e)
+        private async void btnVistaValor_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(cbo_grupos.SelectedValue.ToString());
-
-            Llenar_DGV(cbo_almacenes.SelectedValue.ToString(), "");
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Llenar_DGV(cbo_almacenes.SelectedValue.ToString(), cbo_grupos.SelectedValue.ToString());
-        }
+            //Llenar_DGV(cbo_almacenes.SelectedValue.ToString(), cbo_grupos.SelectedValue.ToString());
+            //try
+            //{
+                var alm = cbo_almacenes.SelectedValue != null ? cbo_almacenes.SelectedValue.ToString() : "";
+                var grp = cbo_grupos.SelectedValue != null ? cbo_grupos.SelectedValue.ToString() : "";
+                await RunUIWorkWithOverlayAsync(
+                    () => Llenar_DGV(alm, grp),         // no se modifica tu método
+                    title: "Cargando datos...",
+                    subtitle: "Calculando niveles y pintando filas",
+                    false
+                );
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+        }       
 
         private void btn_ocultar_sobreinv_Click(object sender, EventArgs e)
         {
@@ -498,8 +709,6 @@ namespace Vales
         private void cbo_grupos_SelectedIndexChanged(object sender, EventArgs e)
         {
             LIMPIA();
-
-
         }
 
         private void cbo_almacenes_SelectedIndexChanged(object sender, EventArgs e)
@@ -574,5 +783,27 @@ namespace Vales
             //    ver_art.ShowDialog();
             //}
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var conn = new FbConnection(AppSession.PeripheralConnectionString))
+                {
+                    conn.Open();
+                    using (var cmd = new FbCommand("SELECT CURRENT_TIMESTAMP FROM RDB$DATABASE", conn))
+                    {
+                        var ts = (DateTime)cmd.ExecuteScalar();
+                        MessageBox.Show("Conexión OK.\nAhora: " + ts.ToString("yyyy-MM-dd HH:mm:ss"));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error de conexión: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        
     }
 }

@@ -20,21 +20,17 @@ namespace Vales
 
         public bool Validacion()
         {
-            //try
-            //{
+            try
+            {
                 fbconn = new FbConnection(cadena);
                 fbconn.Open();
                 fbconn.Close();
                 return true;
-            //}
-            //catch(FbException)
-            //{
-            //    return false;
-            //}
+            }
+            catch (FbException)
+            {
+                return false;
+            }
         }
-
-
-
-
     }
 }

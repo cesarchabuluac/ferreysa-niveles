@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Vales.UI;
 
 
 namespace Vales
@@ -17,38 +18,49 @@ namespace Vales
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ClaseConn inicia = new ClaseConn();
-
-            inicia.MetodoConn("192.168.1.1", "C:\\Microsip datos\\FERREY.FDB", "SYSDBA", "masterkey190652"); //laptop
-            //inicia.MetodoConn("localhost", "C:\\Microsip datos\\COPIAFERREYSAFEB2019.FDB", "SYSDBA", "masterkey"); //oficina
-            //inicia.MetodoConn("216.238.69.160", "C:\\DBCENTRAL\\CENTRAL.FDB", "sysdba", "masterkey190652");
-
-            if (inicia.Validacion())
+            using (var login = new FormAccess())
             {
-                MessageBox.Show("CONEXION EXITOSA: MATRIZ");
-                Application.Run(new FormNiveles());
-                //Application.Run(new FormCotizacion());
-            }
-            else
-            {
-                inicia.MetodoConn("10.1.1.1", "C:\\Microsip datos\\Ferrey Omar.fdb", "sysdba", "masterkey");
-                if (inicia.Validacion())
+                var result = login.ShowDialog();
+                if (result == DialogResult.OK)
                 {
-                    ClaseConn.es_papalote = true;
-
-                    MessageBox.Show("CONEXION EXITOSA: PAPALOTE");
                     Application.Run(new FormNiveles());
                 }
-                else
-                {
-                    MessageBox.Show("NO HAY CONNEXION");
-                }
-                
             }
+
+            //Application.Run(new FormAccess());
+
+            ////////ClaseConn inicia = new ClaseConn();
+
+            ////////inicia.MetodoConn("192.168.1.1", "C:\\Microsip datos\\FERREY.FDB", "SYSDBA", "masterkey190652"); //laptop
+            //////////inicia.MetodoConn("localhost", "C:\\Microsip datos\\COPIAFERREYSAFEB2019.FDB", "SYSDBA", "masterkey"); //oficina
+            //////////inicia.MetodoConn("216.238.69.160", "C:\\DBCENTRAL\\CENTRAL.FDB", "sysdba", "masterkey190652");
+
+            ////////if (inicia.Validacion())
+            ////////{
+            ////////    MessageBox.Show("CONEXION EXITOSA: MATRIZ");
+            ////////    Application.Run(new FormNiveles());
+            ////////    //Application.Run(new FormCotizacion());
+            ////////}
+            ////////else
+            ////////{
+            ////////    inicia.MetodoConn("10.1.1.1", "C:\\Microsip datos\\Ferrey Omar.fdb", "sysdba", "masterkey");
+            ////////    if (inicia.Validacion())
+            ////////    {
+            ////////        ClaseConn.es_papalote = true;
+
+            ////////        MessageBox.Show("CONEXION EXITOSA: PAPALOTE");
+            ////////        Application.Run(new FormNiveles());
+            ////////    }
+            ////////    else
+            ////////    {
+            ////////        MessageBox.Show("NO HAY CONNEXION");
+            ////////    }
+
+            ////////}
 
             //TABLAS O DATOS NUEVOS QUE TUVE QUE HACER PARA PROGRAMA:
 
-            
+
         }
     }
 }
