@@ -19,6 +19,9 @@ namespace Vales
     {
         private readonly RepositoryBase _repository = new RepositoryBase();
 
+        private bool panelExpandido = false;
+        private int anchoMinimoPanel2 = 200; // el mínimo para mostrar el botón
+
         int i = 0;
 
         public FormNiveles()
@@ -81,7 +84,7 @@ namespace Vales
 
                 // 2) SQL PARAMETRIZADA (idéntica lógica que tu query original)
                 var sql =
-                    "SELECT A.ARTICULO_ID, e.clave_articulo, a.nombre, a.unidad_compra, " +
+                    "SELECT A.ARTICULO_ID, e.clave_articulo AS clave_articulo, a.nombre, a.unidad_compra, " +
                     "(SELECT EXISTENCIA FROM GET_EXIS_ART_SUCURSAL(@alm, A.ARTICULO_ID, 0)) AS EXIS_MAT, " +
                     "G.INVENTARIO_MAXIMO AS MAX_MAT, G.PUNTO_REORDEN AS REORD_MAT, G.INVENTARIO_MINIMO AS MIN_MAT, " +
                     "r.valor, f.reorden_automatico, w.clasificador_id " +
@@ -145,8 +148,9 @@ namespace Vales
                     string ra = Convert.ToString(r["reorden_automatico"]); // puede ser "N" u otro
 
                     // Agrega fila
+                    var clave = r["clave_articulo"]?.ToString() ?? "";
                     int rowIndex = dgv_arts.Rows.Add(
-                        r["ARTICULO_ID"], r["clave_articulo"], r["nombre"], r["unidad_compra"],
+                        r["ARTICULO_ID"], clave, r["nombre"], r["unidad_compra"],
                         r["valor"], exis, min, reor, max, "accion", ra
                     );
 
@@ -432,8 +436,8 @@ namespace Vales
         {
             //Llenar_DGV(cbo_almacenes.SelectedValue.ToString(), "");
 
-            //try
-            //{
+            try
+            {
                 var alm = cbo_almacenes.SelectedValue != null ? cbo_almacenes.SelectedValue.ToString() : "";
                 await RunUIWorkWithOverlayAsync(
                     () => Llenar_DGV(alm, ""),         // no se modifica tu método
@@ -441,19 +445,19 @@ namespace Vales
                     subtitle: "Calculando niveles y pintando filas",
                     false
                 );
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-           
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private async void btnVistaValor_Click(object sender, EventArgs e)
         {
             //Llenar_DGV(cbo_almacenes.SelectedValue.ToString(), cbo_grupos.SelectedValue.ToString());
-            //try
-            //{
+            try
+            {
                 var alm = cbo_almacenes.SelectedValue != null ? cbo_almacenes.SelectedValue.ToString() : "";
                 var grp = cbo_grupos.SelectedValue != null ? cbo_grupos.SelectedValue.ToString() : "";
                 await RunUIWorkWithOverlayAsync(
@@ -462,11 +466,11 @@ namespace Vales
                     subtitle: "Calculando niveles y pintando filas",
                     false
                 );
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }       
 
         private void btn_ocultar_sobreinv_Click(object sender, EventArgs e)
@@ -804,6 +808,29 @@ namespace Vales
             }
         }
 
-        
+        private void btnShowPanelValues_Click(object sender, EventArgs e)
+        {
+            if (!panelExpandido)
+            {
+                // EXPANDIR → mitad y mitad
+                int totalAncho = splitContainer1.Width;
+                splitContainer1.SplitterDistance = totalAncho / 2;
+                panelExpandido = true;
+                btnShowPanelValues.Text = "Ocultar valores";
+            }
+            else
+            {
+                // COLAPSAR → Panel2 tamaño mínimo
+                int totalAncho = splitContainer1.Width;
+                splitContainer1.SplitterDistance = totalAncho - anchoMinimoPanel2;
+                panelExpandido = false;
+                btnShowPanelValues.Text = "Ver valores";
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+          
+        }
     }
 }

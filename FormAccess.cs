@@ -21,6 +21,26 @@ namespace Vales
             InitializeComponent();
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                // Si el foco está en el botón → ejecutar el click
+                if (this.ActiveControl is Button btn)
+                {
+                    btn.PerformClick();
+                    return true;
+                }
+
+                // Sino, avanzar al siguiente control como TAB
+                this.SelectNextControl(this.ActiveControl, true, true, true, true);
+                return true;
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+
         private async void FormAccess_Load(object sender, EventArgs e)
         {
             try
