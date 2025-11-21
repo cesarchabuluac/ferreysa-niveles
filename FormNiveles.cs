@@ -887,6 +887,7 @@ namespace Vales
 
                 // COLAPSAR → Panel2 tamaño mínimo
                 int totalAncho = splitContainer1.Width;
+                int anchoMinimoPanel2 = 310; // Definir un ancho mínimo para el Panel2
                 splitContainer1.SplitterDistance = totalAncho - anchoMinimoPanel2;
                 panelExpandido = false;
                 btnShowPanelValues.Text = "Ver Panel Valores";
