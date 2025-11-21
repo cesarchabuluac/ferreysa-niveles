@@ -727,20 +727,45 @@ namespace Vales
                 string pPed = (suma == 0 ? "0%" : Global.Perc(tot.pedir, suma));
                 string pSin = (suma == 0 ? "0%" : Global.Perc(tot.sinreord, suma));
 
-                dataGridViewValores.Rows.Add(
+                int rowIndex = dataGridViewValores.Rows.Add(
                     valorId,
                     valorTexto,
-                    pSobre,
-                    pNorm,
-                    pPed,
-                    pSub,                    
-                    pSin
-                //tot.sobreinv,  // num
-                //tot.subinv,    // num
-                //tot.normal,    // num
-                //tot.pedir,     // num
-                //tot.sinreord   // num
+                    pSobre, //Sobre invantario
+                    pNorm, //Optimo
+                    pPed, //Pedir
+                    pSub, //Criticos                   
+                    pSin //Sin reorden automatico
                 );
+
+                // Convertir porcentajes a números para comparar
+                double valorSobre = tot.sobreinv;
+                double valorNorm = tot.normal;
+                double valorPed = tot.pedir;
+                double valorSub = tot.subinv;
+                double valorSin = tot.sinreord;
+
+                // Determinar cuál es el mayor
+                double maxValor = Math.Max(Math.Max(Math.Max(Math.Max(valorSobre, valorNorm), valorPed), valorSub), valorSin);
+
+                // Asignar color según el mayor valor
+                Color colorCelda = Color.White; // Color por defecto
+
+                if (maxValor > 0) // Solo colorear si hay valores
+                {
+                    if (valorSobre == maxValor)
+                        colorCelda = Color.Pink; // Sobreinventarios
+                    else if (valorNorm == maxValor)
+                        colorCelda = Color.LightGreen; // Óptimos
+                    else if (valorPed == maxValor)
+                        colorCelda = Color.Yellow; // Pedir
+                    else if (valorSub == maxValor)
+                        colorCelda = Color.LightCoral; // Críticos
+                    else if (valorSin == maxValor)
+                        colorCelda = Color.LightCyan; // Sin reorden automático
+                }
+
+                // Aplicar color a la celda del nombre (columna índice 1)
+                dataGridViewValores.Rows[rowIndex].Cells[1].Style.BackColor = colorCelda;
 
                 // Guardar estos porcentajes para actualizar encabezados después
                 dataGridViewValores.Tag = new

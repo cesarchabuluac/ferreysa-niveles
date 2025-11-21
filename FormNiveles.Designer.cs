@@ -674,7 +674,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxFiltroAlmacen);
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxValores);
             this.splitContainer1.Panel2.Controls.Add(this.btnShowPanelValues);
-            this.splitContainer1.Size = new System.Drawing.Size(1754, 742);
+            this.splitContainer1.Size = new System.Drawing.Size(1825, 742);
             this.splitContainer1.SplitterDistance = 1226;
             this.splitContainer1.TabIndex = 25;
             // 
@@ -754,7 +754,7 @@
             this.groupBoxValores.Font = new System.Drawing.Font("Tahoma", 12F);
             this.groupBoxValores.Location = new System.Drawing.Point(8, 156);
             this.groupBoxValores.Name = "groupBoxValores";
-            this.groupBoxValores.Size = new System.Drawing.Size(505, 574);
+            this.groupBoxValores.Size = new System.Drawing.Size(576, 574);
             this.groupBoxValores.TabIndex = 26;
             this.groupBoxValores.TabStop = false;
             this.groupBoxValores.Text = "groupBox1";
@@ -783,7 +783,7 @@
             this.dataGridViewValores.RowHeadersVisible = false;
             this.dataGridViewValores.RowHeadersWidth = 51;
             this.dataGridViewValores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewValores.Size = new System.Drawing.Size(499, 543);
+            this.dataGridViewValores.Size = new System.Drawing.Size(570, 543);
             this.dataGridViewValores.TabIndex = 25;
             // 
             // ColumnValorId
@@ -849,7 +849,7 @@
             this.btnShowPanelValues.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnShowPanelValues.Location = new System.Drawing.Point(0, 0);
             this.btnShowPanelValues.Name = "btnShowPanelValues";
-            this.btnShowPanelValues.Size = new System.Drawing.Size(524, 48);
+            this.btnShowPanelValues.Size = new System.Drawing.Size(595, 48);
             this.btnShowPanelValues.TabIndex = 0;
             this.btnShowPanelValues.Text = "Ver Panel Valores";
             this.btnShowPanelValues.UseVisualStyleBackColor = true;
@@ -864,7 +864,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(1755, 742);
+            this.ClientSize = new System.Drawing.Size(1826, 742);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
