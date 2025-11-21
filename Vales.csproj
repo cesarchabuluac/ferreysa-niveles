@@ -273,6 +273,7 @@
     <Compile Include="Clases\ClaseCotizacion.cs" />
     <Compile Include="Clases\ClaseUsuario.cs" />
     <Compile Include="Clases\ClaseVale.cs" />
+    <Compile Include="Clases\ClaseVivos.cs" />
     <Compile Include="Clases\ConexionCentral.cs" />
     <Compile Include="DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -361,6 +362,12 @@
     <Compile Include="UI\Controls\LoadingOverlay.Designer.cs">
       <DependentUpon>LoadingOverlay.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Controls\PanelLoadingOverlay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\PanelLoadingOverlay.Designer.cs">
+      <DependentUpon>PanelLoadingOverlay.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormBaseConSesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -436,6 +443,7 @@
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
+    <None Include="LOADING_PANEL_USAGE.md" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -476,6 +484,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI\Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

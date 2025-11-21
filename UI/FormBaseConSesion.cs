@@ -1,4 +1,4 @@
-﻿// File: /Vales.UI/FormBaseConSesion.cs  (NET 4.8, C# 7)
+// File: /Vales.UI/FormBaseConSesion.cs  (NET 4.8, C# 7)
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +16,7 @@ namespace Vales.UI
     public partial class FormBaseConSesion : Form
     {
         private LoadingOverlay _loading;
+        private PanelLoadingOverlay _panelLoading;
         private CancellationTokenSource _cts;
         private System.Windows.Forms.Timer _slowTimer;
 
@@ -44,12 +45,18 @@ namespace Vales.UI
             Controls.Add(_loading);
             _loading.BringToFront();
 
+            // Inicializar el loading para paneles específicos
+            _panelLoading = new PanelLoadingOverlay { Visible = false };
+            _panelLoading.CancelRequested += (s, ev) => { try { _cts?.Cancel(); } catch { } };
+
             _slowTimer = new System.Windows.Forms.Timer { Interval = 3000 };
             _slowTimer.Tick += (s, ev) =>
             {
                 _slowTimer.Stop();
                 if (_loading != null && _loading.Visible)
                     _loading.SetMessage("Trabajando...", "Esto puede tardar un poco más");
+                if (_panelLoading != null && _panelLoading.IsShowingInPanel)
+                    _panelLoading.SetMessage("Trabajando...", "Esto puede tardar un poco más");
             };
         }
 
@@ -129,6 +136,39 @@ namespace Vales.UI
             _cts = null;
         }
 
+        // ---------- Panel Loading Methods ----------
+        protected void ShowPanelLoading(Control targetPanel, string title = "Cargando...", string subtitle = "Por favor espere", bool cancellable = false)
+        {
+            if (_panelLoading == null || targetPanel == null) return;
+            if (InvokeRequired) 
+            { 
+                BeginInvoke(new Action<Control, string, string, bool>(ShowPanelLoading), targetPanel, title, subtitle, cancellable); 
+                return; 
+            }
+
+            _cts?.Dispose();
+            _cts = new CancellationTokenSource();
+
+            _panelLoading.ShowInPanel(targetPanel, title, subtitle, cancellable);
+            UseWaitCursor = true;
+
+            _slowTimer?.Stop();
+            _slowTimer?.Start();
+        }
+
+        protected void HidePanelLoading()
+        {
+            if (_panelLoading == null) return;
+            if (InvokeRequired) { BeginInvoke(new Action(HidePanelLoading)); return; }
+
+            _slowTimer?.Stop();
+            _panelLoading.HideFromPanel();
+            UseWaitCursor = false;
+
+            _cts?.Dispose();
+            _cts = null;
+        }
+
         public CancellationToken LoadingCancellationToken
         {
             get { return _cts != null ? _cts.Token : CancellationToken.None; }
@@ -192,6 +232,38 @@ namespace Vales.UI
 
             try { await tcs.Task; }
             finally { HideLoading(); }
+        }
+
+        // -------- Ejecutores para paneles específicos --------
+        public async Task RunWithPanelOverlayAsync(Control targetPanel, Action work, string title = "Cargando...", string subtitle = "Esto puede tardar unos segundos", bool cancellable = false)
+        {
+            ShowPanelLoading(targetPanel, title, subtitle, cancellable);
+            try { await Task.Run(work); }
+            finally { HidePanelLoading(); }
+        }
+
+        public async Task<T> RunWithPanelOverlayAsync<T>(Control targetPanel, Func<T> work, string title = "Cargando...", string subtitle = "Esto puede tardar unos segundos", bool cancellable = false)
+        {
+            ShowPanelLoading(targetPanel, title, subtitle, cancellable);
+            try { return await Task.Run(work); }
+            finally { HidePanelLoading(); }
+        }
+
+        public async Task RunUIWorkWithPanelOverlayAsync(Control targetPanel, Action work, string title = "Cargando...", string subtitle = "Esto puede tardar unos segundos", bool cancellable = false)
+        {
+            ShowPanelLoading(targetPanel, title, subtitle, cancellable);
+            await EnsureOverlayPaintedAsync();
+
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<object>();
+            // Programa el trabajo después de que el overlay ya está en pantalla
+            BeginInvoke(new Action(() =>
+            {
+                try { work(); tcs.SetResult(null); }
+                catch (Exception ex) { tcs.SetException(ex); }
+            }));
+
+            try { await tcs.Task; }
+            finally { HidePanelLoading(); }
         }
 
         protected void MostrarError(string mensaje, Exception ex = null)

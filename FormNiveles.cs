@@ -20,7 +20,7 @@ namespace Vales
         private readonly RepositoryBase _repository = new RepositoryBase();
 
         private bool panelExpandido = false;
-        private int anchoMinimoPanel2 = 200; // el mínimo para mostrar el botón
+        private int anchoMinimoPanel2 = 50; // el mínimo para mostrar el botón
         private DataTable DTValores = new DataTable();
 
         int i = 0;
@@ -29,38 +29,7 @@ namespace Vales
         {
             InitializeComponent();
             this.Text = $"NIVELES - {Empresa.Nombre} ({Empresa.Alias}) - {Usuario.NombreUsuario}";
-
-            // Configurar responsividad de controles
-            //ConfigurarResponsividad();
-
-            //groupBoxValores.Visible = false;
-        }
-
-        private void ConfigurarResponsividad()
-        {
-            // SplitContainer configuración
-            splitContainer1.FixedPanel = FixedPanel.Panel2;
-            splitContainer1.Panel1MinSize = 400;
-            splitContainer1.Panel2MinSize = 200;
-            
-            // CLAVE: Quitar Dock.Fill del TableLayoutPanel y usar Anchor en su lugar
-            tableLayoutPanel1.Dock = DockStyle.None;
-            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            
-            // Establecer tamaño fijo del TableLayoutPanel (ancho mínimo para que funcione el scroll)
-            tableLayoutPanel1.Width = 1250;
-            tableLayoutPanel1.Height = splitContainer1.Panel1.Height;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            
-            // Habilitar AutoScroll en Panel1 del SplitContainer
-            splitContainer1.Panel1.AutoScroll = true;
-            
-            // Manejar el resize del formulario
-            splitContainer1.Panel1.Resize += (s, e) =>
-            {
-                tableLayoutPanel1.Height = splitContainer1.Panel1.ClientSize.Height;
-            };
-        }
+        }       
 
         private void FormNiveles_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -71,7 +40,7 @@ namespace Vales
         {
             dgv_exis.Rows.Clear();
             dgv_arts.Rows.Clear();
-            dataGridViewValores.Rows.Clear();
+            //dataGridViewValores.Rows.Clear();
 
             lblSobreinventario.Text = "Sobreinventario: ";
             lblCriticos.Text = "Criticos: ";
@@ -295,7 +264,7 @@ namespace Vales
                 tbx_normal.Text = normal.ToString();
                 tbx_pedir.Text = pedir.ToString();
                 tbx_sinreord.Text = sinreord.ToString();
-                MessageBox.Show(sinreord.ToString());
+                
 
                 int suma = sobreinv + subinv + normal + pedir + sinreord;
                 if (suma != 0)
@@ -371,9 +340,10 @@ namespace Vales
             try
             {
                 var alm = cbo_almacenes.SelectedValue != null ? cbo_almacenes.SelectedValue.ToString() : "";
+                // Mostrar loading solo en el panel izquierdo donde están los artículos
                 await RunUIWorkWithOverlayAsync(
-                    () => Llenar_DGV(alm, ""),         // no se modifica tu método
-                    title: "Cargando datos...",
+                    () => Llenar_DGV(alm, ""),
+                    title: "Cargando artículos...",
                     subtitle: "Calculando niveles y pintando filas",
                     false
                 );
@@ -392,9 +362,10 @@ namespace Vales
             {
                 var alm = cbo_almacenes.SelectedValue != null ? cbo_almacenes.SelectedValue.ToString() : "";
                 var grp = cbo_grupos.SelectedValue != null ? cbo_grupos.SelectedValue.ToString() : "";
+                // Mostrar loading solo en el panel izquierdo donde están los artículos
                 await RunUIWorkWithOverlayAsync(
-                    () => Llenar_DGV(alm, grp),         // no se modifica tu método
-                    title: "Cargando datos...",
+                    () => Llenar_DGV(alm, grp),
+                    title: "Cargando por valor...",
                     subtitle: "Calculando niveles y pintando filas",
                     false
                 );
@@ -680,9 +651,11 @@ namespace Vales
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private async void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             LIMPIA();
+
+            dataGridViewValores.Rows.Clear();
 
             if (i == 0)
                 return;
@@ -706,12 +679,32 @@ namespace Vales
             cbo_grupos.DisplayMember = "valor";
             cbo_grupos.ValueMember = "valor_clasif_id";
             cbo_grupos.SelectedIndex = 0;
+
+            if (panelExpandido)
+            {
+                try
+                {
+                    // Mostrar loading solo en el panel derecho
+                    await RunUIWorkWithPanelOverlayAsync(
+                        splitContainer1.Panel2,  // Panel específico
+                        () => TogglePanelValues(),  // Método que modifica controles
+                        title: panelExpandido ? "Ocultando panel de valores..." : "Mostrando panel de valores...",
+                        subtitle: panelExpandido ? "Cerrando vista de estadísticas" : "Cargando estadísticas por grupo",
+                        cancellable: false
+                    );
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void CargarValoresPorGrupoCompras()
         {
             groupBoxValores.Text = $"Valores de {cbo_clasificaciones.Text}";
-            
+            dataGridViewValores.Rows.Clear();
+
             // ---- Necesitamos el almacén seleccionado ----
             if (cboAlmacen.SelectedValue == null)
                 return;
@@ -807,7 +800,33 @@ namespace Vales
             }
         }
 
-        private void btnShowPanelValues_Click(object sender, EventArgs e)
+        private async void btnShowPanelValues_Click(object sender, EventArgs e)
+        {
+            if (cbo_clasificaciones.SelectedValue == null)
+            {
+                MessageBox.Show("Seleccione una clasificación.");
+                return;
+            }
+                
+
+            try
+            {
+                // Mostrar loading solo en el panel derecho
+                await RunUIWorkWithPanelOverlayAsync(
+                    splitContainer1.Panel2,  // Panel específico
+                    () => TogglePanelValues(),  // Método que modifica controles
+                    title: panelExpandido ? "Ocultando panel de valores..." : "Mostrando panel de valores...",
+                    subtitle: panelExpandido ? "Cerrando vista de estadísticas" : "Cargando estadísticas por grupo",
+                    cancellable: false
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void TogglePanelValues()
         {
             // ---- LIMPIAR GRID ----
             dataGridViewValores.Rows.Clear();
@@ -819,13 +838,13 @@ namespace Vales
                 // EXPANDIR → mitad y mitad según la resolución
                 int totalAncho = splitContainer1.Width;
                 int nuevoSplitterDistance = totalAncho / 2;
-                
+
                 // Asegurar que Panel1 tenga al menos el mínimo
                 if (nuevoSplitterDistance < splitContainer1.Panel1MinSize)
                 {
                     nuevoSplitterDistance = splitContainer1.Panel1MinSize;
                 }
-                
+
                 splitContainer1.SplitterDistance = nuevoSplitterDistance;
                 panelExpandido = true;
                 btnShowPanelValues.Text = "Ocultar Panel";
@@ -852,23 +871,95 @@ namespace Vales
 
         private async void btnCargarValores_Click(object sender, EventArgs e)
         {
-            await RunUIWorkWithOverlayAsync(
-               () => CargarValoresPorGrupoCompras(),
-                title: "Cargando datos...",
-                subtitle: "Cargando valores...",
+            // Mostrar loading solo en el panel derecho donde están los valores
+            await RunUIWorkWithPanelOverlayAsync(
+                splitContainer1.Panel2,  // Panel específico donde están los valores
+                () => CargarValoresPorGrupoCompras(),
+                title: "Cargando valores...",
+                subtitle: "Calculando estadísticas por grupo",
                 false
             );
         }
 
         private async void cboAlmacen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            await RunUIWorkWithOverlayAsync(
-               () => CargarValoresPorGrupoCompras(),
-                title: "Cargando datos...",
-                subtitle: "Cargando valores...",
+            // Ejemplo de loading en panel específico - solo en el panel derecho
+            await RunUIWorkWithPanelOverlayAsync(
+                splitContainer1.Panel2,  // Panel específico donde mostrar el loading
+                () => CargarValoresPorGrupoCompras(),
+                title: "Cargando valores...",
+                subtitle: "Actualizando datos del almacén",
                 false
             );
+        }
 
+        // Método de ejemplo para mostrar loading en el panel izquierdo
+        private async void CargarDatosEnPanelIzquierdo()
+        {
+            try
+            {
+                var alm = cbo_almacenes.SelectedValue != null ? cbo_almacenes.SelectedValue.ToString() : "";
+                await RunUIWorkWithPanelOverlayAsync(
+                    splitContainer1.Panel1,  // Panel izquierdo
+                    () => Llenar_DGV(alm, ""),
+                    title: "Cargando artículos...",
+                    subtitle: "Calculando niveles de inventario",
+                    false
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Método de ejemplo para mostrar loading en todo el formulario
+        private async void CargarDatosCompletos()
+        {
+            try
+            {
+                // Usar el loading completo del formulario
+                await RunUIWorkWithOverlayAsync(
+                    () => {
+                        // Simular carga de datos completos
+                        System.Threading.Thread.Sleep(2000);
+                        CargarValoresPorGrupoCompras();
+                    },
+                    title: "Cargando datos completos...",
+                    subtitle: "Esto puede tardar unos momentos",
+                    false
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Ejemplo de uso del método estático para casos simples
+        private void EjemploLoadingEstatico()
+        {
+            // Crear y mostrar loading usando el método estático
+            var loading = UI.Controls.PanelLoadingOverlay.Create(
+                splitContainer1.Panel1, 
+                "Procesando...", 
+                "Operación en progreso"
+            );
+
+            try
+            {
+                // Simular trabajo
+                System.Threading.Thread.Sleep(1000);
+                
+                // Actualizar mensaje durante el proceso
+                loading.UpdateMessage("Finalizando...", "Casi terminado");
+                System.Threading.Thread.Sleep(500);
+            }
+            finally
+            {
+                // Ocultar loading
+                loading.HideFromPanel();
+            }
         }
     }
 }
