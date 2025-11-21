@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +21,7 @@ namespace Vales
 
         private bool panelExpandido = false;
         private int anchoMinimoPanel2 = 200; // el mínimo para mostrar el botón
+        private DataTable DTValores = new DataTable();
 
         int i = 0;
 
@@ -28,6 +29,37 @@ namespace Vales
         {
             InitializeComponent();
             this.Text = $"NIVELES - {Empresa.Nombre} ({Empresa.Alias}) - {Usuario.NombreUsuario}";
+
+            // Configurar responsividad de controles
+            //ConfigurarResponsividad();
+
+            //groupBoxValores.Visible = false;
+        }
+
+        private void ConfigurarResponsividad()
+        {
+            // SplitContainer configuración
+            splitContainer1.FixedPanel = FixedPanel.Panel2;
+            splitContainer1.Panel1MinSize = 400;
+            splitContainer1.Panel2MinSize = 200;
+            
+            // CLAVE: Quitar Dock.Fill del TableLayoutPanel y usar Anchor en su lugar
+            tableLayoutPanel1.Dock = DockStyle.None;
+            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            
+            // Establecer tamaño fijo del TableLayoutPanel (ancho mínimo para que funcione el scroll)
+            tableLayoutPanel1.Width = 1250;
+            tableLayoutPanel1.Height = splitContainer1.Panel1.Height;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            
+            // Habilitar AutoScroll en Panel1 del SplitContainer
+            splitContainer1.Panel1.AutoScroll = true;
+            
+            // Manejar el resize del formulario
+            splitContainer1.Panel1.Resize += (s, e) =>
+            {
+                tableLayoutPanel1.Height = splitContainer1.Panel1.ClientSize.Height;
+            };
         }
 
         private void FormNiveles_FormClosed(object sender, FormClosedEventArgs e)
@@ -39,11 +71,12 @@ namespace Vales
         {
             dgv_exis.Rows.Clear();
             dgv_arts.Rows.Clear();
+            dataGridViewValores.Rows.Clear();
 
-            label1.Text = "Sobreinventario: ";
-            label2.Text = "Criticos: ";
-            label3.Text = "Optimos: ";
-            label4.Text = "Pedir: ";
+            lblSobreinventario.Text = "Sobreinventario: ";
+            lblCriticos.Text = "Criticos: ";
+            lblOptimos.Text = "Optimos: ";
+            lblPedir.Text = "Pedir: ";
             tbx_sobreinv.Text = "0";
             tbx_subinv.Text = "0";
             tbx_normal.Text = "0";
@@ -51,7 +84,74 @@ namespace Vales
             tbx_art.Text = "";
         }
 
-        #region OLD_LLENAR_DGV_REFACTORIZADO
+
+        #region LLENA GRID CON REFACTORIZACION
+        
+        private (int sobreinv, int subinv, int normal, int pedir, int sinreord) CalcularTotalesPorValor(int almacenId, int valorId)
+        {
+            string sql =
+                "SELECT " +
+                "  (SELECT EXISTENCIA FROM GET_EXIS_ART_SUCURSAL(@alm, A.ARTICULO_ID, 0)) AS EXIS_MAT," +
+                "  G.INVENTARIO_MAXIMO AS MAX_MAT," +
+                "  G.PUNTO_REORDEN AS REORD_MAT," +
+                "  G.INVENTARIO_MINIMO AS MIN_MAT," +
+                "  f.reorden_automatico " +
+                "FROM elementos_cat_clasif d " +
+                "LEFT JOIN articulos a ON d.elemento_id = a.articulo_id " +
+                "LEFT JOIN libres_articulos f ON a.articulo_id = f.articulo_id " +
+                "LEFT JOIN NIVELES_ARTICULOS G ON A.ARTICULO_ID = G.ARTICULO_ID AND G.almacen_id = @alm " +
+                "WHERE d.valor_clasif_id = @valor";
+
+            int sobreinv = 0, subinv = 0, normal = 0, pedir = 0, sinreord = 0;
+
+            using (var conn = new FbConnection(AppSession.PeripheralConnectionString))
+            using (var cmd = new FbCommand(sql, conn))
+            {
+                cmd.Parameters.Add("@alm", FbDbType.Integer).Value = almacenId;
+                cmd.Parameters.Add("@valor", FbDbType.Integer).Value = valorId;
+
+                conn.Open();
+                using (var rdr = cmd.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        double exis = Global.ToDouble(rdr["EXIS_MAT"]);
+                        double min = Global.ToDouble(rdr["MIN_MAT"]);
+                        double reor = Global.ToDouble(rdr["REORD_MAT"]);
+                        double max = Global.ToDouble(rdr["MAX_MAT"]);
+                        string ra = rdr["reorden_automatico"]?.ToString() ?? "";
+
+                        if (ra == "N")
+                            sinreord++;
+                        else if (exis > max)
+                            sobreinv++;
+                        else if (exis <= min)
+                            subinv++;
+                        else if (exis <= max && exis > reor)
+                            normal++;
+                        else if (exis <= reor && exis > min)
+                            pedir++;
+                    }
+                }
+            }
+
+            return (sobreinv, subinv, normal, pedir, sinreord);
+        }
+
+        private void ActualizarHeadersValores()
+        {
+            if (dataGridViewValores.Tag == null)
+                return;
+
+            dynamic h = dataGridViewValores.Tag;
+
+            dataGridViewValores.Columns[2].HeaderText = $"Sobreinventario ({h.pSobre})";
+            dataGridViewValores.Columns[3].HeaderText = $"Óptimos ({h.pNorm})";
+            dataGridViewValores.Columns[4].HeaderText = $"Pedir ({h.pPed})";
+            dataGridViewValores.Columns[5].HeaderText = $"Críticos ({h.pSub})";            
+            dataGridViewValores.Columns[6].HeaderText = $"Sin R.A. ({h.pSin})";
+        }
+
         private void Llenar_DGV(string almacen, string grupo)
         {
             dgv_arts.SuspendLayout();
@@ -120,11 +220,11 @@ namespace Vales
                     tbx_normal.Text = "0";
                     tbx_pedir.Text = "0";
                     tbx_sinreord.Text = "0";
-                    label1.Text = "Sobreinventario: ";
-                    label2.Text = "Criticos: ";
-                    label3.Text = "Optimos: ";
-                    label4.Text = "Pedir: ";
-                    label5.Text = "Sin Reorden Autom: ";
+                    lblSobreinventario.Text = "Sobreinventario: ";
+                    lblCriticos.Text = "Criticos: ";
+                    lblOptimos.Text = "Optimos: ";
+                    lblPedir.Text = "Pedir: ";
+                    lblSinReorden.Text = "Sin Reorden Autom: ";
                     return;
                 }
 
@@ -195,23 +295,24 @@ namespace Vales
                 tbx_normal.Text = normal.ToString();
                 tbx_pedir.Text = pedir.ToString();
                 tbx_sinreord.Text = sinreord.ToString();
+                MessageBox.Show(sinreord.ToString());
 
                 int suma = sobreinv + subinv + normal + pedir + sinreord;
                 if (suma != 0)
                 {
-                    label1.Text = "Sobreinventario: " +  Global.Perc(sobreinv, suma);
-                    label2.Text = "Criticos: " + Global.Perc(subinv, suma);
-                    label3.Text = "Optimos: " + Global.Perc(normal, suma);
-                    label4.Text = "Pedir: " + Global.Perc(pedir, suma);
-                    label5.Text = "Sin Reorden Autom: " + Global.Perc(sinreord, suma);
+                    lblSobreinventario.Text = "Sobreinventario: " + Global.Perc(sobreinv, suma);
+                    lblCriticos.Text = "Criticos: " + Global.Perc(subinv, suma);
+                    lblOptimos.Text = "Optimos: " + Global.Perc(normal, suma);
+                    lblPedir.Text = "Pedir: " + Global.Perc(pedir, suma);
+                    lblSinReorden.Text = "Sin Reorden Autom: " + Global.Perc(sinreord, suma);
                 }
                 else
                 {
-                    label1.Text = "Sobreinventario: ";
-                    label2.Text = "Criticos: ";
-                    label3.Text = "Optimos: ";
-                    label4.Text = "Pedir: ";
-                    label5.Text = "Sin Reorden Autom: ";
+                    lblSobreinventario.Text = "Sobreinventario: ";
+                    lblCriticos.Text = "Criticos: ";
+                    lblOptimos.Text = "Optimos: ";
+                    lblPedir.Text = "Pedir: ";
+                    lblSinReorden.Text = "Sin Reorden Autom: ";
                 }
             }
             finally
@@ -219,180 +320,6 @@ namespace Vales
                 dgv_arts.ResumeLayout();
             }
         }
-
-        private void OLDLlenar_DGV(string almacen, string grupo)
-        {
-            dgv_arts.SuspendLayout();
-
-            try
-            {
-                dgv_arts.Rows.Clear();
-                int sobreinv = 0;
-                int subinv = 0;
-                int normal = 0;
-                int pedir = 0;
-                int sinreord = 0;
-                int suma = 0;
-
-
-                if (!string.IsNullOrEmpty(almacen)) //todo este pedo esta mal no ocupas pasar parametro y checar
-                {
-                    almacen = cbo_almacenes.SelectedValue.ToString();
-
-
-                    if (string.IsNullOrEmpty(grupo))
-                    {
-
-                        grupo = "";
-                    }
-                    else
-                    {
-                        grupo = $" and d.valor_clasif_id = {grupo} ";
-                    }
-
-
-
-                    string almacenes = "select A.ARTICULO_ID, e.clave_articulo, a.nombre, a.unidad_compra, " +
-
-                        $"(SELECT EXISTENCIA FROM GET_EXIS_ART_SUCURSAL({almacen}, A.ARTICULO_ID, 0)) AS EXIS_MAT, " +
-                            "G.INVENTARIO_MAXIMO AS MAX_MAT, G.PUNTO_REORDEN AS REORD_MAT, G.INVENTARIO_MINIMO AS MIN_MAT, " +
-
-                        "r.valor, f.reorden_automatico, w.clasificador_id " +
-
-                        "from elementos_cat_clasif d " +
-                        "left join articulos a on d.elemento_id = a.articulo_id " +
-                        "left join claves_articulos e on a.articulo_id = e.articulo_id and e.rol_clave_art_id = 17 " +
-                        "left join libres_articulos f on a.articulo_id = f.articulo_id " +
-
-
-                        "left join clasificadores_cat_valores r on d.valor_clasif_id = r.valor_clasif_id " +
-                        $"LEFT JOIN NIVELES_ARTICULOS G ON A.ARTICULO_ID = G.ARTICULO_ID AND G.almacen_id = {almacen} " +
-                        "left join clasificadores_cat w on r.clasificador_id = w.clasificador_id " +
-                        $"where w.clasificador_id = {cbo_clasificaciones.SelectedValue} {grupo}";
-
-
-                    FbDataAdapter ada = new FbDataAdapter(almacenes, AppSession.PeripheralConnectionString);
-                    DataTable dtt = new DataTable();
-                    ada.Fill(dtt);
-
-                    if (dtt.Rows.Count > 0)
-                    {
-                        foreach (DataRow fila in dtt.Rows)
-                        {
-                            dgv_arts.Rows.Add(fila["ARTICULO_ID"], fila["clave_articulo"], fila["nombre"], fila["unidad_compra"],
-                                fila["valor"], string.IsNullOrEmpty(fila["EXIS_MAT"].ToString()) ? 0 : fila["EXIS_MAT"],
-                                string.IsNullOrEmpty(fila["MIN_MAT"].ToString()) ? 0 : fila["MIN_MAT"],
-                                string.IsNullOrEmpty(fila["REORD_MAT"].ToString()) ? 0 : fila["REORD_MAT"],
-                                string.IsNullOrEmpty(fila["MAX_MAT"].ToString()) ? 0 : fila["MAX_MAT"],
-                                "accion", fila["reorden_automatico"]);
-                        }
-
-                        foreach (DataGridViewRow dr in dgv_arts.Rows)
-                        {
-                            if (dr.Cells[10].Value != null && dr.Cells[10].Value.ToString() == "N")
-                            {
-                                dr.DefaultCellStyle.BackColor = Color.LightCyan;
-                                dr.Cells[9].Value = "No tiene R.A.";
-                                sinreord++;
-                            }
-                            else
-                            {
-                                if (Convert.ToDouble(dr.Cells[5].Value) > Convert.ToDouble(dr.Cells[8].Value))
-                                {
-                                    dr.DefaultCellStyle.BackColor = Color.Pink;
-                                    dr.Cells[9].Value = "SOBREINVENTARIO";
-                                    sobreinv++;
-                                }
-                                else
-                                {
-                                    if (Convert.ToDouble(dr.Cells[5].Value) <= Convert.ToDouble(dr.Cells[6].Value))
-
-
-                                    {
-                                        dr.DefaultCellStyle.BackColor = Color.LightCoral;
-                                        dr.Cells[9].Value = "CRITICO";
-                                        subinv++;
-                                    }
-                                    else
-                                    {
-                                        if (Convert.ToDouble(dr.Cells[5].Value) <= Convert.ToDouble(dr.Cells[8].Value) &&
-                                            Convert.ToDouble(dr.Cells[5].Value) > Convert.ToDouble(dr.Cells[7].Value))
-                                        {
-                                            dr.DefaultCellStyle.BackColor = Color.LightGreen;
-                                            dr.Cells[9].Value = "OPTIMO";
-                                            normal++;
-                                        }
-                                        else
-                                        {
-                                            if (Convert.ToDouble(dr.Cells[5].Value) <= Convert.ToDouble(dr.Cells[7].Value) &&
-                                                Convert.ToDouble(dr.Cells[5].Value) > Convert.ToDouble(dr.Cells[6].Value))
-                                            {
-                                                dr.DefaultCellStyle.BackColor = Color.Yellow;
-                                                dr.Cells[9].Value = "PEDIR";
-                                                pedir++;
-                                            }
-                                        }
-
-                                    }
-
-                                }
-
-
-
-                            }
-
-
-                        }
-
-
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("no hay arts");
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("debe haber almacen seleccionado");
-                }
-
-
-                tbx_sobreinv.Text = sobreinv.ToString();
-                tbx_subinv.Text = subinv.ToString();
-                tbx_normal.Text = normal.ToString();
-                tbx_pedir.Text = pedir.ToString();
-                tbx_sinreord.Text = sinreord.ToString();
-
-                suma = sobreinv + subinv + normal + pedir + sinreord;
-
-                if (suma != 0)
-                {
-                    label1.Text = "Sobreinventario: " + (sobreinv * 100.0 / suma).ToString("F0") + "%";
-                    label2.Text = "Criticos: " + (subinv * 100.0 / suma).ToString("F0") + "%";
-                    label3.Text = "Optimos: " + (normal * 100.0 / suma).ToString("F0") + "%";
-                    label4.Text = "Pedir: " + (pedir * 100.0 / suma).ToString("F0") + "%";
-                    label5.Text = "Sin Reorden Autom: " + (sinreord * 100.0 / suma).ToString("F0") + "%";
-                }
-                else
-                {
-                    label1.Text = "Sobreinventario: ";
-                    label2.Text = "Criticos: ";
-                    label3.Text = "Optimos: ";
-                    label4.Text = "Pedir: ";
-                    label5.Text = "Sin Reorden Autom: ";
-                }
-            }
-            finally
-            {
-                dgv_arts.ResumeLayout();
-            }
-        }
-        #endregion
-
-        #region LLENA GRID CON REFACTORIZACION
-
         #endregion
 
         private async void FormNiveles_Load(object sender, EventArgs e)
@@ -423,6 +350,11 @@ namespace Vales
                 cbo_almacenes.DisplayMember = "nombre";
                 cbo_almacenes.ValueMember = "almacen_id";
                 cbo_almacenes.SelectedIndex = 0;
+
+                cboAlmacen.DataSource = dt2.Copy();
+                cboAlmacen.DisplayMember = "nombre";
+                cboAlmacen.ValueMember = "almacen_id";
+                cboAlmacen.SelectedIndex = 0;
 
                 i++;
             }
@@ -743,25 +675,92 @@ namespace Vales
             dgv_exis.ClearSelection();
         }
 
+        /// <summary>
+        /// Combobox para cargar valores por el grupo seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             LIMPIA();
 
-            if (i > 0)
-            {
-                string grupos = $"select a.valor_clasif_id, a.valor from clasificadores_cat_valores a where a.clasificador_id = {cbo_clasificaciones.SelectedValue}";
-                FbDataAdapter adapter = new FbDataAdapter(grupos, ClaseConn.cadena);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
+            if (i == 0)
+                return;
 
-                cbo_grupos.DataSource = dt;
-                cbo_grupos.DisplayMember = "valor";
-                cbo_grupos.ValueMember = "valor_clasif_id";
-                cbo_grupos.SelectedIndex = 0;
+            if (cbo_clasificaciones.SelectedValue == null)
+                return;
+
+            int clasifId = Convert.ToInt32(cbo_clasificaciones.SelectedValue);
+
+            string sql =
+               $"SELECT valor_clasif_id, valor " +
+                "FROM clasificadores_cat_valores " +
+               $"WHERE clasificador_id = {clasifId}";
+
+            //DataTable dt = new DataTable();
+            DTValores = new DataTable();
+            FbDataAdapter da = new FbDataAdapter(sql, AppSession.PeripheralConnectionString);
+            da.Fill(DTValores);
+
+            cbo_grupos.DataSource = DTValores;
+            cbo_grupos.DisplayMember = "valor";
+            cbo_grupos.ValueMember = "valor_clasif_id";
+            cbo_grupos.SelectedIndex = 0;
+        }
+
+        private void CargarValoresPorGrupoCompras()
+        {
+            groupBoxValores.Text = $"Valores de {cbo_clasificaciones.Text}";
+            
+            // ---- Necesitamos el almacén seleccionado ----
+            if (cboAlmacen.SelectedValue == null)
+                return;
+
+            int almacenId = Convert.ToInt32(cboAlmacen.SelectedValue);
+
+            // ---- Ahora recorrer los valores, calcular totales y agregar al grid ----
+            foreach (DataRow fila in DTValores.Rows)
+            {
+                int valorId = Convert.ToInt32(fila["valor_clasif_id"]);
+                string valorTexto = fila["valor"].ToString();
+
+                var tot = CalcularTotalesPorValor(almacenId, valorId);
+
+                int suma = tot.sobreinv + tot.subinv + tot.normal + tot.pedir + tot.sinreord;
+
+                string pSobre = (suma == 0 ? "0%" : Global.Perc(tot.sobreinv, suma));
+                string pSub = (suma == 0 ? "0%" : Global.Perc(tot.subinv, suma));
+                string pNorm = (suma == 0 ? "0%" : Global.Perc(tot.normal, suma));
+                string pPed = (suma == 0 ? "0%" : Global.Perc(tot.pedir, suma));
+                string pSin = (suma == 0 ? "0%" : Global.Perc(tot.sinreord, suma));
+
+                dataGridViewValores.Rows.Add(
+                    valorId,
+                    valorTexto,
+                    pSobre,
+                    pNorm,
+                    pPed,
+                    pSub,                    
+                    pSin
+                //tot.sobreinv,  // num
+                //tot.subinv,    // num
+                //tot.normal,    // num
+                //tot.pedir,     // num
+                //tot.sinreord   // num
+                );
+
+                // Guardar estos porcentajes para actualizar encabezados después
+                dataGridViewValores.Tag = new
+                {
+                    pSobre,
+                    pSub,
+                    pNorm,
+                    pPed,
+                    pSin
+                };
             }
 
-            
-
+            //ActualizarHeadersValores();
         }
 
         private void dgv_arts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -810,27 +809,66 @@ namespace Vales
 
         private void btnShowPanelValues_Click(object sender, EventArgs e)
         {
+            // ---- LIMPIAR GRID ----
+            dataGridViewValores.Rows.Clear();
+
             if (!panelExpandido)
             {
-                // EXPANDIR → mitad y mitad
+                groupBoxValores.Visible = true;
+                groupBoxFiltroAlmacen.Visible = true;
+                // EXPANDIR → mitad y mitad según la resolución
                 int totalAncho = splitContainer1.Width;
-                splitContainer1.SplitterDistance = totalAncho / 2;
+                int nuevoSplitterDistance = totalAncho / 2;
+                
+                // Asegurar que Panel1 tenga al menos el mínimo
+                if (nuevoSplitterDistance < splitContainer1.Panel1MinSize)
+                {
+                    nuevoSplitterDistance = splitContainer1.Panel1MinSize;
+                }
+                
+                splitContainer1.SplitterDistance = nuevoSplitterDistance;
                 panelExpandido = true;
-                btnShowPanelValues.Text = "Ocultar valores";
+                btnShowPanelValues.Text = "Ocultar Panel";
+
+                CargarValoresPorGrupoCompras();
             }
             else
             {
+                groupBoxValores.Visible = false;
+                groupBoxFiltroAlmacen.Visible = false;
+
                 // COLAPSAR → Panel2 tamaño mínimo
                 int totalAncho = splitContainer1.Width;
                 splitContainer1.SplitterDistance = totalAncho - anchoMinimoPanel2;
                 panelExpandido = false;
-                btnShowPanelValues.Text = "Ver valores";
+                btnShowPanelValues.Text = "Ver Panel Valores";
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
           
+        }
+
+        private async void btnCargarValores_Click(object sender, EventArgs e)
+        {
+            await RunUIWorkWithOverlayAsync(
+               () => CargarValoresPorGrupoCompras(),
+                title: "Cargando datos...",
+                subtitle: "Cargando valores...",
+                false
+            );
+        }
+
+        private async void cboAlmacen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await RunUIWorkWithOverlayAsync(
+               () => CargarValoresPorGrupoCompras(),
+                title: "Cargando datos...",
+                subtitle: "Cargando valores...",
+                false
+            );
+
         }
     }
 }

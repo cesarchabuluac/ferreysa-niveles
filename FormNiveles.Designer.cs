@@ -60,17 +60,17 @@
             this.reeeord = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblSobreinventario = new System.Windows.Forms.Label();
             this.btn_ocultar_sobreinv = new System.Windows.Forms.Button();
             this.tb_ocultar_subinv = new System.Windows.Forms.Button();
             this.btn_ocultar_normal = new System.Windows.Forms.Button();
             this.btn_ocultar_pedir = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblCriticos = new System.Windows.Forms.Label();
+            this.lblOptimos = new System.Windows.Forms.Label();
+            this.lblPedir = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_ocultar_sin_reord = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblSinReorden = new System.Windows.Forms.Label();
             this.tbx_sinreord = new System.Windows.Forms.TextBox();
             this.btn_copiar_portapapeles = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -82,8 +82,20 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBoxValores = new System.Windows.Forms.GroupBox();
+            this.dataGridViewValores = new System.Windows.Forms.DataGridView();
+            this.ColumnValorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSobreinventarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnOptimos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPedir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCriticos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSinReorden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnShowPanelValues = new System.Windows.Forms.Button();
+            this.cboAlmacen = new System.Windows.Forms.ComboBox();
+            this.btnCargarValores = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.groupBoxFiltroAlmacen = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_arts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_exis)).BeginInit();
             this.panel1.SuspendLayout();
@@ -94,6 +106,9 @@
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBoxValores.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewValores)).BeginInit();
+            this.groupBoxFiltroAlmacen.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbo_grupos
@@ -101,7 +116,7 @@
             this.cbo_grupos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_grupos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_grupos.FormattingEnabled = true;
-            this.cbo_grupos.Location = new System.Drawing.Point(515, 5);
+            this.cbo_grupos.Location = new System.Drawing.Point(242, 36);
             this.cbo_grupos.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_grupos.Name = "cbo_grupos";
             this.cbo_grupos.Size = new System.Drawing.Size(304, 33);
@@ -126,7 +141,7 @@
             this.reordauto,
             this.rot});
             this.dgv_arts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_arts.Location = new System.Drawing.Point(4, 124);
+            this.dgv_arts.Location = new System.Drawing.Point(4, 142);
             this.dgv_arts.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_arts.MultiSelect = false;
             this.dgv_arts.Name = "dgv_arts";
@@ -134,7 +149,7 @@
             this.dgv_arts.RowHeadersVisible = false;
             this.dgv_arts.RowHeadersWidth = 51;
             this.dgv_arts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_arts.Size = new System.Drawing.Size(1240, 374);
+            this.dgv_arts.Size = new System.Drawing.Size(971, 356);
             this.dgv_arts.TabIndex = 1;
             this.dgv_arts.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_arts_CellContentDoubleClick);
             this.dgv_arts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_arts_CellDoubleClick);
@@ -247,22 +262,22 @@
             // btn_general
             // 
             this.btn_general.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_general.Location = new System.Drawing.Point(8, 50);
+            this.btn_general.Location = new System.Drawing.Point(4, 77);
             this.btn_general.Margin = new System.Windows.Forms.Padding(4);
             this.btn_general.Name = "btn_general";
-            this.btn_general.Size = new System.Drawing.Size(570, 46);
+            this.btn_general.Size = new System.Drawing.Size(542, 46);
             this.btn_general.TabIndex = 3;
-            this.btn_general.Text = "Ver Todo lo Clasificado en la Clasificacion Seleccionada";
+            this.btn_general.Text = "Mostrar todo en la Clasificacion Seleccionada";
             this.btn_general.UseVisualStyleBackColor = true;
             this.btn_general.Click += new System.EventHandler(this.btn_general_Click);
             // 
             // btnVistaValor
             // 
             this.btnVistaValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVistaValor.Location = new System.Drawing.Point(611, 50);
+            this.btnVistaValor.Location = new System.Drawing.Point(554, 76);
             this.btnVistaValor.Margin = new System.Windows.Forms.Padding(4);
             this.btnVistaValor.Name = "btnVistaValor";
-            this.btnVistaValor.Size = new System.Drawing.Size(305, 46);
+            this.btnVistaValor.Size = new System.Drawing.Size(304, 46);
             this.btnVistaValor.TabIndex = 4;
             this.btnVistaValor.Text = "Ver Lista Por Valor";
             this.btnVistaValor.UseVisualStyleBackColor = true;
@@ -273,7 +288,7 @@
             this.cbo_almacenes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_almacenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_almacenes.FormattingEnabled = true;
-            this.cbo_almacenes.Location = new System.Drawing.Point(981, 7);
+            this.cbo_almacenes.Location = new System.Drawing.Point(554, 36);
             this.cbo_almacenes.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_almacenes.Name = "cbo_almacenes";
             this.cbo_almacenes.Size = new System.Drawing.Size(304, 33);
@@ -333,7 +348,7 @@
             this.dgv_exis.RowHeadersVisible = false;
             this.dgv_exis.RowHeadersWidth = 51;
             this.dgv_exis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgv_exis.Size = new System.Drawing.Size(562, 180);
+            this.dgv_exis.Size = new System.Drawing.Size(463, 180);
             this.dgv_exis.TabIndex = 10;
             this.dgv_exis.SelectionChanged += new System.EventHandler(this.dgv_exis_SelectionChanged);
             // 
@@ -408,16 +423,16 @@
             this.reee.ReadOnly = true;
             this.reee.Width = 96;
             // 
-            // label1
+            // lblSobreinventario
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Pink;
-            this.label1.Location = new System.Drawing.Point(18, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 16);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Sobreinventario:";
+            this.lblSobreinventario.AutoSize = true;
+            this.lblSobreinventario.BackColor = System.Drawing.Color.Pink;
+            this.lblSobreinventario.Location = new System.Drawing.Point(18, 6);
+            this.lblSobreinventario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSobreinventario.Name = "lblSobreinventario";
+            this.lblSobreinventario.Size = new System.Drawing.Size(102, 16);
+            this.lblSobreinventario.TabIndex = 11;
+            this.lblSobreinventario.Text = "Sobreinventario:";
             // 
             // btn_ocultar_sobreinv
             // 
@@ -463,38 +478,38 @@
             this.btn_ocultar_pedir.UseVisualStyleBackColor = true;
             this.btn_ocultar_pedir.Click += new System.EventHandler(this.btn_ocultar_pedir_Click);
             // 
-            // label2
+            // lblCriticos
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.LightCoral;
-            this.label2.Location = new System.Drawing.Point(396, 6);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 16);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Criticos";
+            this.lblCriticos.AutoSize = true;
+            this.lblCriticos.BackColor = System.Drawing.Color.LightCoral;
+            this.lblCriticos.Location = new System.Drawing.Point(396, 6);
+            this.lblCriticos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCriticos.Name = "lblCriticos";
+            this.lblCriticos.Size = new System.Drawing.Size(49, 16);
+            this.lblCriticos.TabIndex = 16;
+            this.lblCriticos.Text = "Criticos";
             // 
-            // label3
+            // lblOptimos
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.LightGreen;
-            this.label3.Location = new System.Drawing.Point(148, 6);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 16);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Optimos";
+            this.lblOptimos.AutoSize = true;
+            this.lblOptimos.BackColor = System.Drawing.Color.LightGreen;
+            this.lblOptimos.Location = new System.Drawing.Point(148, 6);
+            this.lblOptimos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOptimos.Name = "lblOptimos";
+            this.lblOptimos.Size = new System.Drawing.Size(54, 16);
+            this.lblOptimos.TabIndex = 17;
+            this.lblOptimos.Text = "Optimos";
             // 
-            // label4
+            // lblPedir
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Yellow;
-            this.label4.Location = new System.Drawing.Point(269, 6);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 16);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Pedir";
+            this.lblPedir.AutoSize = true;
+            this.lblPedir.BackColor = System.Drawing.Color.Yellow;
+            this.lblPedir.Location = new System.Drawing.Point(269, 6);
+            this.lblPedir.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPedir.Name = "lblPedir";
+            this.lblPedir.Size = new System.Drawing.Size(36, 16);
+            this.lblPedir.TabIndex = 18;
+            this.lblPedir.Text = "Pedir";
             // 
             // panel1
             // 
@@ -502,13 +517,13 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btn_ocultar_sin_reord);
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblSinReorden);
             this.panel1.Controls.Add(this.tbx_sinreord);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lblPedir);
+            this.panel1.Controls.Add(this.lblSobreinventario);
+            this.panel1.Controls.Add(this.lblOptimos);
             this.panel1.Controls.Add(this.tbx_sobreinv);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblCriticos);
             this.panel1.Controls.Add(this.tbx_subinv);
             this.panel1.Controls.Add(this.btn_ocultar_pedir);
             this.panel1.Controls.Add(this.tbx_normal);
@@ -516,15 +531,15 @@
             this.panel1.Controls.Add(this.tbx_pedir);
             this.panel1.Controls.Add(this.tb_ocultar_subinv);
             this.panel1.Controls.Add(this.btn_ocultar_sobreinv);
-            this.panel1.Location = new System.Drawing.Point(574, 4);
+            this.panel1.Location = new System.Drawing.Point(323, 38);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(664, 103);
+            this.panel1.Size = new System.Drawing.Size(646, 103);
             this.panel1.TabIndex = 19;
             // 
             // btn_ocultar_sin_reord
             // 
-            this.btn_ocultar_sin_reord.Location = new System.Drawing.Point(522, 62);
+            this.btn_ocultar_sin_reord.Location = new System.Drawing.Point(522, 64);
             this.btn_ocultar_sin_reord.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ocultar_sin_reord.Name = "btn_ocultar_sin_reord";
             this.btn_ocultar_sin_reord.Size = new System.Drawing.Size(104, 31);
@@ -533,16 +548,16 @@
             this.btn_ocultar_sin_reord.UseVisualStyleBackColor = true;
             this.btn_ocultar_sin_reord.Click += new System.EventHandler(this.btn_ocultar_sin_reord_Click);
             // 
-            // label5
+            // lblSinReorden
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.LightCyan;
-            this.label5.Location = new System.Drawing.Point(519, 8);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 16);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Sin Reorden Autom:";
+            this.lblSinReorden.AutoSize = true;
+            this.lblSinReorden.BackColor = System.Drawing.Color.LightCyan;
+            this.lblSinReorden.Location = new System.Drawing.Point(519, 8);
+            this.lblSinReorden.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSinReorden.Name = "lblSinReorden";
+            this.lblSinReorden.Size = new System.Drawing.Size(123, 16);
+            this.lblSinReorden.TabIndex = 22;
+            this.lblSinReorden.Text = "Sin Reorden Autom:";
             // 
             // tbx_sinreord
             // 
@@ -555,10 +570,10 @@
             // btn_copiar_portapapeles
             // 
             this.btn_copiar_portapapeles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_copiar_portapapeles.Location = new System.Drawing.Point(945, 50);
+            this.btn_copiar_portapapeles.Location = new System.Drawing.Point(866, 36);
             this.btn_copiar_portapapeles.Margin = new System.Windows.Forms.Padding(4);
             this.btn_copiar_portapapeles.Name = "btn_copiar_portapapeles";
-            this.btn_copiar_portapapeles.Size = new System.Drawing.Size(340, 46);
+            this.btn_copiar_portapapeles.Size = new System.Drawing.Size(180, 87);
             this.btn_copiar_portapapeles.TabIndex = 20;
             this.btn_copiar_portapapeles.Text = "Copiar a Portapapeles";
             this.btn_copiar_portapapeles.UseVisualStyleBackColor = true;
@@ -568,7 +583,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(448, 12);
+            this.label6.Location = new System.Drawing.Point(238, 12);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 20);
@@ -578,11 +593,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(864, 10);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(550, 10);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 25);
+            this.label7.Size = new System.Drawing.Size(93, 20);
             this.label7.TabIndex = 22;
             this.label7.Text = "Almacen: ";
             // 
@@ -603,7 +618,7 @@
             this.panel2.Location = new System.Drawing.Point(4, 4);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1240, 112);
+            this.panel2.Size = new System.Drawing.Size(971, 130);
             this.panel2.TabIndex = 23;
             // 
             // label8
@@ -622,26 +637,30 @@
             this.cbo_clasificaciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_clasificaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_clasificaciones.FormattingEnabled = true;
-            this.cbo_clasificaciones.Location = new System.Drawing.Point(136, 5);
+            this.cbo_clasificaciones.Location = new System.Drawing.Point(8, 36);
             this.cbo_clasificaciones.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_clasificaciones.Name = "cbo_clasificaciones";
-            this.cbo_clasificaciones.Size = new System.Drawing.Size(304, 33);
+            this.cbo_clasificaciones.Size = new System.Drawing.Size(222, 33);
             this.cbo_clasificaciones.TabIndex = 23;
             this.cbo_clasificaciones.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // tbx_art
             // 
+            this.tbx_art.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbx_art.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbx_art.Location = new System.Drawing.Point(4, 0);
             this.tbx_art.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_art.Name = "tbx_art";
             this.tbx_art.ReadOnly = true;
-            this.tbx_art.Size = new System.Drawing.Size(562, 30);
+            this.tbx_art.Size = new System.Drawing.Size(965, 30);
             this.tbx_art.TabIndex = 24;
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -651,26 +670,31 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.groupBoxFiltroAlmacen);
+            this.splitContainer1.Panel2.Controls.Add(this.groupBoxValores);
             this.splitContainer1.Panel2.Controls.Add(this.btnShowPanelValues);
-            this.splitContainer1.Size = new System.Drawing.Size(1456, 765);
-            this.splitContainer1.SplitterDistance = 1248;
+            this.splitContainer1.Size = new System.Drawing.Size(1754, 742);
+            this.splitContainer1.SplitterDistance = 979;
             this.splitContainer1.TabIndex = 25;
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dgv_arts, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 382F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 138F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 364F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1248, 765);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(979, 742);
             this.tableLayoutPanel1.TabIndex = 25;
             // 
             // panel3
@@ -681,30 +705,165 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 505);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1242, 257);
+            this.panel3.Size = new System.Drawing.Size(973, 234);
             this.panel3.TabIndex = 24;
+            // 
+            // groupBoxValores
+            // 
+            this.groupBoxValores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxValores.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxValores.Controls.Add(this.dataGridViewValores);
+            this.groupBoxValores.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.groupBoxValores.Location = new System.Drawing.Point(8, 156);
+            this.groupBoxValores.Name = "groupBoxValores";
+            this.groupBoxValores.Size = new System.Drawing.Size(752, 574);
+            this.groupBoxValores.TabIndex = 26;
+            this.groupBoxValores.TabStop = false;
+            this.groupBoxValores.Text = "groupBox1";
+            // 
+            // dataGridViewValores
+            // 
+            this.dataGridViewValores.AllowUserToAddRows = false;
+            this.dataGridViewValores.AllowUserToDeleteRows = false;
+            this.dataGridViewValores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewValores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewValores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewValores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnValorId,
+            this.ColumnValor,
+            this.ColumnSobreinventarios,
+            this.ColumnOptimos,
+            this.ColumnPedir,
+            this.ColumnCriticos,
+            this.ColumnSinReorden});
+            this.dataGridViewValores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewValores.Location = new System.Drawing.Point(3, 28);
+            this.dataGridViewValores.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewValores.Name = "dataGridViewValores";
+            this.dataGridViewValores.ReadOnly = true;
+            this.dataGridViewValores.RowHeadersVisible = false;
+            this.dataGridViewValores.RowHeadersWidth = 51;
+            this.dataGridViewValores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewValores.Size = new System.Drawing.Size(746, 543);
+            this.dataGridViewValores.TabIndex = 25;
+            // 
+            // ColumnValorId
+            // 
+            this.ColumnValorId.HeaderText = "VALOR ID";
+            this.ColumnValorId.MinimumWidth = 6;
+            this.ColumnValorId.Name = "ColumnValorId";
+            this.ColumnValorId.ReadOnly = true;
+            this.ColumnValorId.Visible = false;
+            this.ColumnValorId.Width = 67;
+            // 
+            // ColumnValor
+            // 
+            this.ColumnValor.HeaderText = "VALOR";
+            this.ColumnValor.MinimumWidth = 6;
+            this.ColumnValor.Name = "ColumnValor";
+            this.ColumnValor.ReadOnly = true;
+            this.ColumnValor.Width = 99;
+            // 
+            // ColumnSobreinventarios
+            // 
+            this.ColumnSobreinventarios.HeaderText = "Sobreinventarios";
+            this.ColumnSobreinventarios.MinimumWidth = 6;
+            this.ColumnSobreinventarios.Name = "ColumnSobreinventarios";
+            this.ColumnSobreinventarios.ReadOnly = true;
+            this.ColumnSobreinventarios.Width = 188;
+            // 
+            // ColumnOptimos
+            // 
+            this.ColumnOptimos.HeaderText = "Optimos";
+            this.ColumnOptimos.MinimumWidth = 6;
+            this.ColumnOptimos.Name = "ColumnOptimos";
+            this.ColumnOptimos.ReadOnly = true;
+            this.ColumnOptimos.Width = 113;
+            // 
+            // ColumnPedir
+            // 
+            this.ColumnPedir.HeaderText = "Pedir";
+            this.ColumnPedir.MinimumWidth = 6;
+            this.ColumnPedir.Name = "ColumnPedir";
+            this.ColumnPedir.ReadOnly = true;
+            this.ColumnPedir.Width = 84;
+            // 
+            // ColumnCriticos
+            // 
+            this.ColumnCriticos.HeaderText = "Críticos";
+            this.ColumnCriticos.MinimumWidth = 6;
+            this.ColumnCriticos.Name = "ColumnCriticos";
+            this.ColumnCriticos.ReadOnly = true;
+            this.ColumnCriticos.Width = 104;
+            // 
+            // ColumnSinReorden
+            // 
+            this.ColumnSinReorden.HeaderText = "Sin Reorden Autom.";
+            this.ColumnSinReorden.MinimumWidth = 6;
+            this.ColumnSinReorden.Name = "ColumnSinReorden";
+            this.ColumnSinReorden.ReadOnly = true;
+            this.ColumnSinReorden.Width = 197;
             // 
             // btnShowPanelValues
             // 
+            this.btnShowPanelValues.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnShowPanelValues.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnShowPanelValues.Location = new System.Drawing.Point(17, 18);
+            this.btnShowPanelValues.Location = new System.Drawing.Point(0, 0);
             this.btnShowPanelValues.Name = "btnShowPanelValues";
-            this.btnShowPanelValues.Size = new System.Drawing.Size(175, 63);
+            this.btnShowPanelValues.Size = new System.Drawing.Size(771, 48);
             this.btnShowPanelValues.TabIndex = 0;
             this.btnShowPanelValues.Text = "Ver Panel Valores";
             this.btnShowPanelValues.UseVisualStyleBackColor = true;
             this.btnShowPanelValues.Click += new System.EventHandler(this.btnShowPanelValues_Click);
             // 
+            // cboAlmacen
+            // 
+            this.cboAlmacen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboAlmacen.FormattingEnabled = true;
+            this.cboAlmacen.Location = new System.Drawing.Point(7, 32);
+            this.cboAlmacen.Margin = new System.Windows.Forms.Padding(4);
+            this.cboAlmacen.Name = "cboAlmacen";
+            this.cboAlmacen.Size = new System.Drawing.Size(304, 33);
+            this.cboAlmacen.TabIndex = 5;
+            this.cboAlmacen.SelectedIndexChanged += new System.EventHandler(this.cboAlmacen_SelectedIndexChanged);
+            // 
+            // btnCargarValores
+            // 
+            this.btnCargarValores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarValores.Location = new System.Drawing.Point(319, 25);
+            this.btnCargarValores.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCargarValores.Name = "btnCargarValores";
+            this.btnCargarValores.Size = new System.Drawing.Size(183, 46);
+            this.btnCargarValores.TabIndex = 4;
+            this.btnCargarValores.Text = "Actualizar";
+            this.btnCargarValores.UseVisualStyleBackColor = true;
+            this.btnCargarValores.Click += new System.EventHandler(this.btnCargarValores_Click);
+            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // groupBoxFiltroAlmacen
+            // 
+            this.groupBoxFiltroAlmacen.Controls.Add(this.btnCargarValores);
+            this.groupBoxFiltroAlmacen.Controls.Add(this.cboAlmacen);
+            this.groupBoxFiltroAlmacen.Location = new System.Drawing.Point(8, 55);
+            this.groupBoxFiltroAlmacen.Name = "groupBoxFiltroAlmacen";
+            this.groupBoxFiltroAlmacen.Size = new System.Drawing.Size(752, 95);
+            this.groupBoxFiltroAlmacen.TabIndex = 27;
+            this.groupBoxFiltroAlmacen.TabStop = false;
+            this.groupBoxFiltroAlmacen.Text = "Filtro Por Almacén";
+            this.groupBoxFiltroAlmacen.Visible = false;
             // 
             // FormNiveles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(1456, 765);
+            this.ClientSize = new System.Drawing.Size(1755, 742);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -722,12 +881,16 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.groupBoxValores.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewValores)).EndInit();
+            this.groupBoxFiltroAlmacen.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -744,18 +907,18 @@
         private System.Windows.Forms.TextBox tbx_normal;
         private System.Windows.Forms.TextBox tbx_pedir;
         private System.Windows.Forms.DataGridView dgv_exis;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSobreinventario;
         private System.Windows.Forms.Button btn_ocultar_sobreinv;
         private System.Windows.Forms.Button tb_ocultar_subinv;
         private System.Windows.Forms.Button btn_ocultar_normal;
         private System.Windows.Forms.Button btn_ocultar_pedir;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblCriticos;
+        private System.Windows.Forms.Label lblOptimos;
+        private System.Windows.Forms.Label lblPedir;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_copiar_portapapeles;
         private System.Windows.Forms.Button btn_ocultar_sin_reord;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblSinReorden;
         private System.Windows.Forms.TextBox tbx_sinreord;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -788,5 +951,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rot;
         private System.Windows.Forms.Button btnShowPanelValues;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridView dataGridViewValores;
+        private System.Windows.Forms.GroupBox groupBoxValores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnValorId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSobreinventarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOptimos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPedir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCriticos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSinReorden;
+        private System.Windows.Forms.ComboBox cboAlmacen;
+        private System.Windows.Forms.Button btnCargarValores;
+        private System.Windows.Forms.GroupBox groupBoxFiltroAlmacen;
     }
 }
