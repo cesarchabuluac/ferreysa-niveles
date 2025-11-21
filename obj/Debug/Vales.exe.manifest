@@ -1423,14 +1423,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Vales.exe" size="872872">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Vales.exe" size="871848">
       <assemblyIdentity name="Vales" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BU4BXZfN+FtdpzzHiMGNAQb8cc4lYlzCFj6B4NbNq2U=</dsig:DigestValue>
+        <dsig:DigestValue>O480Km/BwcnyLxEOQUcahEldvGFbXupF73aqyFfEE4c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

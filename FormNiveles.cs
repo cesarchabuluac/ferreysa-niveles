@@ -20,7 +20,7 @@ namespace Vales
         private readonly RepositoryBase _repository = new RepositoryBase();
 
         private bool panelExpandido = false;
-        private int anchoMinimoPanel2 = 50; // el mínimo para mostrar el botón
+        private int anchoMinimoPanel2 = 100; // el mínimo para mostrar el botón
         private DataTable DTValores = new DataTable();
 
         int i = 0;
@@ -826,7 +826,7 @@ namespace Vales
             }
         }
 
-        private async void TogglePanelValues()
+        private void TogglePanelValues()
         {
             // ---- LIMPIAR GRID ----
             dataGridViewValores.Rows.Clear();
@@ -835,11 +835,36 @@ namespace Vales
             {
                 groupBoxValores.Visible = true;
                 groupBoxFiltroAlmacen.Visible = true;
-                // EXPANDIR → mitad y mitad según la resolución
-                int totalAncho = splitContainer1.Width;
-                int nuevoSplitterDistance = totalAncho / 2;
 
-                // Asegurar que Panel1 tenga al menos el mínimo
+                // Activar scrollbar en Panel1 para evitar que se corten los controles
+                splitContainer1.Panel1.AutoScroll = true;
+
+                // 1. Cargar datos primero para que el grid calcule los anchos de columna
+                CargarValoresPorGrupoCompras();
+
+                // 2. Calcular el ancho requerido basado en las columnas visibles
+                int requiredWidth = 0;
+                foreach (DataGridViewColumn col in dataGridViewValores.Columns)
+                {
+                    if (col.Visible) requiredWidth += col.Width;
+                }
+
+                // 3. Agregar padding (scrollbar vertical + bordes + márgenes)
+                // Un scrollbar típico es ~17px, más márgenes del GroupBox y padding
+                requiredWidth += 50; 
+
+                // 4. Definir límites (Mínimo razonable y Máximo para no tapar todo)
+                int maxWidth = (int)(splitContainer1.Width * 0.6); // Máximo 60% de la pantalla
+                int minWidth = 300; // Mínimo 300px
+
+                if (requiredWidth > maxWidth) requiredWidth = maxWidth;
+                if (requiredWidth < minWidth) requiredWidth = minWidth;
+
+                // 5. Aplicar el nuevo SplitterDistance
+                // Nota: SplitterDistance es la distancia desde la izquierda (Panel1)
+                int nuevoSplitterDistance = splitContainer1.Width - requiredWidth;
+
+                // Asegurar que Panel1 tenga al menos su tamaño mínimo
                 if (nuevoSplitterDistance < splitContainer1.Panel1MinSize)
                 {
                     nuevoSplitterDistance = splitContainer1.Panel1MinSize;
@@ -848,13 +873,17 @@ namespace Vales
                 splitContainer1.SplitterDistance = nuevoSplitterDistance;
                 panelExpandido = true;
                 btnShowPanelValues.Text = "Ocultar Panel";
-
-                CargarValoresPorGrupoCompras();
             }
             else
             {
                 groupBoxValores.Visible = false;
                 groupBoxFiltroAlmacen.Visible = false;
+
+                // Desactivar scrollbar en Panel1 cuando se colapsa
+                splitContainer1.Panel1.AutoScroll = false;
+                
+                // Forzar el reset de la posición del scroll para que se oculte completamente
+                splitContainer1.Panel1.AutoScrollPosition = new System.Drawing.Point(0, 0);
 
                 // COLAPSAR → Panel2 tamaño mínimo
                 int totalAncho = splitContainer1.Width;

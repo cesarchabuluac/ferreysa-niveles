@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNiveles));
             this.cbo_grupos = new System.Windows.Forms.ComboBox();
             this.dgv_arts = new System.Windows.Forms.DataGridView();
@@ -151,7 +149,7 @@
             this.dgv_arts.RowHeadersVisible = false;
             this.dgv_arts.RowHeadersWidth = 51;
             this.dgv_arts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_arts.Size = new System.Drawing.Size(1298, 356);
+            this.dgv_arts.Size = new System.Drawing.Size(1215, 356);
             this.dgv_arts.TabIndex = 1;
             this.dgv_arts.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_arts_CellContentDoubleClick);
             this.dgv_arts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_arts_CellDoubleClick);
@@ -533,7 +531,7 @@
             this.panel1.Controls.Add(this.tbx_pedir);
             this.panel1.Controls.Add(this.tb_ocultar_subinv);
             this.panel1.Controls.Add(this.btn_ocultar_sobreinv);
-            this.panel1.Location = new System.Drawing.Point(650, 38);
+            this.panel1.Location = new System.Drawing.Point(567, 38);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(646, 103);
@@ -620,7 +618,7 @@
             this.panel2.Location = new System.Drawing.Point(4, 4);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1298, 130);
+            this.panel2.Size = new System.Drawing.Size(1215, 130);
             this.panel2.TabIndex = 23;
             // 
             // label8
@@ -655,7 +653,7 @@
             this.tbx_art.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_art.Name = "tbx_art";
             this.tbx_art.ReadOnly = true;
-            this.tbx_art.Size = new System.Drawing.Size(1292, 30);
+            this.tbx_art.Size = new System.Drawing.Size(1209, 30);
             this.tbx_art.TabIndex = 24;
             // 
             // splitContainer1
@@ -663,6 +661,7 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -676,15 +675,11 @@
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxValores);
             this.splitContainer1.Panel2.Controls.Add(this.btnShowPanelValues);
             this.splitContainer1.Size = new System.Drawing.Size(1754, 742);
-            this.splitContainer1.SplitterDistance = 1306;
+            this.splitContainer1.SplitterDistance = 1226;
             this.splitContainer1.TabIndex = 25;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
@@ -696,18 +691,20 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 138F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 364F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1306, 742);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1223, 742);
             this.tableLayoutPanel1.TabIndex = 25;
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.tbx_art);
             this.panel3.Controls.Add(this.dgv_exis);
             this.panel3.Controls.Add(this.panel1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 505);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1300, 234);
+            this.panel3.Size = new System.Drawing.Size(1217, 234);
             this.panel3.TabIndex = 24;
             // 
             // groupBoxFiltroAlmacen
@@ -757,7 +754,7 @@
             this.groupBoxValores.Font = new System.Drawing.Font("Tahoma", 12F);
             this.groupBoxValores.Location = new System.Drawing.Point(8, 156);
             this.groupBoxValores.Name = "groupBoxValores";
-            this.groupBoxValores.Size = new System.Drawing.Size(425, 574);
+            this.groupBoxValores.Size = new System.Drawing.Size(505, 574);
             this.groupBoxValores.TabIndex = 26;
             this.groupBoxValores.TabStop = false;
             this.groupBoxValores.Text = "groupBox1";
@@ -769,14 +766,6 @@
             this.dataGridViewValores.AllowUserToDeleteRows = false;
             this.dataGridViewValores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewValores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewValores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewValores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewValores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnValorId,
@@ -786,14 +775,6 @@
             this.ColumnPedir,
             this.ColumnCriticos,
             this.ColumnSinReorden});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewValores.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewValores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewValores.Location = new System.Drawing.Point(3, 28);
             this.dataGridViewValores.Margin = new System.Windows.Forms.Padding(4);
@@ -802,7 +783,7 @@
             this.dataGridViewValores.RowHeadersVisible = false;
             this.dataGridViewValores.RowHeadersWidth = 51;
             this.dataGridViewValores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewValores.Size = new System.Drawing.Size(419, 543);
+            this.dataGridViewValores.Size = new System.Drawing.Size(499, 543);
             this.dataGridViewValores.TabIndex = 25;
             // 
             // ColumnValorId
@@ -820,7 +801,7 @@
             this.ColumnValor.MinimumWidth = 6;
             this.ColumnValor.Name = "ColumnValor";
             this.ColumnValor.ReadOnly = true;
-            this.ColumnValor.Width = 82;
+            this.ColumnValor.Width = 99;
             // 
             // ColumnSobreinventarios
             // 
@@ -828,7 +809,7 @@
             this.ColumnSobreinventarios.MinimumWidth = 6;
             this.ColumnSobreinventarios.Name = "ColumnSobreinventarios";
             this.ColumnSobreinventarios.ReadOnly = true;
-            this.ColumnSobreinventarios.Width = 143;
+            this.ColumnSobreinventarios.Width = 188;
             // 
             // ColumnOptimos
             // 
@@ -836,7 +817,7 @@
             this.ColumnOptimos.MinimumWidth = 6;
             this.ColumnOptimos.Name = "ColumnOptimos";
             this.ColumnOptimos.ReadOnly = true;
-            this.ColumnOptimos.Width = 91;
+            this.ColumnOptimos.Width = 113;
             // 
             // ColumnPedir
             // 
@@ -844,7 +825,7 @@
             this.ColumnPedir.MinimumWidth = 6;
             this.ColumnPedir.Name = "ColumnPedir";
             this.ColumnPedir.ReadOnly = true;
-            this.ColumnPedir.Width = 68;
+            this.ColumnPedir.Width = 84;
             // 
             // ColumnCriticos
             // 
@@ -852,7 +833,7 @@
             this.ColumnCriticos.MinimumWidth = 6;
             this.ColumnCriticos.Name = "ColumnCriticos";
             this.ColumnCriticos.ReadOnly = true;
-            this.ColumnCriticos.Width = 82;
+            this.ColumnCriticos.Width = 104;
             // 
             // ColumnSinReorden
             // 
@@ -860,7 +841,7 @@
             this.ColumnSinReorden.MinimumWidth = 6;
             this.ColumnSinReorden.Name = "ColumnSinReorden";
             this.ColumnSinReorden.ReadOnly = true;
-            this.ColumnSinReorden.Width = 153;
+            this.ColumnSinReorden.Width = 197;
             // 
             // btnShowPanelValues
             // 
@@ -868,7 +849,7 @@
             this.btnShowPanelValues.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnShowPanelValues.Location = new System.Drawing.Point(0, 0);
             this.btnShowPanelValues.Name = "btnShowPanelValues";
-            this.btnShowPanelValues.Size = new System.Drawing.Size(444, 48);
+            this.btnShowPanelValues.Size = new System.Drawing.Size(524, 48);
             this.btnShowPanelValues.TabIndex = 0;
             this.btnShowPanelValues.Text = "Ver Panel Valores";
             this.btnShowPanelValues.UseVisualStyleBackColor = true;
@@ -901,7 +882,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
