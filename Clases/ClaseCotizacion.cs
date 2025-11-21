@@ -5,7 +5,7 @@ using System.Text;
 using FirebirdSql.Data.FirebirdClient;
 using System.Data;
 
-namespace Vales.Clases
+namespace Niveles.Clases
 {
     class ClaseCotizacion
     {

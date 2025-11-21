@@ -1,4 +1,4 @@
-﻿namespace Vales.UI.Controls
+﻿namespace Niveles.UI.Controls
 {
     partial class LoadingOverlay
     {

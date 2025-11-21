@@ -6,10 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Vales.Clases;
+using Niveles.Clases;
 using Microsoft.Reporting.WinForms;
 
-namespace Vales
+namespace Niveles
 {
     public partial class FormValeNuevoDF : Form
     {

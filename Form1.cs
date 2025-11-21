@@ -6,9 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Vales.Clases;
+using Niveles.Clases;
 
-namespace Vales
+namespace Niveles
 {
     public partial class Form1 : Form
     {

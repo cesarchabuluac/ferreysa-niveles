@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FirebirdSql.Data.FirebirdClient;
 using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
-using Vales.Helpers;
-using Vales.Infraestructura;
-using Vales.UI;
+using Niveles.Helpers;
+using Niveles.Infraestructura;
+using Niveles.UI;
 
-namespace Vales
+namespace Niveles
 {
     public partial class FormNiveles : FormBaseConSesion
     {

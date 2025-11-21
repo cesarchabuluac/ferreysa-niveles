@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Vales.UI;
+using Niveles.UI;
 
 
-namespace Vales
+namespace Niveles
 {
     static class Program
     {

@@ -6,8 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Vales.Clases;
-namespace Vales
+using Niveles.Clases;
+namespace Niveles
 {
     public partial class FormLogin : Form
     {

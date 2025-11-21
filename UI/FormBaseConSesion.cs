@@ -7,11 +7,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FirebirdSql.Data.FirebirdClient;
-using Vales.Domain;
-using Vales.Infraestructura;
-using Vales.UI.Controls;
+using Niveles.Domain;
+using Niveles.Infraestructura;
+using Niveles.UI.Controls;
 
-namespace Vales.UI
+namespace Niveles.UI
 {
     public partial class FormBaseConSesion : Form
     {

@@ -7,7 +7,7 @@ using FirebirdSql.Data.FirebirdClient;
 using System.Windows.Forms;
 
 
-namespace Vales.Clases
+namespace Niveles.Clases
 {
     class ClaseVale
     {

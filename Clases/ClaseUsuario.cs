@@ -6,7 +6,7 @@ using FirebirdSql.Data.FirebirdClient;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Vales.Clases
+namespace Niveles.Clases
 {
     class ClaseUsuario
     {

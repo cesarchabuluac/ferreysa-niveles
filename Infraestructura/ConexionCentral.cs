@@ -5,9 +5,9 @@ using System.Configuration;
 using System.Data.Common;
 using System.Threading.Tasks;
 using FirebirdSql.Data.FirebirdClient;
-using Vales.Domain;
+using Niveles.Domain;
 
-namespace Vales.Infraestructura
+namespace Niveles.Infraestructura
 {
     public sealed class ConexionCentral : IDisposable
     {

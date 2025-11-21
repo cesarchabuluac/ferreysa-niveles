@@ -5,9 +5,9 @@ using System.Data;
 using System.Threading.Tasks;
 using FirebirdSql.Data.FirebirdClient;
 using Microsoft.AspNetCore.Identity; // Paquete NuGet: Microsoft.AspNetCore.Identity
-using Vales.Domain;
+using Niveles.Domain;
 
-namespace Vales.Infraestructura
+namespace Niveles.Infraestructura
 {
     /// <summary>
     /// Autentica contra "AspNetUsers" en CENTRAL.FDB (Firebird) usando ASP.NET Core Identity (hash "AQAAAA...").

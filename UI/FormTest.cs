@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Vales.Infraestructura;
+using Niveles.Infraestructura;
 
-namespace Vales.UI
+namespace Niveles.UI
 {
     public partial class FormTest : FormBaseConSesion
     {

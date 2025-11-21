@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vales.Properties {
+namespace Niveles.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

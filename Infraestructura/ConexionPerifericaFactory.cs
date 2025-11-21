@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Vales.Domain;
+using Niveles.Domain;
 
-namespace Vales.Infraestructura
+namespace Niveles.Infraestructura
 {
     /// <summary>
     /// Centraliza la construcción de la connection string periférica.

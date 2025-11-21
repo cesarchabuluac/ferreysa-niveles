@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Vales.UI.Controls
+namespace Niveles.UI.Controls
 {
     public partial class LoadingOverlay : UserControl
     {

@@ -1,4 +1,4 @@
-﻿namespace Vales.UI
+﻿namespace Niveles.UI
 {
     partial class FormTest
     {

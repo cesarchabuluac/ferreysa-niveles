@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 
 
-namespace Vales
+namespace Niveles
 {
     public partial class FormPrintPreview : Form 
     {

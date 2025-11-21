@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vales.Infraestructura
+namespace Niveles.Infraestructura
 {
     /// <summary>
     /// Centraliza acceso a datos a la base periférica (usa pooling, abre/cierra por operación).

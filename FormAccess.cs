@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Vales.Domain;
-using Vales.Infraestructura;
+using Niveles.Domain;
+using Niveles.Infraestructura;
 
-namespace Vales
+namespace Niveles
 {
     public partial class FormAccess : Form
     {

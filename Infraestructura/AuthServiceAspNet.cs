@@ -5,9 +5,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
-using Vales.Domain;
+using Niveles.Domain;
 
-namespace Vales.Infraestructura
+namespace Niveles.Infraestructura
 {
     public sealed class AuthServiceAspNet
     {

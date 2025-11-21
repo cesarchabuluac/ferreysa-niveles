@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C4D965DB-4B0F-46E8-AEF3-10549FC45AA5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Vales</RootNamespace>
-    <AssemblyName>Vales</AssemblyName>
+    <RootNamespace>Niveles</RootNamespace>
+    <AssemblyName>Niveles</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

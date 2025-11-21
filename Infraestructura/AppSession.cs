@@ -1,8 +1,8 @@
 ﻿// File: /Vales.Infraestructura/AppSession.cs  (C# 7 compatible)
 using System;
-using Vales.Domain;
+using Niveles.Domain;
 
-namespace Vales.Infraestructura
+namespace Niveles.Infraestructura
 {
     /// <summary>
     /// Guarda el estado de sesión y la connection string periférica.

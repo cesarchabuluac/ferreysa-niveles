@@ -1,4 +1,4 @@
-﻿namespace Vales
+﻿namespace Niveles
 {
     partial class FormValeNuevoDF
     {

@@ -5,7 +5,7 @@ using System.Text;
 using FirebirdSql.Data.FirebirdClient;
 
 
-namespace Vales
+namespace Niveles
 {
     class ClaseConn
     {

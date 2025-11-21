@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using FirebirdSql.Data.FirebirdClient;
 using System.IO;
 
-namespace Vales
+namespace Niveles
 {
     public partial class FormVerArt : Form
     {

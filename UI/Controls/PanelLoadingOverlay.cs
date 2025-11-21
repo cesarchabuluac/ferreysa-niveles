@@ -2,7 +2,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Vales.UI.Controls
+namespace Niveles.UI.Controls
 {
     /// <summary>
     /// Componente de loading transparente que puede ser usado en cualquier panel específico

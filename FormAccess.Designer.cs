@@ -1,4 +1,4 @@
-﻿namespace Vales
+﻿namespace Niveles
 {
     partial class FormAccess
     {
@@ -109,7 +109,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Vales.Properties.Resources.ferreysa;
+            this.pictureBox1.Image = global::Niveles.Properties.Resources.ferreysa;
             this.pictureBox1.Location = new System.Drawing.Point(10, 34);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(126, 114);
