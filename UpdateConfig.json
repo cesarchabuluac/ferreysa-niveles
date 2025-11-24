@@ -1,0 +1,16 @@
+{
+  "FtpSettings": {
+    "Host": "ftp.ferreysa.com",
+    "Username": "sync@ferreysa.com",
+    "Password": "9_peMcwlj!zx",
+    "UpdatesPath": "/public_html/niveles/updates/",
+    "VersionFile": "version.txt",
+    "UpdatePackage": "update.zip"
+  },
+  "AppSettings": {
+    "CurrentVersion": "1.0.0",
+    "CheckUpdateOnStartup": true,
+    "AutoDownload": true,
+    "UpdaterExeName": "Updater.exe"
+  }
+}

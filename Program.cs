@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using Niveles.Helpers;
 using Niveles.UI;
 
 
@@ -17,6 +19,21 @@ namespace Niveles
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // ═══════════════════════════════════════════════════════════
+            // VERIFICAR ACTUALIZACIONES AL INICIAR
+            // ═══════════════════════════════════════════════════════════
+            try
+            {
+                var updateManager = new UpdateManager();
+                // Ejecutar verificación en background thread para no bloquear
+                Task.Run(() => updateManager.CheckAndUpdate());
+            }
+            catch (Exception ex)
+            {
+                // Si falla la verificación de actualizaciones, continuar normalmente
+                System.Diagnostics.Debug.WriteLine($"Error al verificar actualizaciones: {ex.Message}");
+            }
 
             using (var login = new FormAccess())
             {

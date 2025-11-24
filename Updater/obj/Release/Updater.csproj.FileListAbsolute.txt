@@ -1,0 +1,8 @@
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\bin\Release\Updater.exe.config
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\bin\Release\Updater.exe
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\bin\Release\Updater.pdb
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Release\Updater.csproj.AssemblyReference.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Release\Updater.csproj.SuggestedBindingRedirects.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Release\Updater.csproj.CoreCompileInputs.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Release\Updater.exe
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Release\Updater.pdb

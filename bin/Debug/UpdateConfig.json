@@ -1,0 +1,16 @@
+{
+  "FtpSettings": {
+    "Host": "ftp.tudominio.com",
+    "Username": "tu_usuario_ftp",
+    "Password": "tu_password_ftp",
+    "UpdatesPath": "/public_html/niveles/updates/",
+    "VersionFile": "version.txt",
+    "UpdatePackage": "update.zip"
+  },
+  "AppSettings": {
+    "CurrentVersion": "1.0.0",
+    "CheckUpdateOnStartup": true,
+    "AutoDownload": true,
+    "UpdaterExeName": "Updater.exe"
+  }
+}

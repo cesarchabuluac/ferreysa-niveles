@@ -1,0 +1,17 @@
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.csproj.AssemblyReference.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.Form1.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.FormAccess.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.FormCotizacion.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.FormImagen.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.FormLogin.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.FormNiveles.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.FormPrintPreview.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.FormUnidades.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.FormValeNuevoDF.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.FormVerArt.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.Properties.Resources.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.UI.Controls.LoadingOverlay.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.UI.FormBaseConSesion.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.UI.FormTest.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.csproj.GenerateResource.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.csproj.CoreCompileInputs.cache

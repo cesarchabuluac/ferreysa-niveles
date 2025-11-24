@@ -1,0 +1,7 @@
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\bin\Debug\Updater.exe.config
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\bin\Debug\Updater.exe
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\bin\Debug\Updater.pdb
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Debug\Updater.csproj.AssemblyReference.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Debug\Updater.csproj.CoreCompileInputs.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Debug\Updater.exe
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Debug\Updater.pdb

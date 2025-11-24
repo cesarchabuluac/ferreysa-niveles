@@ -1,0 +1,28 @@
+# Changelog - Niveles
+
+## Versión 1.0.1 - 21/11/2025
+
+### Nuevas Funcionalidades
+- Sistema de auto-actualización implementado
+- Coloración automática de celdas según valores mayores
+- Mejoras en el panel de valores
+
+### Correcciones
+- Corregido problema con scrollbar en Panel1
+- Ajustado tamaño del botón "Ver Panel Valores"
+- Optimizado rendimiento de carga de datos
+
+### Mejoras Técnicas
+- Integración con FluentFTP para actualizaciones
+- Backup automático antes de actualizar
+- Mejor manejo de errores en conexiones FTP
+
+---
+
+## Versión 1.0.0 - 15/11/2025
+
+### Lanzamiento Inicial
+- Funcionalidad base de niveles de inventario
+- Integración con base de datos Firebird
+- Sistema de login y autenticación
+- Reportes y visualización de datos
