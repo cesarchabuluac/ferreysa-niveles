@@ -184,3 +184,5 @@ C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\FluentFTP.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Newtonsoft.Json.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\FluentFTP.xml
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Newtonsoft.Json.xml
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\UpdateConfig.json
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Updater.exe

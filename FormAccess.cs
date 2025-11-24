@@ -19,6 +19,8 @@ namespace Niveles
         public FormAccess()
         {
             InitializeComponent();
+
+          //  lblVersion.Text = $"Versión {}";
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

@@ -8,7 +8,7 @@
     "UpdatePackage": "update.zip"
   },
   "AppSettings": {
-    "CurrentVersion": "1.0.0",
+    "CurrentVersion": "2.0.0",
     "CheckUpdateOnStartup": true,
     "AutoDownload": true,
     "UpdaterExeName": "Updater.exe"

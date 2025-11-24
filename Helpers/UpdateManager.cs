@@ -4,6 +4,8 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Deployment.Application;
+using System.Reflection;
 using FluentFTP;
 using Newtonsoft.Json.Linq;
 
@@ -27,8 +29,77 @@ namespace Niveles.Helpers
 
         public UpdateManager()
         {
-            _configPath = Path.Combine(Application.StartupPath, "UpdateConfig.json");
+            // Buscar UpdateConfig.json en múltiples ubicaciones posibles
+            _configPath = FindConfigFile();
             LoadConfiguration();
+        }
+
+        /// <summary>
+        /// Busca el archivo UpdateConfig.json en diferentes ubicaciones
+        /// </summary>
+        private string FindConfigFile()
+        {
+            string[] possiblePaths;
+            
+            if (ApplicationDeployment.IsNetworkDeployed)
+            {
+                // Para ClickOnce, buscar en múltiples ubicaciones
+                possiblePaths = new string[]
+                {
+                    Path.Combine(ApplicationDeployment.CurrentDeployment.DataDirectory, "UpdateConfig.json"),
+                    Path.Combine(Application.StartupPath, "UpdateConfig.json"),
+                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Niveles", "UpdateConfig.json"),
+                    Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "UpdateConfig.json")
+                };
+            }
+            else
+            {
+                // Para instalación normal
+                possiblePaths = new string[]
+                {
+                    Path.Combine(Application.StartupPath, "UpdateConfig.json"),
+                    Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "UpdateConfig.json")
+                };
+            }
+
+            foreach (string path in possiblePaths)
+            {
+                if (File.Exists(path))
+                {
+                    return path;
+                }
+            }
+
+            // Si no se encuentra, usar la ruta por defecto
+            return Path.Combine(Application.StartupPath, "UpdateConfig.json");
+        }
+
+        /// <summary>
+        /// Carga la configuración desde recursos embebidos
+        /// </summary>
+        private string LoadConfigFromEmbeddedResource()
+        {
+            try
+            {
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                string resourceName = "Niveles.UpdateConfig.json";
+                
+                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                {
+                    if (stream == null)
+                        return null;
+                        
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        return reader.ReadToEnd();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error al cargar configuración desde recursos: {ex.Message}");
+                return null;
+            }
         }
 
         /// <summary>
@@ -38,12 +109,41 @@ namespace Niveles.Helpers
         {
             try
             {
-                if (!File.Exists(_configPath))
+                string json = null;
+                
+                // Intentar leer desde archivo físico primero
+                if (File.Exists(_configPath))
                 {
-                    throw new FileNotFoundException("No se encontró el archivo UpdateConfig.json");
+                    json = File.ReadAllText(_configPath);
+                }
+                else
+                {
+                    // Si no existe el archivo, intentar leer desde recursos embebidos
+                    json = LoadConfigFromEmbeddedResource();
+                    
+                    if (string.IsNullOrEmpty(json))
+                    {
+                        string diagnosticInfo = $"No se encontró UpdateConfig.json en: {_configPath}\n\n";
+                        diagnosticInfo += "Ubicaciones buscadas:\n";
+                        
+                        if (ApplicationDeployment.IsNetworkDeployed)
+                        {
+                            diagnosticInfo += $"- DataDirectory: {ApplicationDeployment.CurrentDeployment.DataDirectory}\n";
+                            diagnosticInfo += $"- StartupPath: {Application.StartupPath}\n";
+                            diagnosticInfo += $"- AppData: {Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Niveles")}\n";
+                            diagnosticInfo += $"- ExecutablePath: {Path.GetDirectoryName(Application.ExecutablePath)}\n";
+                        }
+                        else
+                        {
+                            diagnosticInfo += $"- StartupPath: {Application.StartupPath}\n";
+                            diagnosticInfo += $"- ExecutablePath: {Path.GetDirectoryName(Application.ExecutablePath)}\n";
+                        }
+                        diagnosticInfo += "- Recursos embebidos: No encontrado\n";
+                        
+                        throw new FileNotFoundException(diagnosticInfo);
+                    }
                 }
 
-                string json = File.ReadAllText(_configPath);
                 _config = JObject.Parse(json);
 
                 // FTP Settings
@@ -173,11 +273,22 @@ namespace Niveles.Helpers
         {
             try
             {
-                string updaterPath = Path.Combine(Application.StartupPath, _updaterExeName);
+                // Determinar la ruta correcta del updater
+                string basePath;
+                if (ApplicationDeployment.IsNetworkDeployed)
+                {
+                    basePath = ApplicationDeployment.CurrentDeployment.DataDirectory;
+                }
+                else
+                {
+                    basePath = Application.StartupPath;
+                }
+                
+                string updaterPath = Path.Combine(basePath, _updaterExeName);
 
                 if (!File.Exists(updaterPath))
                 {
-                    MessageBox.Show($"No se encontró el actualizador: {_updaterExeName}",
+                    MessageBox.Show($"No se encontró el actualizador: {_updaterExeName}\nBuscado en: {updaterPath}",
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -186,7 +297,11 @@ namespace Niveles.Helpers
                 // 1. Ruta del ZIP
                 // 2. Ruta de instalación
                 // 3. Nombre del ejecutable principal
-                string args = $"\"{updateZipPath}\" \"{Application.StartupPath}\" \"Niveles.exe\"";
+                string installPath = ApplicationDeployment.IsNetworkDeployed ? 
+                    ApplicationDeployment.CurrentDeployment.DataDirectory : 
+                    Application.StartupPath;
+                    
+                string args = $"\"{updateZipPath}\" \"{installPath}\" \"Niveles.exe\"";
 
                 ProcessStartInfo startInfo = new ProcessStartInfo
                 {
@@ -215,6 +330,13 @@ namespace Niveles.Helpers
         {
             try
             {
+                // Si es ClickOnce, usar el sistema de actualización nativo
+                if (ApplicationDeployment.IsNetworkDeployed)
+                {
+                    CheckAndUpdateClickOnce();
+                    return;
+                }
+
                 bool updateAvailable = CheckForUpdates();
 
                 if (!updateAvailable)
@@ -306,6 +428,44 @@ namespace Niveles.Helpers
             {
                 MessageBox.Show($"Error en el proceso de actualización: {ex.Message}",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Maneja actualizaciones para aplicaciones ClickOnce
+        /// </summary>
+        private void CheckAndUpdateClickOnce()
+        {
+            try
+            {
+                ApplicationDeployment deployment = ApplicationDeployment.CurrentDeployment;
+                
+                if (deployment.CheckForUpdate())
+                {
+                    var result = MessageBox.Show(
+                        "Hay una nueva versión disponible. ¿Desea descargar e instalar la actualización?",
+                        "Actualización Disponible",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Information
+                    );
+
+                    if (result == DialogResult.Yes)
+                    {
+                        deployment.Update();
+                        MessageBox.Show(
+                            "La aplicación se ha actualizado. Se reiniciará para aplicar los cambios.",
+                            "Actualización Completada",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+                        Application.Restart();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al verificar actualizaciones ClickOnce: {ex.Message}",
+                    "Error de Actualización", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
