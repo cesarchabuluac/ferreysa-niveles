@@ -69,38 +69,51 @@ namespace Niveles
             var user = txtUserName.Text?.Trim() ?? "";
             var pass = txtPassword.Text ?? "";
 
+            FileLogger.Separator("PROCESO DE LOGIN");
+            FileLogger.Info($"Iniciando proceso de login para usuario: {user}");
+
             if (emp == null)
             {
+                FileLogger.Warning("No se seleccionó empresa");
                 MessageBox.Show("Seleccione una empresa.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (string.IsNullOrWhiteSpace(user) || string.IsNullOrEmpty(pass))
             {
+                FileLogger.Warning("Usuario o contraseña vacíos");
                 MessageBox.Show("Usuario y contraseña son requeridos.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            FileLogger.Info($"Empresa seleccionada: {emp.Nombre} (ID: {emp.IdEmpresa})");
+
             try
             {
                 // 1) Autenticar contra AspNetUsers en CENTRAL.FDB (Firebird)
-                // Si tu tabla tiene NORMALIZEDUSERNAME usa true; si es Identity v2 clásico (no la tiene), usa false.
+                FileLogger.Info("Iniciando autenticación contra base central");
                 var authAsp = new AuthServiceIdentityFirebird();
                 var usuario = await authAsp.AuthenticateAsync(user, pass);
                 if (usuario == null)
                 {
+                    FileLogger.Warning($"Autenticación fallida para usuario: {user}");
                     MessageBox.Show("Credenciales inválidas o usuario bloqueado.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
+                FileLogger.Info($"Autenticación exitosa para usuario: {usuario.NombreCompleto}");
+
                 // 2) Construir conexión a base periférica seleccionada
+                FileLogger.Info("Construyendo conexión periférica");
                 var perConnStr = ConexionPerifericaFactory.Build(emp);
 
                 // 3) Guardar sesión global
+                FileLogger.Info("Estableciendo sesión global");
                 AppSession.SetSession(emp, usuario, perConnStr);
 
                 //Seteamos la Cadena de conexión en ClaseConn para compatibilidad con código existente
                 ClaseConn.cadena = perConnStr;               
 
+                FileLogger.Info("Login completado exitosamente");
 
                 // 4) Cerrar login
                 this.DialogResult = DialogResult.OK;
@@ -108,6 +121,7 @@ namespace Niveles
             }
             catch (Exception ex)
             {
+                FileLogger.Error($"Error durante el proceso de login", ex);
                 MessageBox.Show("No fue posible autenticar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

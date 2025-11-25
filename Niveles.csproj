@@ -295,7 +295,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FileLogger.cs" />
     <Compile Include="Helpers\Global.cs" />
+    <Compile Include="Helpers\NetworkHelper.cs" />
     <Compile Include="Helpers\UpdateManager.cs" />
     <Compile Include="Helpers\VersionHelper.cs" />
     <Compile Include="Infraestructura\AppSession.cs" />

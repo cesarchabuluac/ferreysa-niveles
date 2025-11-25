@@ -25,35 +25,36 @@ namespace Niveles
             // ═══════════════════════════════════════════════════════════
             try
             {
-                System.Diagnostics.Debug.WriteLine("=== INICIANDO VERIFICACIÓN DE ACTUALIZACIONES ===");
-                System.Diagnostics.Debug.WriteLine($"Timestamp: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+                FileLogger.Separator("=== INICIANDO VERIFICACIÓN DE ACTUALIZACIONES ===");
+                FileLogger.Info("Iniciando verificación de actualizaciones al iniciar la aplicación.");
+                FileLogger.Info($"Timestamp: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
                 
                 var updateManager = new UpdateManager();
-                System.Diagnostics.Debug.WriteLine("UpdateManager creado exitosamente");
-                
+                FileLogger.Info("UpdateManager creado exitosamente.");
+
                 // Ejecutar verificación en background thread para no bloquear
                 var updateTask = Task.Run(() => 
                 {
-                    System.Diagnostics.Debug.WriteLine("=== EJECUTANDO CheckAndUpdate() EN BACKGROUND ===");
+                    FileLogger.Separator("=== EJECUTANDO CheckAndUpdate() EN BACKGROUND ===");
                     try
                     {
                         updateManager.CheckAndUpdate();
-                        System.Diagnostics.Debug.WriteLine("CheckAndUpdate() completado exitosamente");
+                        FileLogger.Info("CheckAndUpdate() completado exitosamente.");
                     }
                     catch (Exception taskEx)
                     {
-                        System.Diagnostics.Debug.WriteLine($"Error dentro de CheckAndUpdate(): {taskEx.Message}");
-                        System.Diagnostics.Debug.WriteLine($"StackTrace: {taskEx.StackTrace}");
+                        FileLogger.Error($"Error durante CheckAndUpdate() {taskEx}");                        
+                        FileLogger.Info("Continuando ejecución normal tras error en actualización.");
                     }
                 });
                 
-                System.Diagnostics.Debug.WriteLine("Task.Run iniciado para CheckAndUpdate()");
+                FileLogger.Info("Task.Run iniciado para CheckAndUpdate()");
             }
             catch (Exception ex)
             {
                 // Si falla la verificación de actualizaciones, continuar normalmente
-                System.Diagnostics.Debug.WriteLine($"Error al verificar actualizaciones: {ex.Message}");
-                System.Diagnostics.Debug.WriteLine($"StackTrace: {ex.StackTrace}");
+                FileLogger.Error($"Error al verificar actualizaciones: {ex.Message}");
+                FileLogger.Error($"StackTrace: {ex.StackTrace}");
             }
 
             using (var login = new FormAccess())
@@ -64,41 +65,6 @@ namespace Niveles
                     Application.Run(new FormNiveles());
                 }
             }
-
-            //Application.Run(new FormAccess());
-
-            ////////ClaseConn inicia = new ClaseConn();
-
-            ////////inicia.MetodoConn("192.168.1.1", "C:\\Microsip datos\\FERREY.FDB", "SYSDBA", "masterkey190652"); //laptop
-            //////////inicia.MetodoConn("localhost", "C:\\Microsip datos\\COPIAFERREYSAFEB2019.FDB", "SYSDBA", "masterkey"); //oficina
-            //////////inicia.MetodoConn("216.238.69.160", "C:\\DBCENTRAL\\CENTRAL.FDB", "sysdba", "masterkey190652");
-
-            ////////if (inicia.Validacion())
-            ////////{
-            ////////    MessageBox.Show("CONEXION EXITOSA: MATRIZ");
-            ////////    Application.Run(new FormNiveles());
-            ////////    //Application.Run(new FormCotizacion());
-            ////////}
-            ////////else
-            ////////{
-            ////////    inicia.MetodoConn("10.1.1.1", "C:\\Microsip datos\\Ferrey Omar.fdb", "sysdba", "masterkey");
-            ////////    if (inicia.Validacion())
-            ////////    {
-            ////////        ClaseConn.es_papalote = true;
-
-            ////////        MessageBox.Show("CONEXION EXITOSA: PAPALOTE");
-            ////////        Application.Run(new FormNiveles());
-            ////////    }
-            ////////    else
-            ////////    {
-            ////////        MessageBox.Show("NO HAY CONNEXION");
-            ////////    }
-
-            ////////}
-
-            //TABLAS O DATOS NUEVOS QUE TUVE QUE HACER PARA PROGRAMA:
-
-
         }
     }
 }

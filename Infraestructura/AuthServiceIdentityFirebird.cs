@@ -1,4 +1,4 @@
-﻿// File: /Vales.Infraestructura/AuthServiceIdentityFirebird.cs  (.NET Framework 4.8, C# 7)
+// File: /Vales.Infraestructura/AuthServiceIdentityFirebird.cs  (.NET Framework 4.8, C# 7)
 using System;
 using System.Configuration;
 using System.Data;
@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FirebirdSql.Data.FirebirdClient;
 using Microsoft.AspNetCore.Identity; // Paquete NuGet: Microsoft.AspNetCore.Identity
 using Niveles.Domain;
+using Niveles.Helpers;
 
 namespace Niveles.Infraestructura
 {
@@ -26,22 +27,46 @@ namespace Niveles.Infraestructura
 
         public AuthServiceIdentityFirebird()
         {
-            var cs = ConfigurationManager.ConnectionStrings["CentralDb"] != null
-                ? ConfigurationManager.ConnectionStrings["CentralDb"].ConnectionString
-                : null;
-            if (string.IsNullOrEmpty(cs))
-                throw new InvalidOperationException("Falta 'CentralDb' en App.config.");
-            _centralConnStr = cs;
+            try
+            {
+                FileLogger.Info("Inicializando AuthServiceIdentityFirebird");
+                
+                // Usar NetworkHelper para obtener la cadena correcta según el entorno
+                _centralConnStr = NetworkHelper.GetCentralConnectionString();
+                
+                if (string.IsNullOrEmpty(_centralConnStr))
+                {
+                    FileLogger.Error("No se pudo obtener cadena de conexión central válida");
+                    throw new InvalidOperationException("No se pudo obtener cadena de conexión central válida.");
+                }
+                
+                FileLogger.Connection("Cadena de conexión central configurada para autenticación");
+            }
+            catch (Exception ex)
+            {
+                FileLogger.Error("Error inicializando AuthServiceIdentityFirebird", ex);
+                throw;
+            }
         }
 
         public async Task<Usuario> AuthenticateAsync(string user, string password)
         {
-            if (string.IsNullOrWhiteSpace(user) || string.IsNullOrEmpty(password))
-                return null;
-
-            using (var conn = new FbConnection(_centralConnStr))
+            try
             {
-                await conn.OpenAsync();
+                FileLogger.Separator("AUTENTICACIÓN");
+                FileLogger.Info($"Iniciando autenticación para usuario: {user}");
+                
+                if (string.IsNullOrWhiteSpace(user) || string.IsNullOrEmpty(password))
+                {
+                    FileLogger.Warning("Usuario o contraseña vacíos en autenticación");
+                    return null;
+                }
+
+                FileLogger.Connection("Abriendo conexión para autenticación...");
+                using (var conn = new FbConnection(_centralConnStr))
+                {
+                    await conn.OpenAsync();
+                    FileLogger.Info("Conexión de autenticación establecida exitosamente");
 
                 using (var cmd = new FbCommand(SqlFindUser, conn))
                 {
@@ -80,9 +105,17 @@ namespace Niveles.Infraestructura
                         u.NombreUsuario = userName;
                         u.NombreCompleto = fullName;
                         u.Activo = true;
+                        
+                        FileLogger.Info($"Autenticación exitosa para usuario: {userName}");
                         return u;
                     }
                 }
+                }
+            }
+            catch (Exception ex)
+            {
+                FileLogger.Error($"Error durante autenticación para usuario: {user}", ex);
+                throw;
             }
         }
 

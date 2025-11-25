@@ -1,4 +1,4 @@
-﻿// File: /Vales.Infraestructura/ConexionCentral.cs
+// File: /Vales.Infraestructura/ConexionCentral.cs
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Threading.Tasks;
 using FirebirdSql.Data.FirebirdClient;
 using Niveles.Domain;
+using Niveles.Helpers;
 
 namespace Niveles.Infraestructura
 {
@@ -15,15 +16,30 @@ namespace Niveles.Infraestructura
 
         public ConexionCentral()
         {
-            var cs = ConfigurationManager.ConnectionStrings["CentralDb"] != null
-                ? ConfigurationManager.ConnectionStrings["CentralDb"].ConnectionString
-                : null;
+            try
+            {
+                FileLogger.Separator("CONEXIÓN CENTRAL");
+                FileLogger.Info("Iniciando conexión a base de datos central");
+                
+                // Obtener cadena de conexión ajustada según el entorno
+                var cs = NetworkHelper.GetCentralConnectionString();
 
-            if (cs == null)
-                throw new InvalidOperationException("Falta 'CentralDb' en App.config.");
+                if (string.IsNullOrEmpty(cs))
+                {
+                    FileLogger.Error("No se pudo obtener cadena de conexión válida");
+                    throw new InvalidOperationException("No se pudo obtener cadena de conexión válida.");
+                }
 
-            _conn = new FbConnection(cs);
-            _conn.Open();
+                FileLogger.Connection("Cadena de conexión obtenida, intentando conectar...");
+                _conn = new FbConnection(cs);
+                _conn.Open();
+                FileLogger.Info("Conexión a base central establecida exitosamente");
+            }
+            catch (Exception ex)
+            {
+                FileLogger.Error("Error estableciendo conexión central", ex);
+                throw;
+            }
         }
 
         public async Task<List<Empresa>> GetEmpresasAsync()

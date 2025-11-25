@@ -1315,14 +1315,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Niveles.exe" size="885160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Niveles.exe" size="896936">
       <assemblyIdentity name="Niveles" version="2.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jVA5x7ieGSKqJqMrWY1N6TTARhl2cFuCTqLAJQK+ruw=</dsig:DigestValue>
+        <dsig:DigestValue>UPAgmy2QLVq3Z2pFVOlzV9xfnx9cGq6LZ8PCC0dLTNg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1545,7 +1545,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>nZ6jBsHEJtw3JJbt2ltpsx/CJBLSJn6BLPuYZLFCK7A=</dsig:DigestValue>
+      <dsig:DigestValue>2c5p5Ts+cPBJ4MEFTim9jmvXfOpiIRoDZbEqIpfcSJ0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Updater.exe" size="11264">
