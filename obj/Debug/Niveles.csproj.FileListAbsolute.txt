@@ -3,7 +3,6 @@ C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\SqlServerTypes\x64\SqlServerSpatia
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\SqlServerTypes\x86\msvcr120.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\UpdateConfig.json
-C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Updater.exe
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Niveles.exe.config
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Niveles.exe.manifest
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Niveles.application
@@ -186,3 +185,5 @@ C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Niveles.application
 C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Niveles.csproj.CopyComplete
 C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Niveles.exe
 C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Niveles.pdb
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Niveles.UI.FormUpdater.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\UpdaterModerno.exe

@@ -8,9 +8,9 @@
     "UpdatePackage": "update.zip"
   },
   "AppSettings": {
-    "CurrentVersion": "1.2.2",
+    "CurrentVersion": "1.2.1",
     "CheckUpdateOnStartup": true,
     "AutoDownload": true,
-    "UpdaterExeName": "Updater.exe"
+    "UpdaterExeName": "UpdaterModerno.exe"
   }
 }

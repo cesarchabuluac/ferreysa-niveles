@@ -1,0 +1,8 @@
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\bin\Release\UpdaterModerno.exe
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\bin\Release\UpdaterModerno.pdb
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Release\UpdaterModerno.csproj.AssemblyReference.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Release\UpdaterModerno.FormUpdaterInstaller.resources
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Release\UpdaterModerno.csproj.GenerateResource.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Release\UpdaterModerno.csproj.CoreCompileInputs.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Release\UpdaterModerno.exe
+C:\projects\Ferreysa\NIVELES PC 1.2\Updater\obj\Release\UpdaterModerno.pdb

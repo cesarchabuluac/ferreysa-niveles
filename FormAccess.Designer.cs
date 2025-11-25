@@ -98,10 +98,10 @@
             // 
             // btnConectar
             // 
-            this.btnConectar.Location = new System.Drawing.Point(168, 200);
+            this.btnConectar.Location = new System.Drawing.Point(16, 200);
             this.btnConectar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConectar.Name = "btnConectar";
-            this.btnConectar.Size = new System.Drawing.Size(283, 45);
+            this.btnConectar.Size = new System.Drawing.Size(435, 45);
             this.btnConectar.TabIndex = 4;
             this.btnConectar.Text = "Ingresar";
             this.btnConectar.UseVisualStyleBackColor = true;

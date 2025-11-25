@@ -15,3 +15,4 @@ C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.UI.FormBaseConSesion.res
 C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.UI.FormTest.resources
 C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.csproj.GenerateResource.cache
 C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.csproj.CoreCompileInputs.cache
+C:\projects\Ferreysa\NIVELES PC 1.2\obj\Release\Niveles.UI.FormUpdater.resources

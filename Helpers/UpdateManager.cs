@@ -8,6 +8,7 @@ using System.Deployment.Application;
 using System.Reflection;
 using FluentFTP;
 using Newtonsoft.Json.Linq;
+using Niveles.UI;
 
 namespace Niveles.Helpers
 {
@@ -230,20 +231,41 @@ namespace Niveles.Helpers
         {
             try
             {
+                FileLogger.Info("Verificando actualizaciones en servidor FTP");
+                FileLogger.Debug($"Servidor: {_ftpHost}, Usuario: {_ftpUsername}");
+                
                 using (var client = new FtpClient(_ftpHost, _ftpUsername, _ftpPassword))
                 {
+                    FileLogger.Debug("Conectando al servidor FTP...");
+                    // Para FluentFTP v53, configurar timeouts
+                    client.Config.ConnectTimeout = 30000; // 30 segundos
+                    client.Config.ReadTimeout = 30000;    // 30 segundos
+                    client.Config.DataConnectionConnectTimeout = 30000;
                     client.Connect();
+                    FileLogger.Info("Conexión FTP establecida");
 
                     string remotePath = _updatesPath + _versionFile;
+                    FileLogger.Debug($"Leyendo archivo de versión: {remotePath}");
+                    
+                    // Verificar que el archivo existe
+                    if (!client.FileExists(remotePath))
+                    {
+                        FileLogger.Warning($"Archivo de versión no encontrado: {remotePath}");
+                        client.Disconnect();
+                        return false;
+                    }
                     
                     // Descargar contenido del archivo de versión
                     using (var stream = client.OpenRead(remotePath))
                     using (var reader = new StreamReader(stream))
                     {
                         string remoteVersion = reader.ReadToEnd().Trim();
+                        FileLogger.Info($"Versión remota encontrada: {remoteVersion}");
+                        FileLogger.Info($"Versión local actual: {_currentVersion}");
 
                         if (string.IsNullOrWhiteSpace(remoteVersion))
                         {
+                            FileLogger.Warning("Archivo de versión remoto está vacío");
                             client.Disconnect();
                             return false;
                         }
@@ -252,14 +274,18 @@ namespace Niveles.Helpers
                         Version remote = new Version(remoteVersion);
 
                         client.Disconnect();
+                        FileLogger.Info("Conexión FTP cerrada");
 
-                        return remote > current;
+                        bool updateAvailable = remote > current;
+                        FileLogger.Info($"¿Actualización disponible?: {updateAvailable}");
+                        
+                        return updateAvailable;
                     }
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error al verificar actualizaciones: {ex.Message}");
+                FileLogger.Error("Error al verificar actualizaciones", ex);
                 return false;
             }
         }
@@ -267,7 +293,7 @@ namespace Niveles.Helpers
 
 
         /// <summary>
-        /// Descarga la actualización desde el servidor FTP
+        /// Descarga la actualización desde el servidor FTP con progreso real
         /// </summary>
         /// <param name="progress">Callback para reportar progreso (0-100)</param>
         /// <returns>Ruta del archivo descargado o null si falla</returns>
@@ -275,49 +301,88 @@ namespace Niveles.Helpers
         {
             try
             {
+                FileLogger.Info("Iniciando descarga de actualización");
+                
                 string tempPath = Path.Combine(Path.GetTempPath(), "NivelesUpdate");
                 if (!Directory.Exists(tempPath))
+                {
                     Directory.CreateDirectory(tempPath);
+                    FileLogger.Debug($"Directorio temporal creado: {tempPath}");
+                }
 
                 string localUpdatePath = Path.Combine(tempPath, _updatePackage);
+                FileLogger.Info($"Descargando a: {localUpdatePath}");
 
                 using (var client = new FtpClient(_ftpHost, _ftpUsername, _ftpPassword))
                 {
+                    FileLogger.Debug($"Conectando a FTP: {_ftpHost}");
+                    // Configurar timeouts para FluentFTP v53
+                    client.Config.ConnectTimeout = 30000;
+                    client.Config.ReadTimeout = 30000;
+                    client.Config.DataConnectionConnectTimeout = 30000;
                     client.Connect();
 
                     string remotePath = _updatesPath + _updatePackage;
+                    FileLogger.Debug($"Archivo remoto: {remotePath}");
 
                     // Reportar inicio de descarga
-                    if (progress != null)
-                        progress.Report(0);
+                    progress?.Report(0);
 
-                    // Descargar archivo usando el método básico de v53
-                    // DownloadFile en v53 retorna void y lanza excepción si falla
-                    client.DownloadFile(localUpdatePath, remotePath, FtpLocalExists.Overwrite);
+                    // Obtener tamaño del archivo para calcular progreso real
+                    long fileSize = 0;
+                    try
+                    {
+                        fileSize = client.GetFileSize(remotePath);
+                        FileLogger.Debug($"Tamaño del archivo: {fileSize} bytes");
+                    }
+                    catch (Exception ex)
+                    {
+                        FileLogger.Warning($"No se pudo obtener tamaño del archivo: {ex.Message}");
+                    }
 
-                    // Reportar finalización
-                    if (progress != null)
-                        progress.Report(100);
+                    // Configurar callback de progreso si tenemos el tamaño
+                    if (fileSize > 0 && progress != null)
+                    {
+                        Action<FtpProgress> progressCallback = (ftpProgress) =>
+                        {
+                            if (ftpProgress.Progress >= 0 && ftpProgress.Progress <= 100)
+                            {
+                                progress.Report((int)ftpProgress.Progress);
+                                FileLogger.Debug($"Progreso descarga: {ftpProgress.Progress:F1}%");
+                            }
+                        };
+
+                        // Descargar con progreso
+                        client.DownloadFile(localUpdatePath, remotePath, FtpLocalExists.Overwrite, FtpVerify.None, progressCallback);
+                    }
+                    else
+                    {
+                        // Descarga sin progreso detallado
+                        FileLogger.Debug("Descargando sin progreso detallado");
+                        client.DownloadFile(localUpdatePath, remotePath, FtpLocalExists.Overwrite);
+                        progress?.Report(100);
+                    }
 
                     client.Disconnect();
+                    FileLogger.Info("Descarga FTP completada");
 
                     // Verificar que el archivo se descargó correctamente
                     if (File.Exists(localUpdatePath) && new FileInfo(localUpdatePath).Length > 0)
                     {
+                        var fileInfo = new FileInfo(localUpdatePath);
+                        FileLogger.Info($"Archivo descargado exitosamente: {fileInfo.Length} bytes");
                         return localUpdatePath;
                     }
                     else
                     {
-                        MessageBox.Show("Error al descargar la actualización.",
-                            "Error de Descarga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        FileLogger.Error("El archivo descargado está vacío o no existe");
                         return null;
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al descargar actualización: {ex.Message}",
-                    "Error de Descarga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                FileLogger.Error("Error durante la descarga de actualización", ex);
                 return null;
             }
         }
@@ -381,38 +446,44 @@ namespace Niveles.Helpers
         }
 
         /// <summary>
-        /// Flujo completo de actualización con UI
+        /// Flujo completo de actualización con UI moderna
         /// </summary>
-        public void CheckAndUpdate()
+        public async void CheckAndUpdate()
         {
-            Debug.WriteLine("=== MÉTODO CheckAndUpdate() INICIADO ===");
+            FileLogger.Separator("SISTEMA DE ACTUALIZACIÓN");
+            FileLogger.Info("Iniciando verificación de actualizaciones");
+            
             try
             {
-                Debug.WriteLine($"ApplicationDeployment.IsNetworkDeployed: {ApplicationDeployment.IsNetworkDeployed}");
+                FileLogger.Debug($"ApplicationDeployment.IsNetworkDeployed: {ApplicationDeployment.IsNetworkDeployed}");
                 
                 // Si es ClickOnce, usar el sistema de actualización nativo
                 if (ApplicationDeployment.IsNetworkDeployed)
                 {
-                    Debug.WriteLine("Aplicación detectada como ClickOnce, usando CheckAndUpdateClickOnce()");
+                    FileLogger.Info("Aplicación detectada como ClickOnce, usando sistema nativo");
                     CheckAndUpdateClickOnce();
                     return;
                 }
 
-                Debug.WriteLine("Aplicación NO es ClickOnce, verificando actualizaciones FTP");
+                FileLogger.Info("Aplicación independiente, verificando actualizaciones FTP");
                 
                 // PREVENIR LOOP: Verificar si acabamos de actualizar
                 if (JustUpdated())
                 {
-                    Debug.WriteLine("=== ACTUALIZACIÓN RECIENTE DETECTADA - SALTANDO VERIFICACIÓN ===");
-                    Debug.WriteLine("La aplicación ya está actualizada, no se requiere acción.");
+                    FileLogger.Info("Actualización reciente detectada - saltando verificación");
                     return;
                 }
                 
+                FileLogger.Info("Verificando disponibilidad de actualizaciones...");
                 bool updateAvailable = CheckForUpdates();
 
                 if (!updateAvailable)
+                {
+                    FileLogger.Info("No hay actualizaciones disponibles");
                     return;
+                }
 
+                FileLogger.Info("Actualización disponible - solicitando confirmación del usuario");
                 var result = MessageBox.Show(
                     "Hay una nueva versión disponible. ¿Desea descargar e instalar la actualización?",
                     "Actualización Disponible",
@@ -421,96 +492,100 @@ namespace Niveles.Helpers
                 );
 
                 if (result != DialogResult.Yes)
+                {
+                    FileLogger.Info("Usuario canceló la actualización");
                     return;
+                }
 
-                // Crear formulario de progreso
-                Form progressForm = new Form
+                // Usar el nuevo FormUpdater moderno
+                using (var updaterForm = new FormUpdater())
                 {
-                    Text = "Descargando actualización...",
-                    Width = 400,
-                    Height = 150,
-                    FormBorderStyle = FormBorderStyle.FixedDialog,
-                    StartPosition = FormStartPosition.CenterScreen,
-                    MaximizeBox = false,
-                    MinimizeBox = false
-                };
-
-                ProgressBar progressBar = new ProgressBar
-                {
-                    Minimum = 0,
-                    Maximum = 100,
-                    Value = 0,
-                    Dock = DockStyle.Bottom,
-                    Height = 30
-                };
-
-                Label label = new Label
-                {
-                    Text = "Descargando actualización, por favor espere...",
-                    Dock = DockStyle.Fill,
-                    TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-                };
-
-                progressForm.Controls.Add(label);
-                progressForm.Controls.Add(progressBar);
-                progressForm.Show();
-
-                var progress = new Progress<int>(value =>
-                {
-                    if (progressBar.InvokeRequired)
+                    FileLogger.Info("Iniciando descarga con UI moderna");
+                    
+                    // Mostrar el formulario
+                    updaterForm.Show();
+                    updaterForm.UpdateProgress(0, "Conectando al servidor...");
+                    
+                    // Ejecutar descarga en background
+                    string updatePath = null;
+                    bool downloadSuccess = false;
+                    
+                    try
                     {
-                        progressBar.Invoke(new Action(() =>
+                        // Agregar timeout para evitar que se quede pegado
+                        var downloadTask = Task.Run(() =>
                         {
-                            progressBar.Value = value;
-                            label.Text = $"Descargando actualización... {value}%";
-                            progressForm.Refresh();
-                        }));
+                            var progress = new Progress<int>(percentage =>
+                            {
+                                string status = percentage < 100 ? 
+                                    $"Descargando actualización... ({percentage}%)" : 
+                                    "Descarga completada";
+                                updaterForm.UpdateProgress(percentage, status);
+                            });
+                            
+                            updatePath = DownloadUpdate(progress);
+                            downloadSuccess = !string.IsNullOrEmpty(updatePath);
+                        });
+                        
+                        // Esperar máximo 5 minutos
+                        var timeoutTask = Task.Delay(TimeSpan.FromMinutes(5));
+                        var completedTask = await Task.WhenAny(downloadTask, timeoutTask);
+                        
+                        if (completedTask == timeoutTask)
+                        {
+                            FileLogger.Error("Timeout en descarga de actualización (5 minutos)");
+                            throw new TimeoutException("La descarga tardó demasiado tiempo (5 minutos)");
+                        }
+                        
+                        await downloadTask; // Esperar a que termine la descarga
+                    }
+                    catch (Exception ex)
+                    {
+                        FileLogger.Error("Error durante la descarga", ex);
+                        updaterForm.SetCompleted(false, $"Error en descarga: {ex.Message}");
+                        updaterForm.ShowDialog(); // Esperar a que el usuario cierre
+                        return;
+                    }
+
+                    if (downloadSuccess)
+                    {
+                        FileLogger.Info("Descarga completada exitosamente");
+                        updaterForm.UpdateProgress(100, "Preparando instalación...");
+                        updaterForm.DisableCancel();
+                        
+                        // ACTUALIZAR VERSIÓN LOCAL ANTES DE APLICAR LA ACTUALIZACIÓN
+                        string remoteVersion = GetRemoteVersion();
+                        if (!string.IsNullOrEmpty(remoteVersion))
+                        {
+                            FileLogger.Info($"Actualizando versión local a {remoteVersion}");
+                            UpdateLocalVersion(remoteVersion);
+                        }
+
+                        updaterForm.SetCompleted(true, "Actualización lista para instalar. La aplicación se cerrará.");
+                        
+                        // Esperar a que el usuario cierre el diálogo
+                        if (updaterForm.ShowDialog() == DialogResult.OK)
+                        {
+                            FileLogger.Info("Iniciando proceso de instalación");
+                            StartUpdate(updatePath);
+                        }
                     }
                     else
                     {
-                        progressBar.Value = value;
-                        label.Text = $"Descargando actualización... {value}%";
-                        progressForm.Refresh();
+                        FileLogger.Error("Fallo en la descarga de actualización");
+                        updaterForm.SetCompleted(false, "Error al descargar la actualización");
+                        updaterForm.ShowDialog(); // Esperar a que el usuario cierre
                     }
-                });
-
-                // Ejecutar descarga en background thread para no bloquear UI
-                string updatePath = null;
-                Task.Run(() =>
-                {
-                    updatePath = DownloadUpdate(progress);
-                }).Wait();
-
-                progressForm.Close();
-
-                if (!string.IsNullOrEmpty(updatePath))
-                {
-                    // ACTUALIZAR VERSIÓN LOCAL ANTES DE APLICAR LA ACTUALIZACIÓN
-                    string remoteVersion = GetRemoteVersion();
-                    if (!string.IsNullOrEmpty(remoteVersion))
-                    {
-                        Debug.WriteLine($"Actualizando versión local a {remoteVersion} antes de aplicar actualización");
-                        UpdateLocalVersion(remoteVersion);
-                    }
-
-                    MessageBox.Show(
-                        "Actualización descargada. La aplicación se cerrará para aplicar los cambios.",
-                        "Actualización Lista",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
-
-                    StartUpdate(updatePath);
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error en CheckAndUpdate(): {ex.Message}");
-                Debug.WriteLine($"StackTrace: {ex.StackTrace}");
+                FileLogger.Error("Error en proceso de actualización", ex);
                 MessageBox.Show($"Error en el proceso de actualización: {ex.Message}",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            Debug.WriteLine("=== MÉTODO CheckAndUpdate() COMPLETADO ===");
+            
+            FileLogger.Info("Proceso de actualización completado");
         }
 
         /// <summary>
@@ -520,6 +595,51 @@ namespace Niveles.Helpers
         public void ForceUpdateLocalVersion(string newVersion)
         {
             UpdateLocalVersion(newVersion);
+        }
+
+        /// <summary>
+        /// Prueba la conectividad FTP (útil para debugging)
+        /// </summary>
+        /// <returns>True si la conexión es exitosa</returns>
+        public bool TestFtpConnection()
+        {
+            try
+            {
+                FileLogger.Separator("PRUEBA DE CONECTIVIDAD FTP");
+                FileLogger.Info($"Probando conexión a: {_ftpHost}");
+                FileLogger.Info($"Usuario: {_ftpUsername}");
+                
+                using (var client = new FtpClient(_ftpHost, _ftpUsername, _ftpPassword))
+                {
+                    // Configurar timeouts
+                    client.Config.ConnectTimeout = 15000; // 15 segundos para prueba
+                    client.Config.ReadTimeout = 15000;
+                    client.Config.DataConnectionConnectTimeout = 15000;
+                    
+                    FileLogger.Info("Intentando conectar...");
+                    client.Connect();
+                    FileLogger.Info("✅ Conexión FTP exitosa");
+                    
+                    // Probar listar directorio
+                    FileLogger.Info($"Listando directorio: {_updatesPath}");
+                    var files = client.GetListing(_updatesPath);
+                    FileLogger.Info($"Archivos encontrados: {files.Length}");
+                    
+                    foreach (var file in files)
+                    {
+                        FileLogger.Debug($"  - {file.Name} ({file.Size} bytes)");
+                    }
+                    
+                    client.Disconnect();
+                    FileLogger.Info("✅ Prueba FTP completada exitosamente");
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                FileLogger.Error("❌ Error en prueba FTP", ex);
+                return false;
+            }
         }
 
         /// <summary>
@@ -569,6 +689,9 @@ namespace Niveles.Helpers
             {
                 using (var client = new FtpClient(_ftpHost, _ftpUsername, _ftpPassword))
                 {
+                    // Configurar timeouts para FluentFTP v53
+                    client.Config.ConnectTimeout = 30000;
+                    client.Config.ReadTimeout = 30000;
                     client.Connect();
                     string remotePath = _updatesPath + _versionFile;
                     

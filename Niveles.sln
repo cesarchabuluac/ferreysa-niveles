@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Niveles", "Niveles.csproj", "{C4D965DB-4B0F-46E8-AEF3-10549FC45AA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{B8F3D5E2-1A2C-4D3E-9F4A-5B6C7D8E9F0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdaterModerno", "Updater\UpdaterModerno.csproj", "{B8D4F8A2-1234-4567-8901-123456789ABC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{C4D965DB-4B0F-46E8-AEF3-10549FC45AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4D965DB-4B0F-46E8-AEF3-10549FC45AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4D965DB-4B0F-46E8-AEF3-10549FC45AA5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8F3D5E2-1A2C-4D3E-9F4A-5B6C7D8E9F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8F3D5E2-1A2C-4D3E-9F4A-5B6C7D8E9F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8F3D5E2-1A2C-4D3E-9F4A-5B6C7D8E9F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8F3D5E2-1A2C-4D3E-9F4A-5B6C7D8E9F0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D4F8A2-1234-4567-8901-123456789ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D4F8A2-1234-4567-8901-123456789ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D4F8A2-1234-4567-8901-123456789ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D4F8A2-1234-4567-8901-123456789ABC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
