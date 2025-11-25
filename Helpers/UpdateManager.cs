@@ -55,6 +55,9 @@ namespace Niveles.Helpers
         /// </summary>
         private string FindConfigFile()
         {
+            // PRIORIDAD: Usar ubicación con permisos de escritura
+            string appDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Niveles", "UpdateConfig.json");
+            
             string[] possiblePaths;
             
             if (ApplicationDeployment.IsNetworkDeployed)
@@ -62,9 +65,9 @@ namespace Niveles.Helpers
                 // Para ClickOnce, buscar en múltiples ubicaciones
                 possiblePaths = new string[]
                 {
+                    appDataPath, // PRIORIDAD: AppData (siempre escribible)
                     Path.Combine(ApplicationDeployment.CurrentDeployment.DataDirectory, "UpdateConfig.json"),
                     Path.Combine(Application.StartupPath, "UpdateConfig.json"),
-                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Niveles", "UpdateConfig.json"),
                     Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "UpdateConfig.json")
                 };
             }
@@ -73,21 +76,25 @@ namespace Niveles.Helpers
                 // Para instalación normal
                 possiblePaths = new string[]
                 {
+                    appDataPath, // PRIORIDAD: AppData (siempre escribible)
                     Path.Combine(Application.StartupPath, "UpdateConfig.json"),
                     Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "UpdateConfig.json")
                 };
             }
 
+            // Buscar archivo existente
             foreach (string path in possiblePaths)
             {
                 if (File.Exists(path))
                 {
+                    Debug.WriteLine($"Archivo de configuración encontrado en: {path}");
                     return path;
                 }
             }
 
-            // Si no se encuentra, usar la ruta por defecto
-            return Path.Combine(Application.StartupPath, "UpdateConfig.json");
+            // Si no existe, crear en AppData (ubicación con permisos)
+            Debug.WriteLine($"No se encontró archivo existente, creando en AppData: {appDataPath}");
+            return appDataPath;
         }
 
         /// <summary>
@@ -131,11 +138,25 @@ namespace Niveles.Helpers
                 if (File.Exists(_configPath))
                 {
                     json = File.ReadAllText(_configPath);
+                    Debug.WriteLine($"Configuración cargada desde: {_configPath}");
                 }
                 else
                 {
+                    Debug.WriteLine($"Archivo no existe en: {_configPath}");
+                    
                     // Si no existe el archivo, intentar leer desde recursos embebidos
                     json = LoadConfigFromEmbeddedResource();
+                    
+                    if (string.IsNullOrEmpty(json))
+                    {
+                        // Buscar en ubicación original del proyecto
+                        string originalPath = Path.Combine(Application.StartupPath, "UpdateConfig.json");
+                        if (File.Exists(originalPath))
+                        {
+                            json = File.ReadAllText(originalPath);
+                            Debug.WriteLine($"Configuración encontrada en ubicación original: {originalPath}");
+                        }
+                    }
                     
                     if (string.IsNullOrEmpty(json))
                     {
@@ -157,6 +178,26 @@ namespace Niveles.Helpers
                         diagnosticInfo += "- Recursos embebidos: No encontrado\n";
                         
                         throw new FileNotFoundException(diagnosticInfo);
+                    }
+                    else
+                    {
+                        // Crear el archivo en la ubicación de AppData para futuras escrituras
+                        try
+                        {
+                            string directory = Path.GetDirectoryName(_configPath);
+                            if (!Directory.Exists(directory))
+                            {
+                                Directory.CreateDirectory(directory);
+                                Debug.WriteLine($"Directorio creado: {directory}");
+                            }
+                            
+                            File.WriteAllText(_configPath, json);
+                            Debug.WriteLine($"Archivo de configuración copiado a: {_configPath}");
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"Error al crear archivo en AppData: {ex.Message}");
+                        }
                     }
                 }
 

@@ -1315,14 +1315,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Niveles.exe" size="884648">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Niveles.exe" size="885160">
       <assemblyIdentity name="Niveles" version="2.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>TRJ0BUluBAKw5y91x1+84vh3f6Aj1TJSzkc4rTlZ6T8=</dsig:DigestValue>
+        <dsig:DigestValue>jVA5x7ieGSKqJqMrWY1N6TTARhl2cFuCTqLAJQK+ruw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
