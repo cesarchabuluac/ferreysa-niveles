@@ -142,7 +142,7 @@ namespace Niveles.Helpers
                 {
                     // DESARROLLO: localhost + contraseña de desarrollo
                     result = ReplaceDataSource(result, "localhost");
-                    result = ReplacePassword(result, REMOTE_PASSWORD);
+                    //result = ReplacePassword(result, REMOTE_PASSWORD);
                     FileLogger.Info($"Configurado para DESARROLLO: IP=localhost, Password={REMOTE_PASSWORD}");
                 }
                 else if (environment == "produccion")

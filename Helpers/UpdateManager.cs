@@ -26,6 +26,7 @@ namespace Niveles.Helpers
         private string _updatePackage;
         private string _currentVersion;
         private string _updaterExeName;
+        private string _environment;
 
         public UpdateManager()
         {
@@ -214,6 +215,7 @@ namespace Niveles.Helpers
                 // App Settings
                 _currentVersion = _config["AppSettings"]["CurrentVersion"].ToString();
                 _updaterExeName = _config["AppSettings"]["UpdaterExeName"].ToString();
+                _environment = _config["AppSettings"]["Environment"]?.ToString() ?? "Production";
             }
             catch (Exception ex)
             {
@@ -533,6 +535,15 @@ namespace Niveles.Helpers
         }
 
         /// <summary>
+        /// Obtiene el entorno actual de la aplicación
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentEnvironment()
+        {
+            return _environment;
+        }
+
+        /// <summary>
         /// Actualiza la versión local en UpdateConfig.json después de una actualización exitosa
         /// </summary>
         /// <param name="newVersion">Nueva versión a establecer</param>
@@ -545,7 +556,8 @@ namespace Niveles.Helpers
                 // Actualizar el objeto de configuración en memoria
                 _config["AppSettings"]["CurrentVersion"] = newVersion;
                 _currentVersion = newVersion;
-                
+                _environment = _config["AppSettings"]["Environment"]?.ToString() ?? "Production";
+
                 // Escribir el archivo actualizado
                 string updatedJson = _config.ToString();
                 File.WriteAllText(_configPath, updatedJson);

@@ -142,5 +142,12 @@ namespace Niveles.Helpers
             string version = GetCurrentVersion();
             return includePrefix ? $"Versión {version}" : version;
         }
+
+        public static string GetCurrentEnvironment()
+        {
+            // Intentar obtener versión desde UpdateManager (más precisa)
+            var updateManager = new UpdateManager();
+            return $"Entorno: {updateManager.GetCurrentEnvironment()}";
+        }
     }
 }

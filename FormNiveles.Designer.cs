@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNiveles));
             this.cbo_grupos = new System.Windows.Forms.ComboBox();
             this.dgv_arts = new System.Windows.Forms.DataGridView();
@@ -96,6 +98,10 @@
             this.ColumnSinReorden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnShowPanelValues = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLblVersion = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLblEntorno = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_arts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_exis)).BeginInit();
             this.panel1.SuspendLayout();
@@ -109,6 +115,7 @@
             this.groupBoxFiltroAlmacen.SuspendLayout();
             this.groupBoxValores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewValores)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbo_grupos
@@ -300,6 +307,7 @@
             this.tbx_sobreinv.Location = new System.Drawing.Point(10, 31);
             this.tbx_sobreinv.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_sobreinv.Name = "tbx_sobreinv";
+            this.tbx_sobreinv.ReadOnly = true;
             this.tbx_sobreinv.Size = new System.Drawing.Size(104, 23);
             this.tbx_sobreinv.TabIndex = 6;
             // 
@@ -308,6 +316,7 @@
             this.tbx_subinv.Location = new System.Drawing.Point(386, 31);
             this.tbx_subinv.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_subinv.Name = "tbx_subinv";
+            this.tbx_subinv.ReadOnly = true;
             this.tbx_subinv.Size = new System.Drawing.Size(104, 23);
             this.tbx_subinv.TabIndex = 7;
             // 
@@ -316,6 +325,7 @@
             this.tbx_normal.Location = new System.Drawing.Point(140, 31);
             this.tbx_normal.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_normal.Name = "tbx_normal";
+            this.tbx_normal.ReadOnly = true;
             this.tbx_normal.Size = new System.Drawing.Size(104, 23);
             this.tbx_normal.TabIndex = 8;
             // 
@@ -324,6 +334,7 @@
             this.tbx_pedir.Location = new System.Drawing.Point(261, 31);
             this.tbx_pedir.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_pedir.Name = "tbx_pedir";
+            this.tbx_pedir.ReadOnly = true;
             this.tbx_pedir.Size = new System.Drawing.Size(104, 23);
             this.tbx_pedir.TabIndex = 9;
             // 
@@ -447,7 +458,7 @@
             // 
             // tb_ocultar_subinv
             // 
-            this.tb_ocultar_subinv.Location = new System.Drawing.Point(386, 64);
+            this.tb_ocultar_subinv.Location = new System.Drawing.Point(386, 62);
             this.tb_ocultar_subinv.Margin = new System.Windows.Forms.Padding(4);
             this.tb_ocultar_subinv.Name = "tb_ocultar_subinv";
             this.tb_ocultar_subinv.Size = new System.Drawing.Size(104, 31);
@@ -539,7 +550,7 @@
             // 
             // btn_ocultar_sin_reord
             // 
-            this.btn_ocultar_sin_reord.Location = new System.Drawing.Point(511, 64);
+            this.btn_ocultar_sin_reord.Location = new System.Drawing.Point(511, 62);
             this.btn_ocultar_sin_reord.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ocultar_sin_reord.Name = "btn_ocultar_sin_reord";
             this.btn_ocultar_sin_reord.Size = new System.Drawing.Size(104, 31);
@@ -564,6 +575,7 @@
             this.tbx_sinreord.Location = new System.Drawing.Point(511, 31);
             this.tbx_sinreord.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_sinreord.Name = "tbx_sinreord";
+            this.tbx_sinreord.ReadOnly = true;
             this.tbx_sinreord.Size = new System.Drawing.Size(104, 23);
             this.tbx_sinreord.TabIndex = 22;
             // 
@@ -674,7 +686,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxFiltroAlmacen);
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxValores);
             this.splitContainer1.Panel2.Controls.Add(this.btnShowPanelValues);
-            this.splitContainer1.Size = new System.Drawing.Size(1825, 742);
+            this.splitContainer1.Size = new System.Drawing.Size(1825, 717);
             this.splitContainer1.SplitterDistance = 1226;
             this.splitContainer1.TabIndex = 25;
             // 
@@ -754,7 +766,7 @@
             this.groupBoxValores.Font = new System.Drawing.Font("Tahoma", 12F);
             this.groupBoxValores.Location = new System.Drawing.Point(8, 156);
             this.groupBoxValores.Name = "groupBoxValores";
-            this.groupBoxValores.Size = new System.Drawing.Size(576, 574);
+            this.groupBoxValores.Size = new System.Drawing.Size(576, 549);
             this.groupBoxValores.TabIndex = 26;
             this.groupBoxValores.TabStop = false;
             this.groupBoxValores.Text = "groupBox1";
@@ -766,6 +778,14 @@
             this.dataGridViewValores.AllowUserToDeleteRows = false;
             this.dataGridViewValores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewValores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewValores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewValores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewValores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnValorId,
@@ -775,6 +795,14 @@
             this.ColumnPedir,
             this.ColumnCriticos,
             this.ColumnSinReorden});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewValores.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewValores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewValores.Location = new System.Drawing.Point(3, 28);
             this.dataGridViewValores.Margin = new System.Windows.Forms.Padding(4);
@@ -783,7 +811,7 @@
             this.dataGridViewValores.RowHeadersVisible = false;
             this.dataGridViewValores.RowHeadersWidth = 51;
             this.dataGridViewValores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewValores.Size = new System.Drawing.Size(570, 543);
+            this.dataGridViewValores.Size = new System.Drawing.Size(570, 518);
             this.dataGridViewValores.TabIndex = 25;
             // 
             // ColumnValorId
@@ -801,7 +829,7 @@
             this.ColumnValor.MinimumWidth = 6;
             this.ColumnValor.Name = "ColumnValor";
             this.ColumnValor.ReadOnly = true;
-            this.ColumnValor.Width = 99;
+            this.ColumnValor.Width = 91;
             // 
             // ColumnSobreinventarios
             // 
@@ -809,7 +837,7 @@
             this.ColumnSobreinventarios.MinimumWidth = 6;
             this.ColumnSobreinventarios.Name = "ColumnSobreinventarios";
             this.ColumnSobreinventarios.ReadOnly = true;
-            this.ColumnSobreinventarios.Width = 188;
+            this.ColumnSobreinventarios.Width = 162;
             // 
             // ColumnOptimos
             // 
@@ -817,7 +845,7 @@
             this.ColumnOptimos.MinimumWidth = 6;
             this.ColumnOptimos.Name = "ColumnOptimos";
             this.ColumnOptimos.ReadOnly = true;
-            this.ColumnOptimos.Width = 113;
+            this.ColumnOptimos.Width = 101;
             // 
             // ColumnPedir
             // 
@@ -825,7 +853,7 @@
             this.ColumnPedir.MinimumWidth = 6;
             this.ColumnPedir.Name = "ColumnPedir";
             this.ColumnPedir.ReadOnly = true;
-            this.ColumnPedir.Width = 84;
+            this.ColumnPedir.Width = 76;
             // 
             // ColumnCriticos
             // 
@@ -833,7 +861,7 @@
             this.ColumnCriticos.MinimumWidth = 6;
             this.ColumnCriticos.Name = "ColumnCriticos";
             this.ColumnCriticos.ReadOnly = true;
-            this.ColumnCriticos.Width = 104;
+            this.ColumnCriticos.Width = 94;
             // 
             // ColumnSinReorden
             // 
@@ -841,7 +869,7 @@
             this.ColumnSinReorden.MinimumWidth = 6;
             this.ColumnSinReorden.Name = "ColumnSinReorden";
             this.ColumnSinReorden.ReadOnly = true;
-            this.ColumnSinReorden.Width = 197;
+            this.ColumnSinReorden.Width = 171;
             // 
             // btnShowPanelValues
             // 
@@ -859,12 +887,45 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLblVersion,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLblEntorno});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 716);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1826, 26);
+            this.statusStrip1.TabIndex = 26;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLblVersion
+            // 
+            this.toolStripStatusLblVersion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripStatusLblVersion.Name = "toolStripStatusLblVersion";
+            this.toolStripStatusLblVersion.Size = new System.Drawing.Size(57, 20);
+            this.toolStripStatusLblVersion.Text = "Versión";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(1694, 20);
+            this.toolStripStatusLabel2.Spring = true;
+            // 
+            // toolStripStatusLblEntorno
+            // 
+            this.toolStripStatusLblEntorno.Name = "toolStripStatusLblEntorno";
+            this.toolStripStatusLblEntorno.Size = new System.Drawing.Size(60, 20);
+            this.toolStripStatusLblEntorno.Text = "Enterno";
+            // 
             // FormNiveles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1826, 742);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -891,7 +952,10 @@
             this.groupBoxFiltroAlmacen.ResumeLayout(false);
             this.groupBoxValores.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewValores)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -963,5 +1027,9 @@
         private System.Windows.Forms.ComboBox cboAlmacen;
         private System.Windows.Forms.Button btnCargarValores;
         private System.Windows.Forms.GroupBox groupBoxFiltroAlmacen;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLblVersion;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLblEntorno;
     }
 }

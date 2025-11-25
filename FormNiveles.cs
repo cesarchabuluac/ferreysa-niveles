@@ -28,7 +28,16 @@ namespace Niveles
         public FormNiveles()
         {
             InitializeComponent();
+            //ThemeManager.ApplyTheme(this);
+
+            //this.BackColor = ColorTranslator.FromHtml("#D8D8D8");
+            //statusStrip1.BackColor = ColorTranslator.FromHtml("#E0E0E0");
+            //statusStrip1.ForeColor = ColorTranslator.FromHtml("#1A1A1A");
+
             this.Text = $"NIVELES - {Empresa.Nombre} ({Empresa.Alias}) - {Usuario.NombreUsuario} - {VersionHelper.GetFormattedVersion()}";
+
+            toolStripStatusLblVersion.Text = VersionHelper.GetFormattedVersion();
+            toolStripStatusLblEntorno.Text = VersionHelper.GetCurrentEnvironment();
         }       
 
         private void FormNiveles_FormClosed(object sender, FormClosedEventArgs e)

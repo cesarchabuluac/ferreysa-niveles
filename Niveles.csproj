@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -33,8 +33,8 @@
     <GenerateSatelliteAssemblies>false</GenerateSatelliteAssemblies>
   </PropertyGroup>
   <PropertyGroup>
-  <SatelliteResourceLanguages>es</SatelliteResourceLanguages>
-</PropertyGroup>
+    <SatelliteResourceLanguages>es</SatelliteResourceLanguages>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
@@ -298,6 +298,8 @@
     <Compile Include="Helpers\FileLogger.cs" />
     <Compile Include="Helpers\Global.cs" />
     <Compile Include="Helpers\NetworkHelper.cs" />
+    <Compile Include="Helpers\ThemeColors.cs" />
+    <Compile Include="Helpers\ThemeManager.cs" />
     <Compile Include="Helpers\UpdateManager.cs" />
     <Compile Include="Helpers\VersionHelper.cs" />
     <Compile Include="Infraestructura\AppSession.cs" />
@@ -372,6 +374,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="TestNetworkHelper.cs" />
     <Compile Include="UI\Controls\LoadingOverlay.cs">
       <SubType>UserControl</SubType>
     </Compile>

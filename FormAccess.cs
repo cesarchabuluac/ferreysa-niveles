@@ -21,8 +21,26 @@ namespace Niveles
         {
             InitializeComponent();
 
+            ////this.BackColor = ColorTranslator.FromHtml("#F2F2F2");
+            //this.BackColor = ColorTranslator.FromHtml("#D8D8D8");
+
+
+
+            //statusStrip1.BackColor = ColorTranslator.FromHtml("#E0E0E0");
+            //statusStrip1.ForeColor = ColorTranslator.FromHtml("#1A1A1A");
+
+
+            //btnConectar.FlatStyle = FlatStyle.Flat;
+            //btnConectar.BackColor = ColorTranslator.FromHtml("#E84A4A"); // rojo suave
+            //btnConectar.ForeColor = Color.White;
+            //btnConectar.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#4A4A4A");
+            //btnConectar.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#C80000"); // rojo del logo para hover
+            ThemeManager.ApplyTheme(this);
+
+
             // Usar VersionHelper para obtener la versión más precisa
-            lblVersion.Text = VersionHelper.GetFormattedVersion();
+            toolStripStatusLblVersion.Text = VersionHelper.GetFormattedVersion();
+            toolStripStatusLblEntorno.Text = VersionHelper.GetCurrentEnvironment();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
