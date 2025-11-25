@@ -432,7 +432,8 @@ namespace Niveles.Helpers
                     FormBorderStyle = FormBorderStyle.FixedDialog,
                     StartPosition = FormStartPosition.CenterScreen,
                     MaximizeBox = false,
-                    MinimizeBox = false
+                    MinimizeBox = false,
+                    TopMost = true
                 };
 
                 ProgressBar progressBar = new ProgressBar

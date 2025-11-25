@@ -8,7 +8,8 @@
     "UpdatePackage": "update.zip"
   },
   "AppSettings": {
-    "CurrentVersion": "1.2.2",
+    "Environment": "produccion",
+    "CurrentVersion": "1.2.0",
     "CheckUpdateOnStartup": true,
     "AutoDownload": true,
     "UpdaterExeName": "Updater.exe"

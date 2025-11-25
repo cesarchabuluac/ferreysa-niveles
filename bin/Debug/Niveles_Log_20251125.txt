@@ -1,0 +1,33 @@
+=== INICIO DE SESIÓN - 2025-11-25 15:29:37 ===
+
+=== === INICIANDO VERIFICACIÓN DE ACTUALIZACIONES === - 15:29:37 ===
+[15:29:37.762] [INFO] Iniciando verificación de actualizaciones al iniciar la aplicación.
+[15:29:37.787] [INFO] Timestamp: 2025-11-25 15:29:37
+[15:29:37.881] [INFO] UpdateManager creado exitosamente.
+[15:29:37.912] [INFO] Task.Run iniciado para CheckAndUpdate()
+
+=== === EJECUTANDO CheckAndUpdate() EN BACKGROUND === - 15:29:37 ===
+
+=== CONEXIÓN CENTRAL - 15:29:38 ===
+[15:29:38.178] [INFO] Iniciando conexión a base de datos central
+
+=== DETECCIÓN DE ENTORNO - 15:29:38 ===
+[15:29:38.180] [INFO] Iniciando detección de entorno de red
+[15:29:38.188] [DEBUG] Verificando conectividad a intranet: 192.168.1.2
+[15:29:38.189] [DEBUG] Enviando ping sincrónico a 192.168.1.2...
+[15:29:38.199] [DEBUG] Respuesta recibida - Estado: Success, Tiempo: 0ms
+[15:29:38.201] [INFO] Resultado ping: INTRANET DISPONIBLE
+[15:29:38.204] [DEBUG] Configurando cadena de conexión para entorno: INTRANET
+[15:29:38.207] [DEBUG] Cadena original: database=C:\DBCENTRAL\CENTRAL.FDB;data source=localhost;user id=SYSDBA;password=masterkey;port=3050;dialect=3;charset=UTF8;pooling=true;
+[15:29:38.211] [DEBUG] Data source cambiado de 'data source=localhost' a 'data source=192.168.1.2'
+[15:29:38.218] [DEBUG] Reemplazando contraseña en cadena de conexión
+[15:29:38.221] [DEBUG] Cadena original: database=C:\DBCENTRAL\CENTRAL.FDB;data source=192.168.1.2;user id=SYSDBA;password=masterkey;port=3050;dialect=3;charset=UTF8;pooling=true;
+[15:29:38.225] [DEBUG] Nueva contraseña: masterkey
+[15:29:38.229] [INFO] Contraseña cambiada de 'password=masterkey' a 'password=masterkey'
+[15:29:38.230] [DEBUG] Cadena final: database=C:\DBCENTRAL\CENTRAL.FDB;data source=192.168.1.2;user id=SYSDBA;password=masterkey;port=3050;dialect=3;charset=UTF8;pooling=true;
+[15:29:38.236] [INFO] Configurado para INTRANET: IP=192.168.1.2, Password=masterkey
+[15:29:38.243] [DEBUG] Cadena final: database=C:\DBCENTRAL\CENTRAL.FDB;data source=192.168.1.2;user id=SYSDBA;password=masterkey;port=3050;dialect=3;charset=UTF8;pooling=true;
+[15:29:38.245] [CONN] Cadena de conexión configurada para INTRANET
+[15:29:38.272] [CONN] Cadena de conexión obtenida, intentando conectar...
+[15:29:38.596] [INFO] Conexión a base central establecida exitosamente
+[15:29:38.891] [INFO] CheckAndUpdate() completado exitosamente.

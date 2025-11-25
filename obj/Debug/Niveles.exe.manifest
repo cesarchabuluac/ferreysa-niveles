@@ -1315,14 +1315,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Niveles.exe" size="896936">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Niveles.exe" size="900008">
       <assemblyIdentity name="Niveles" version="2.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UPAgmy2QLVq3Z2pFVOlzV9xfnx9cGq6LZ8PCC0dLTNg=</dsig:DigestValue>
+        <dsig:DigestValue>H9tLrLhGWe+soloWqVNhlTRkTMERqoWk4VhAJhHMp/E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1539,13 +1539,13 @@
       <dsig:DigestValue>rLztN4VXMw69Q6b6MX/FIYxzyxMKuwcEaaz4TnqMk8A=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="UpdateConfig.json" size="406">
+  <file name="UpdateConfig.json" size="423">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>2c5p5Ts+cPBJ4MEFTim9jmvXfOpiIRoDZbEqIpfcSJ0=</dsig:DigestValue>
+      <dsig:DigestValue>MZ6yu4CM0OVWwOQaYUeoIcL0VVBR4jHbNOd4RrqsRzY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Updater.exe" size="11264">

@@ -110,9 +110,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Niveles.Properties.Resources.ferreysa;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 34);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 34);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(126, 114);
+            this.pictureBox1.Size = new System.Drawing.Size(130, 122);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -148,7 +148,7 @@
             this.MinimizeBox = false;
             this.Name = "FormAccess";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Acceso al Sistema";
+            this.Text = "{ ACCESO }";
             this.Load += new System.EventHandler(this.FormAccess_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
