@@ -23,12 +23,18 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
+  <PropertyGroup>
+    <GenerateSatelliteAssemblies>false</GenerateSatelliteAssemblies>
+  </PropertyGroup>
+  <PropertyGroup>
+  <SatelliteResourceLanguages>es</SatelliteResourceLanguages>
+</PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
@@ -51,7 +57,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>warehouse_logistics_hub_icon_225171.ico</ApplicationIcon>
+    <ApplicationIcon>ferreysa.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>E84768AA7E3AD1BBC45B8FE5D5CB537B0D761077</ManifestCertificateThumbprint>
@@ -291,6 +297,7 @@
     </Compile>
     <Compile Include="Helpers\Global.cs" />
     <Compile Include="Helpers\UpdateManager.cs" />
+    <Compile Include="Helpers\VersionHelper.cs" />
     <Compile Include="Infraestructura\AppSession.cs" />
     <Compile Include="Domain\Empresa.cs" />
     <Compile Include="Domain\Usuario.cs" />
@@ -440,6 +447,7 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="AUTO_UPDATE_GUIDE.md" />
+    <None Include="CLICKONCE_UPDATE_GUIDE.md" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -451,6 +459,7 @@
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
+    <None Include="FLUENTFTP_VERSION_GUIDE.md" />
     <None Include="FTP_Examples\README.md" />
     <None Include="LOADING_PANEL_USAGE.md" />
     <None Include="packages.config" />
@@ -463,6 +472,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="QUICK_START_UPDATES.md" />
+    <Content Include="ferreysa.ico" />
     <Content Include="UpdateConfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInPackage>true</IncludeInPackage>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Niveles.Domain;
 using Niveles.Infraestructura;
+using Niveles.Helpers;
 
 namespace Niveles
 {
@@ -20,7 +21,8 @@ namespace Niveles
         {
             InitializeComponent();
 
-          //  lblVersion.Text = $"Versión {}";
+            // Usar VersionHelper para obtener la versión más precisa
+            lblVersion.Text = VersionHelper.GetFormattedVersion();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

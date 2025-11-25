@@ -48,7 +48,6 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(283, 28);
             this.txtUserName.TabIndex = 1;
-            this.txtUserName.Text = "admin";
             // 
             // txtPassword
             // 
@@ -58,7 +57,6 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(283, 28);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "Adm1n2024_";
             // 
             // label1
             // 
@@ -80,6 +78,7 @@
             // 
             // cboCompny
             // 
+            this.cboCompny.Enabled = false;
             this.cboCompny.Font = new System.Drawing.Font("Tahoma", 11.2F);
             this.cboCompny.FormattingEnabled = true;
             this.cboCompny.Location = new System.Drawing.Point(168, 152);
@@ -123,9 +122,9 @@
             this.lblVersion.AutoSize = true;
             this.lblVersion.Location = new System.Drawing.Point(12, 250);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(54, 21);
+            this.lblVersion.Size = new System.Drawing.Size(82, 21);
             this.lblVersion.TabIndex = 5;
-            this.lblVersion.Text = "label4";
+            this.lblVersion.Text = "lblVersion";
             // 
             // FormAccess
             // 

@@ -28,7 +28,7 @@ namespace Niveles
         public FormNiveles()
         {
             InitializeComponent();
-            this.Text = $"NIVELES - {Empresa.Nombre} ({Empresa.Alias}) - {Usuario.NombreUsuario}";
+            this.Text = $"NIVELES - {Empresa.Nombre} ({Empresa.Alias}) - {Usuario.NombreUsuario} - {VersionHelper.GetFormattedVersion()}";
         }       
 
         private void FormNiveles_FormClosed(object sender, FormClosedEventArgs e)

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,14 +25,35 @@ namespace Niveles
             // ═══════════════════════════════════════════════════════════
             try
             {
+                System.Diagnostics.Debug.WriteLine("=== INICIANDO VERIFICACIÓN DE ACTUALIZACIONES ===");
+                System.Diagnostics.Debug.WriteLine($"Timestamp: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+                
                 var updateManager = new UpdateManager();
+                System.Diagnostics.Debug.WriteLine("UpdateManager creado exitosamente");
+                
                 // Ejecutar verificación en background thread para no bloquear
-                Task.Run(() => updateManager.CheckAndUpdate());
+                var updateTask = Task.Run(() => 
+                {
+                    System.Diagnostics.Debug.WriteLine("=== EJECUTANDO CheckAndUpdate() EN BACKGROUND ===");
+                    try
+                    {
+                        updateManager.CheckAndUpdate();
+                        System.Diagnostics.Debug.WriteLine("CheckAndUpdate() completado exitosamente");
+                    }
+                    catch (Exception taskEx)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Error dentro de CheckAndUpdate(): {taskEx.Message}");
+                        System.Diagnostics.Debug.WriteLine($"StackTrace: {taskEx.StackTrace}");
+                    }
+                });
+                
+                System.Diagnostics.Debug.WriteLine("Task.Run iniciado para CheckAndUpdate()");
             }
             catch (Exception ex)
             {
                 // Si falla la verificación de actualizaciones, continuar normalmente
                 System.Diagnostics.Debug.WriteLine($"Error al verificar actualizaciones: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"StackTrace: {ex.StackTrace}");
             }
 
             using (var login = new FormAccess())

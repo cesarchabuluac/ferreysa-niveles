@@ -29,9 +29,25 @@ namespace Niveles.Helpers
 
         public UpdateManager()
         {
-            // Buscar UpdateConfig.json en múltiples ubicaciones posibles
-            _configPath = FindConfigFile();
-            LoadConfiguration();
+            Debug.WriteLine("=== CONSTRUCTOR UpdateManager INICIADO ===");
+            try
+            {
+                // Buscar UpdateConfig.json en múltiples ubicaciones posibles
+                Debug.WriteLine("Buscando archivo de configuración...");
+                _configPath = FindConfigFile();
+                Debug.WriteLine($"Archivo de configuración encontrado en: {_configPath}");
+                
+                Debug.WriteLine("Cargando configuración...");
+                LoadConfiguration();
+                Debug.WriteLine("Configuración cargada exitosamente");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error en constructor UpdateManager: {ex.Message}");
+                Debug.WriteLine($"StackTrace: {ex.StackTrace}");
+                throw;
+            }
+            Debug.WriteLine("=== CONSTRUCTOR UpdateManager COMPLETADO ===");
         }
 
         /// <summary>
@@ -328,15 +344,29 @@ namespace Niveles.Helpers
         /// </summary>
         public void CheckAndUpdate()
         {
+            Debug.WriteLine("=== MÉTODO CheckAndUpdate() INICIADO ===");
             try
             {
+                Debug.WriteLine($"ApplicationDeployment.IsNetworkDeployed: {ApplicationDeployment.IsNetworkDeployed}");
+                
                 // Si es ClickOnce, usar el sistema de actualización nativo
                 if (ApplicationDeployment.IsNetworkDeployed)
                 {
+                    Debug.WriteLine("Aplicación detectada como ClickOnce, usando CheckAndUpdateClickOnce()");
                     CheckAndUpdateClickOnce();
                     return;
                 }
 
+                Debug.WriteLine("Aplicación NO es ClickOnce, verificando actualizaciones FTP");
+                
+                // PREVENIR LOOP: Verificar si acabamos de actualizar
+                if (JustUpdated())
+                {
+                    Debug.WriteLine("=== ACTUALIZACIÓN RECIENTE DETECTADA - SALTANDO VERIFICACIÓN ===");
+                    Debug.WriteLine("La aplicación ya está actualizada, no se requiere acción.");
+                    return;
+                }
+                
                 bool updateAvailable = CheckForUpdates();
 
                 if (!updateAvailable)
@@ -414,6 +444,14 @@ namespace Niveles.Helpers
 
                 if (!string.IsNullOrEmpty(updatePath))
                 {
+                    // ACTUALIZAR VERSIÓN LOCAL ANTES DE APLICAR LA ACTUALIZACIÓN
+                    string remoteVersion = GetRemoteVersion();
+                    if (!string.IsNullOrEmpty(remoteVersion))
+                    {
+                        Debug.WriteLine($"Actualizando versión local a {remoteVersion} antes de aplicar actualización");
+                        UpdateLocalVersion(remoteVersion);
+                    }
+
                     MessageBox.Show(
                         "Actualización descargada. La aplicación se cerrará para aplicar los cambios.",
                         "Actualización Lista",
@@ -426,8 +464,118 @@ namespace Niveles.Helpers
             }
             catch (Exception ex)
             {
+                Debug.WriteLine($"Error en CheckAndUpdate(): {ex.Message}");
+                Debug.WriteLine($"StackTrace: {ex.StackTrace}");
                 MessageBox.Show($"Error en el proceso de actualización: {ex.Message}",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Debug.WriteLine("=== MÉTODO CheckAndUpdate() COMPLETADO ===");
+        }
+
+        /// <summary>
+        /// Método público para forzar actualización de versión (útil para testing)
+        /// </summary>
+        /// <param name="newVersion">Nueva versión a establecer</param>
+        public void ForceUpdateLocalVersion(string newVersion)
+        {
+            UpdateLocalVersion(newVersion);
+        }
+
+        /// <summary>
+        /// Obtiene la versión local actual
+        /// </summary>
+        /// <returns>Versión local actual</returns>
+        public string GetCurrentVersion()
+        {
+            return _currentVersion;
+        }
+
+        /// <summary>
+        /// Actualiza la versión local en UpdateConfig.json después de una actualización exitosa
+        /// </summary>
+        /// <param name="newVersion">Nueva versión a establecer</param>
+        private void UpdateLocalVersion(string newVersion)
+        {
+            try
+            {
+                Debug.WriteLine($"=== ACTUALIZANDO VERSIÓN LOCAL A: {newVersion} ===");
+                
+                // Actualizar el objeto de configuración en memoria
+                _config["AppSettings"]["CurrentVersion"] = newVersion;
+                _currentVersion = newVersion;
+                
+                // Escribir el archivo actualizado
+                string updatedJson = _config.ToString();
+                File.WriteAllText(_configPath, updatedJson);
+                
+                Debug.WriteLine($"Versión local actualizada exitosamente a: {newVersion}");
+                Debug.WriteLine($"Archivo actualizado en: {_configPath}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error al actualizar versión local: {ex.Message}");
+                Debug.WriteLine($"StackTrace: {ex.StackTrace}");
+            }
+        }
+
+        /// <summary>
+        /// Obtiene la versión remota desde el FTP
+        /// </summary>
+        /// <returns>Versión remota o null si hay error</returns>
+        private string GetRemoteVersion()
+        {
+            try
+            {
+                using (var client = new FtpClient(_ftpHost, _ftpUsername, _ftpPassword))
+                {
+                    client.Connect();
+                    string remotePath = _updatesPath + _versionFile;
+                    
+                    using (var stream = client.OpenRead(remotePath))
+                    using (var reader = new StreamReader(stream))
+                    {
+                        string remoteVersion = reader.ReadToEnd().Trim();
+                        client.Disconnect();
+                        return string.IsNullOrWhiteSpace(remoteVersion) ? null : remoteVersion;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error al obtener versión remota: {ex.Message}");
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Verifica si acabamos de actualizar comparando versiones
+        /// </summary>
+        /// <returns>True si acabamos de actualizar</returns>
+        private bool JustUpdated()
+        {
+            try
+            {
+                string remoteVersion = GetRemoteVersion();
+                if (string.IsNullOrEmpty(remoteVersion))
+                    return false;
+
+                Version current = new Version(_currentVersion);
+                Version remote = new Version(remoteVersion);
+                
+                // Si las versiones son iguales, significa que ya actualizamos
+                bool justUpdated = current >= remote;
+                
+                Debug.WriteLine($"Verificación post-actualización:");
+                Debug.WriteLine($"  Versión local: {_currentVersion}");
+                Debug.WriteLine($"  Versión remota: {remoteVersion}");
+                Debug.WriteLine($"  ¿Acabamos de actualizar?: {justUpdated}");
+                
+                return justUpdated;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error al verificar si acabamos de actualizar: {ex.Message}");
+                return false;
             }
         }
 

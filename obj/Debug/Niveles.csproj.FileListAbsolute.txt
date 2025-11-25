@@ -2,12 +2,15 @@ C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\SqlServerTypes\x86\msvcr120.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\UpdateConfig.json
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Updater.exe
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Niveles.exe.config
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Niveles.exe.manifest
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Niveles.application
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Niveles.exe
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Niveles.pdb
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\CrystalDecisions.Shared.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\FluentFTP.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\log4net.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.dll
@@ -47,6 +50,7 @@ C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.ReportViewer.ProcessingO
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.SqlServer.Types.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.Win32.Registry.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Newtonsoft.Json.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\System.Buffers.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\System.ComponentModel.Annotations.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\System.Memory.dll
@@ -59,6 +63,7 @@ C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\System.Security.Principal.Windows.
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\System.Text.Encodings.Web.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\EnvDTE.dll
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\stdole.dll
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\FluentFTP.xml
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\log4net.xml
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.AspNetCore.Authentication.xml
@@ -91,6 +96,7 @@ C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.Extensions.Options.xml
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.Extensions.Primitives.xml
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.Extensions.WebEncoders.xml
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Microsoft.Net.Http.Headers.xml
+C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Newtonsoft.Json.xml
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\System.Buffers.xml
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\System.Memory.xml
 C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\System.Numerics.Vectors.xml
@@ -180,9 +186,3 @@ C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Niveles.application
 C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Niveles.csproj.CopyComplete
 C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Niveles.exe
 C:\projects\Ferreysa\NIVELES PC 1.2\obj\Debug\Niveles.pdb
-C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\FluentFTP.dll
-C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Newtonsoft.Json.dll
-C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\FluentFTP.xml
-C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Newtonsoft.Json.xml
-C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\UpdateConfig.json
-C:\projects\Ferreysa\NIVELES PC 1.2\bin\Debug\Updater.exe
